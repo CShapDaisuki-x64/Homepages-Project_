@@ -19,12 +19,13 @@ let $S = 0;
 const $Ck_Save = localStorage.getItem("$Ck")
 const $S_Save = localStorage.getItem("$S");
 const $_Shop_Items_$ = {
-    Tsuruhashi:{Text:"つるはし",Default:10,Money:1,Ck:1,S:0.1,Img:"img/thuruhashi.webp"},
-    Doriru:{Text:"ドリル",Default:100,Money:1,Ck:10,S:1,Img:"img/doriru.webp"},
-    kojou:{Text:"工場",Default:1500,Money:1,Ck:100,S:15,Img:"img/kojou.webp"},
-    inbou:{Text:"秘密結社",Default:1000000,Money:1,Ck:1500,S:100,Img:"img/inbouron.webp"},
-    kodai:{Text:"古代の機械",Default:100000000,Money:1,Ck:150000,S:9000,Img:"img/kodai.webp"},
-    mahou:{Text:"魔法の杖",Default:500000000,Money:1,Ck:1000000,S:50000,Img:"img/Mahou.webp"}
+    Tsuruhashi:{Text:"つるはし",Default:10,Money:1,Ck:1,S:0.1,Img:"img/thuruhashi.webp",Title:"今まで素手で掘ってたの？"},
+    Doriru:{Text:"ドリル",Default:100,Money:1,Ck:10,S:1,Img:"img/doriru.webp",Title:"文明の利器"},
+    kojou:{Text:"工場",Default:1500,Money:1,Ck:100,S:15,Img:"img/kojou.webp",Title:"大量生産大量消費"},
+    inbou:{Text:"秘密結社",Default:1000000,Money:1,Ck:1500,S:100,Img:"img/inbouron.webp",Title:"需要を絞り供給増やす"},
+    kodai:{Text:"古代の機械",Default:100000000,Money:1,Ck:150000,S:9000,Img:"img/kodai.webp",Title:"この古代の機械には、謎の文字が記されてた"},
+    mahou:{Text:"魔法の杖",Default:500000000,Money:1,Ck:1000000,S:50000,Img:"img/Mahou.webp",Title:"魔法と科学は紙一重"},
+    torakku:{Text:"運送会社",Default:1500000000,Money:1,Ck:1000000,S:100000,Img:"img/torakku.webp",Title:"ダイヤを運べ！通販の波に乗れ！"}
 }
 function Load_Shop_Items() {
     let saved_Items = JSON.parse(localStorage.getItem('Shop_Items'));
@@ -168,6 +169,7 @@ function Shop_Text()
             "ダイヤ<br>" + 
             "一クリック毎に手に入るダイヤを" + (item.Ck * Ck_Plus) + "追加する<br>" + 
             "一秒毎に手に入るダイヤを" + (item.S * S_Plus) + "追加する</p>";
+        btn.setAttribute('title', item.Title);
         if (Main >= (item.Default * item.Money)) 
         {
             btn.style.backgroundColor = "#ccc";
