@@ -21,6 +21,11 @@ body {
   background-image: url("img/back.jpg");
   margin: 0;
   padding: 0;
+    position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 main p{
   color:#eef;
@@ -34,8 +39,8 @@ main p{
   overflow-y: scroll;
   width: 95%;
   /* 高さの固定値を無くし、画面内に収まるように最大値を設定 */
-  max-height: 50vh;
-  min-height: 300px;
+  max-height: 30vh;
+  min-height: 200px;
   display: flex;
   margin: 2% auto;
   flex-direction: column;
