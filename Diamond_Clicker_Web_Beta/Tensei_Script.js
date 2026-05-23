@@ -11,8 +11,8 @@ const S_Plus_Save = localStorage.getItem("S_Plus");
 const ShopBox = document.querySelector('.ShopBox');
 const Main = document.querySelector('.MainP');
 const $_Shop_Items_$ = {
-    CKD:{Text:"Ckドリンク",Default:1,Money:1,type:0,Num:1,Img:"img/CkPlas.webp"},
-    Toki:{Text:"時の巻物",Default:10,Money:1,type:1,Num:1,Img:"img/Byou_Makimono.webp"}
+    CKD:{Text:"Ckドリンク",Default:1,Money:1,type:0,Num:1,Img:"img/CkPlas.webp",Title:"流行のエナドリ！"},
+    Toki:{Text:"時の巻物",Default:10,Money:1,type:1,Num:1,Img:"img/Byou_Makimono.webp",Title:"時を超える知識"}
 }
 function on()
 {
@@ -115,6 +115,7 @@ function Shop_Text()
         const btn = document.createElement('button');
         btn.id = key;
         btn.innerHTML=`<img src=${item.Img}>`+item.Text+":"+(item.Default*item.Money)+`ダイヤ<br>${i}`;
+        btn.setAttribute('title', item.Title);
         if (tense >= (item.Default * item.Money)) 
         {
             btn.style.backgroundColor = "#ccc";
