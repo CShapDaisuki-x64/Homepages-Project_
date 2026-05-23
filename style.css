@@ -1,0 +1,85 @@
+dialog {
+	padding: 1.5rem;
+	border: none;
+	border-radius: 0.5rem;
+	text-align: center;
+}
+header{
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #0AF, #ADD);
+    margin-left:0%;
+    width: 100%;
+}
+header a{
+    color: #05A;
+    text-decoration: none;
+}
+header h1{
+    color: #FFF;
+}
+menu{
+    background-color: linear-gradient(to bottom, #0AF, #ADD);
+}
+h1{
+    margin: 0.5%;
+    color: #CFF;
+}
+table{
+    margin: 10px;
+}
+th{
+    margin: 50px;
+}
+h2{
+    margin: 0.25%;
+    color: #EFF;
+}
+a{
+    margin: 0.5%;
+    text-decoration: none;
+}
+iframe{
+    border-radius: 10px;
+}
+button{
+    margin: 0.5%;
+    color: #05A;
+    border-radius: 5px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    a{
+        text-decoration: none;
+        font-weight: bold;
+        display: flex;
+    float: right;
+    }
+    button{
+        margin: 5px;
+        background-color: #5AF;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        font-size: 50px;
+        color: #DEF;
+        font-weight: bold;
+    }
+}
+.rss_css{
+    background: #CFF;
+    border: 2px solid #05A;
+}
+.koumoku{
+    border: 1px solid #AEF;
+}
+.osusume button strong{
+    margin-top: 1%;
+}
+.osusume button{
+    width: 250px;
+    height: 200px;
+}

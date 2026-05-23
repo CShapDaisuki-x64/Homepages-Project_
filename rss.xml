@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+jan=1
+feb=2
+mar=3
+apr=4
+may=5
+jun=6
+jul=7
+aug=8
+sep=9
+oct=10
+nov=11
+dec=12
+sun=日
+mon=月
+tue=火
+wed=水
+thu=木
+fri=金
+sat=土
+-->
+<rss version="2.0">
+  <channel>
+    <title>趣味プログラマー人間のホームページ</title>
+    <link>https://syumiprogrammer256.web.fc2.com</link>
+    <description>サイトの説明</description>
+    <language>ja</language>
+
+    <item>
+      <title>RSS導入！</title>
+      <link>https://syumiprogrammer256.web.fc2.com/oshirase.html#20260317</link>
+      <description>作ったよ</description>
+      <pubDate>Tue, 17 Mar 2026 20:30:00 JST</pubDate>
+    </item>
+    <item>
+      <title>Diamond_Clickerがバージョンアップ</title>
+      <link>https://syumiprogrammer256.web.fc2.com/oshirase.html#20260320</link>
+      <description>入れてね</description>
+      <pubDate>Sat, 21 Mar 2026 01:30:00 JST</pubDate>
+    </item>
+        <item>
+      <title>世界記録保持者</title>
+      <link>https://syumiprogrammer256.web.fc2.com/oshirase.html#20260321</link>
+      <description>入れてね</description>
+      <pubDate>Sat, 21 Mar 2026 21:00:00 JST</pubDate>
+    </item>
+    <item>
+      <title>SNSを追加しました</title>
+      <link>https://syumiprogrammer256.web.fc2.com/sns.html#20260323</link>
+      <description>入れてね</description>
+      <pubDate>Sun, 23 Mar 2026 00:09:48 JST</pubDate>
+    </item>
+    <item>
+      <title>Discordサーバー！</title>
+      <link>https://discord.gg/FaJHFZAqn</link>
+      <description>入れてね</description>
+      <pubDate>Sun, 01 Apr 2026 00:06:30 JST</pubDate>
+    </item>
+    <item>
+      <title>Diamond_ClickerWeb版(β)を公開しました</title>
+      <link>https://syumiprogrammer256.web.fc2.com/Diamond_Clicker_Web_Beta/Main.html</link>
+      <description>入れてね</description>
+      <pubDate>Mon, 06 Apr 2026 00:09:00 JST</pubDate>
+    </item>
+  </channel>
+</rss>
