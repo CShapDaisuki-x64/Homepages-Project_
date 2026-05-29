@@ -22,10 +22,76 @@ const $_Shop_Items_$ = {
     Tsuruhashi:{Text:"つるはし",Default:10,Money:1,Ck:1,S:0.1,Img:"img/thuruhashi.webp",Title:"今まで素手で掘ってたの？"},
     Doriru:{Text:"ドリル",Default:100,Money:1,Ck:10,S:1,Img:"img/doriru.webp",Title:"文明の利器"},
     kojou:{Text:"工場",Default:1500,Money:1,Ck:100,S:15,Img:"img/kojou.webp",Title:"大量生産大量消費"},
-    inbou:{Text:"秘密結社",Default:1000000,Money:1,Ck:1500,S:100,Img:"img/inbouron.webp",Title:"需要を絞り供給増やす"},
-    kodai:{Text:"古代の機械",Default:100000000,Money:1,Ck:150000,S:9000,Img:"img/kodai.webp",Title:"この古代の機械には、謎の文字が記されてた"},
-    mahou:{Text:"魔法の杖",Default:500000000,Money:1,Ck:1000000,S:50000,Img:"img/Mahou.webp",Title:"魔法と科学は紙一重"},
-    torakku:{Text:"運送会社",Default:1500000000,Money:1,Ck:1000000,S:100000,Img:"img/torakku.webp",Title:"ダイヤを運べ！通販の波に乗れ！"}
+    inbou:{Text:"秘密結社",Default:10000,Money:1,Ck:1500,S:100,Img:"img/inbouron.webp",Title:"需要を絞り供給増やす"},
+    kodai:{Text:"古代の機械",Default:350000,Money:1,Ck:150000,S:9000,Img:"img/kodai.webp",Title:"この古代の機械には、謎の文字が記されてた"},
+    mahou:{Text:"魔法の杖",Default:5000000,Money:1,Ck:1000000,S:50000,Img:"img/Mahou.webp",Title:"魔法と科学は紙一重"},
+    torakku:{Text:"運送会社",Default:15000000,Money:1,Ck:1000000,S:100000,Img:"img/torakku.webp",Title:"ダイヤを運べ！通販の波に乗れ！"},
+    ai:{Text:"AI",Default:99999999,Money:1,Ck:10000000,S:150000,Img:"img/Ai.webp",Title:"AIに管理してもらおう！ "}
+}
+{
+    const textarea = document.querySelector('#textarea');
+    document.querySelector('#file_load').addEventListener('change', e => {
+        var i = confirm("本当に読み込みしますか\nする場合は現在のデータが全てなくなります");
+        if (i)
+        {
+            if (e.target.files[0]) 
+            {
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                reader.onload = e => {
+                console.log("\`"+e.target.result+"\`");
+                JSONin(e.target.result)
+                Load();             // localStorageから最新の値をゲーム変数に読み込む
+                Shop_Items = Load_Shop_Items(); // ショップアイテムも再読み込み
+                TextLoad();         // ダイヤ数のテキスト表示を更新
+                Shop_Text();
+                };
+                reader.readAsText(file);
+            }
+        }
+        }
+    );
+}
+function JSONup()
+{
+    Save();
+    const localStorageData = {};
+    for (let i = 0; i < localStorage.length; i++)
+    {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        localStorageData[key] = value;
+    }
+    console.log(JSON.stringify(localStorageData,null,0));
+    alert(JSON.stringify(localStorageData,null,0));
+    const jsonString = JSON.stringify(localStorageData, null, 2);
+    const blob = new Blob([jsonString], { type: "application/json" });
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "data.json";
+    link.click();
+    URL.revokeObjectURL(url);
+}
+function JSONin(JSONs)
+{
+    try 
+    {
+    localStorage.clear();
+    const data = JSON.parse(JSONs);
+    for (const [key, value] of Object.entries(data)) 
+    {
+        localStorage.setItem(key, value);
+    }
+         window.location.reload();
+    console.log("データのインポートが成功しました。");
+    }
+    catch (error) 
+    {
+        console.error("JSONERROR", error);
+        alert("JSONERORR", error);
+    }
 }
 function Load_Shop_Items() {
     let saved_Items = JSON.parse(localStorage.getItem('Shop_Items'));
