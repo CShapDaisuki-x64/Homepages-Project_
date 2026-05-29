@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
+        <meta property="og:url" content="https://syumiprogrammer256.web.fc2.com/Diamond_Clicker_Web_Beta/">
+        <meta property="og:title" content="Diamond_Clicker">
+        <meta property="og:description" content="むっちゃ面白いゲームです。">
+        <meta property="og:site_name" content="Diamond_Clicker">
+        <meta property="og:image" content="https://syumiprogrammer256.web.fc2.com/Diamond_Clicker_Web_Beta/img/samune.webp">
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="Script.js" defer></script>
@@ -37,6 +43,18 @@
             document.getElementById('Shop_Ok_audio').play();">
                     セーブ
                 </button>
+                <details>
+                    <summary>Backup</summary>
+                    <form>
+                        <button onclick="JSONup()">
+                            書き出し
+                        </button><br>
+                        <label for="file">
+                            読み込み
+                        </label>
+                        <input id="file_load" type="file">
+                    </form>
+                </details>
             </details>
            <details>
                 <summary>
@@ -60,6 +78,11 @@
                     開発:
                     <a href="https://code.visualstudio.com">
                         Visual Studio Code
+                    </a>
+                    <br>
+                    公開:
+                    <a href="https://fc2.com">
+                        FC2
                     </a>
                 </p>
            </details>

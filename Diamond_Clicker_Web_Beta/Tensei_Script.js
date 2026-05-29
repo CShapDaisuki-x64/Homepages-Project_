@@ -176,10 +176,16 @@ function Load()
 function TextLoad()
 {
     document.getElementById('MainP').innerHTML = 
-        tense.toFixed(2)+
+        tense.toFixed(2) +
         "転生ポイント<br>"+
         Ck_Plus.toFixed(2) +
-        "購入クリック強化" 
+        "購入クリック強化<br>" +
+        S_Plus.toFixed(2) +
+        "購入秒強化<br>" +  
+        $Ck.toFixed(2) +
+        "初期クリック強化<br>" +
+        $S.toFixed(2) +
+        "初期秒強化";
 }
 Load();
 TextLoad();
