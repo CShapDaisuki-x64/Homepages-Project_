@@ -72,7 +72,6 @@ function JSONup()
     link.href = url;
     link.download = "data.json";
     link.click();
-    URL.revokeObjectURL(url);
 }
 function JSONin(JSONs)
 {
