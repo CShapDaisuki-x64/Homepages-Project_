@@ -96,3 +96,9 @@ footer{
     width: 250px;
     height: 200px;
 }
+.Video{
+    border: 2px solid #5AF;
+    background-color: #CFF;
+    padding: 10px;
+    margin: 10px;
+}
