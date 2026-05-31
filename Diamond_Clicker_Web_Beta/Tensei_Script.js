@@ -11,8 +11,11 @@ const S_Plus_Save = localStorage.getItem("S_Plus");
 const ShopBox = document.querySelector('.ShopBox');
 const Main = document.querySelector('.MainP');
 const $_Shop_Items_$ = {
-    CKD:{Text:"Ckドリンク",Default:1,Money:1,type:0,Num:1,Img:"img/CkPlas.webp",Title:"流行のエナドリ！"},
-    Toki:{Text:"時の巻物",Default:10,Money:1,type:1,Num:1,Img:"img/Byou_Makimono.webp",Title:"時を超える知識"}
+    Gacha:{Text:"カプセルトイ",Default:100,Money:1,type:4,Num:1,Img:"img/gatya.webp",Title:"今日は何が出るかな"},
+    CKD:{Text:"Ckドリンク",Default:1,Money:1,type:0,Num:10,Img:"img/CkPlas.webp",Title:"流行のエナドリ！"},
+    Toki:{Text:"時の巻物",Default:10,Money:1,type:1,Num:10,Img:"img/Byou_Makimono.webp",Title:"時を超える知識"},
+    JsVs:{Text:"スクリプトエディタ",Default:100,Money:1,type:2,Num:10,Img:"img/js.webp",Title:"tense = 1000"},
+    Kikai:{Text:"謎の機械",Default:50,Money:1,type:2,Num:10,Img:"img/masin.webp",Title:"凄そう"},
 }
 function on()
 {
@@ -70,6 +73,39 @@ function Shop(yen,Money,type,Num)
         {
             S_Plus=S_Plus+Num;
         }
+        else if(type==4)
+        {
+            let random = Math.floor(Math.random()*201);
+
+            if(random==0)
+            {
+                alert("ハズレ(´・ω・｀)ｼｮﾎﾞｰﾝ");
+            }
+            else if(10>=random)
+            {
+                $Ck = $Ck + ((random)*100);
+                alert("あたり(ﾟ∀ﾟ)\n購入クリック強化が"+(random)+"追加されました");
+            }
+            else if(20>=random)
+            {
+                $S = $S + ((random-10)*100);
+                alert("あたり(ﾟ∀ﾟ)\n購入秒強化が"+(random-10)+"追加されました");
+            }
+            else if(30>=random)
+            {
+                Ck_Plus = Ck_Plus + ((random-20)*100);
+                alert("あたり(ﾟ∀ﾟ)\n初期クリック強化が"+(random-20)+"追加されました");
+            }
+            else if(40>=random)
+            {
+                S_Plus = S_Plus + ((random-30)*100);
+                alert("あたり(ﾟ∀ﾟ)\n初期秒強化が"+(random-30)+"追加されました");
+            }
+            else
+            {
+                alert("ハズレ(´・ω・｀)ｼｮﾎﾞｰﾝ");
+            }
+        }
         else
         {
             alert("不明なエラーです\nフィードバックお願いします(｀･ω･´)ゞ")
@@ -106,6 +142,10 @@ function Shop_Text()
         else if(Number(item.type)==3)
         {
             i="1秒で増えるダイヤの強化値を"+item.Num+"追加される"
+        }
+        else if(Number(item.type)==4)
+        {
+            i="運任せで強化しちゃえ"
         }
         else
         {
