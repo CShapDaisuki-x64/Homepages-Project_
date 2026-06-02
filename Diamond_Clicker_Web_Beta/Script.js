@@ -31,7 +31,7 @@ const $_Shop_Items_$ = {
 {
     const textarea = document.querySelector('#textarea');
     document.querySelector('#file_load').addEventListener('change', e => {
-        var i = confirm("本当に読み込みしますか\nする場合は現在のデータが全てなくなります");
+        var i = confirm("本当に読み込みしますか\nする場合は現在のデータが全てなくなります\nまた、外部から取得したJSONの場合は注意事項を\n理解した上で読み込むか判断して下さい");
         if (i)
         {
             if (e.target.files[0]) 
