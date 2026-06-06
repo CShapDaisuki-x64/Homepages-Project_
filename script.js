@@ -6,7 +6,7 @@ fetch(url)
     list.innerHTML="";
     data.items.forEach(item => {
       const li = document.createElement("li");
-      li.innerHTML = `<a href="${item.link}"><button>${item.title}</button></a>`;
+      li.innerHTML = `<a href="${item.link}">${item.title}</a>`;
       list.appendChild(li);
     });
   });
