@@ -1,104 +1,123 @@
-dialog {
-	padding: 1.5rem;
-	border: none;
-	border-radius: 0.5rem;
-	text-align: center;
-}
-header{
-    border-radius: 10px;
-    background: linear-gradient(to bottom, #0AF, #ADD);
-    margin-left:0%;
-    width: 100%;
-}
-header a{
-    color: #05A;
-    text-decoration: none;
-}
-header h1{
-    color: #FFF;
-}
 body{
     background-color: #eee;
-}
-menu{
-    background-color: linear-gradient(to bottom, #0AF, #ADD);
-}
-h1{
-    margin: 0.5%;
-    color: #CFF;
-}
-table{
-    margin: 10px;
-}
-th{
-    margin: 50px;
-}
-h2{
-    margin: 0.25%;
-    color: #EFF;
-}
-a{
-    margin: 0.5%;
-    text-decoration: none;
-}
-iframe{
-    border-radius: 10px;
-}
-button{
-    margin: 0.5%;
-    color: #05A;
-    border-radius: 5px;
-    text-decoration: none;
-    border-radius: 10px;
-}
-footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    a{
-        text-decoration: none;
-        font-weight: bold;
-        display: flex;
-    float: right;
-    }
-    button{
-        margin: 5px;
-        background-color: #5AF;
-        border-radius: 50%;
-        width: 100px;
-        height: 100px;
-        font-size: 50px;
-        color: #DEF;
-        font-weight: bold;
-    }
-}
-.rss_css{
-    background: #CFF;
-    border: 2px solid #05A;
-}
-.koumoku{
-    margin: 10px;
-}
-.koumoku p{
     margin: 0px;
-    border: 3px solid #0AF;
-    border-top: 0px;
+    color: #123;
+    header{
+        width: 100%;
+        h1{
+           font-size: 25px;
+        }
+        a{
+            color: #134;
+            text-decoration:none;
+        }
+        background-color: #a0aaee;
+        margin: 0px;
+        padding: 8px;
+    }
+    main{
+        padding: 8px;
+        a{
+            color:#05c;
+            text-decoration: none;
+        }
+        a:visited{
+            color:#61c;
+            text-decoration: none;
+        }
+        a:hover{
+            color:#008;
+        }
+        a:visited:hover{
+            color:#309;
+            text-decoration: none;
+        }
+        .button{
+            text-align: center;
+            background-color: #dee;
+            border: 2px solid #bcc;
+            margin: 5px;
+            width: 300px;
+            a{
+                text-decoration: none;
+                color: #134;
+            }
+            a:visited{
+                color:#314;
+            }
+            img{
+                display: inline-block;
+                text-align: center;
+            }
+        }
+        .button:hover{
+            background-color: #bcc;
+            border: 2px solid #9aa;
+        }
+        table{
+            border-collapse:  collapse; 
+        }
+        th,td{
+            padding: 2px;
+            border: solid 1px;
+        }
+        .koumoku{
+            margin: 8px;
+            padding:0px;
+            border:2px solid #09e;
+            h3{
+                margin: 0px;
+                padding:0px;
+                background-color: #09e;
+            }
+            p{
+                margin:4px;
+            }
+        }
+    }
 }
-.koumoku h3{
-    background-color: #5AF;
-    margin: 0px;
-    color: #eee;
-}
-.osusume button strong{
-    margin-top: 1%;
-}
-.osusume button{
-    width: 250px;
-    height: 200px;
-}
-.Video{
-    border: 2px solid #5AF;
-    background-color: #CFF;
-    padding: 10px;
-    margin: 10px;
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #555;
+    color:#dde;
+    header{
+        background-color: #05c;
+        color:#dde;
+        a{
+            color:#cde;
+        }
+        a:visited{
+            color:#dce
+        }
+    }
+    main{
+        color:#dde;
+        a{
+            color:#2be
+        }
+        a:visited{
+            color:#b8e;
+        }
+        a:hover{
+            color:#4de;
+        }
+        a:hover:visited{
+            color:#eae;
+        }
+        .button{
+            background-color: #bcc;
+            border: 2px solid #9aa;
+            a{
+                color: #245;
+            }
+            a:visited{
+                color:#536;
+            }
+        }
+        .button:hover{
+            background-color: #dee;
+            border: 2px solid #bcc;
+        }
+    }
+  }
 }

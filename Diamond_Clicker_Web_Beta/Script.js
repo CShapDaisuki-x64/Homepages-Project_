@@ -26,7 +26,8 @@ const $_Shop_Items_$ = {
     kodai:{Text:"古代の機械",Default:350000,Money:1,Ck:150000,S:9000,Img:"img/kodai.webp",Title:"この古代の機械には、謎の文字が記されてた"},
     mahou:{Text:"魔法の杖",Default:5000000,Money:1,Ck:1000000,S:50000,Img:"img/Mahou.webp",Title:"魔法と科学は紙一重"},
     torakku:{Text:"運送会社",Default:15000000,Money:1,Ck:1000000,S:100000,Img:"img/torakku.webp",Title:"ダイヤを運べ！通販の波に乗れ！"},
-    ai:{Text:"AI",Default:99999999,Money:1,Ck:10000000,S:150000,Img:"img/Ai.webp",Title:"AIに管理してもらおう！ "}
+    ai:{Text:"AI",Default:99999999,Money:1,Ck:10000000,S:150000,Img:"img/Ai.webp",Title:"AIに管理してもらおう！ "},
+    robot:{Text:"ロボット",Default:150000000,Money:1,Ck:15000000,S:300000,Img:"img/robot.webp",Title:"AI+体=最強 "}
 }
 {
     const textarea = document.querySelector('#textarea');
