@@ -176,7 +176,6 @@ function MainAtag_Click()
 function TimerMm()
 {
     Save();
-    Load();
     TextLoad();
     console.log("a");
 }
