@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta property="og:url" content="https://syumiprogrammer256.web.fc2.com/Diamond_Clicker_Web_Beta/">
+        <meta property="og:title" content="Diamond_Clicker">
+        <meta property="og:description" content="むっちゃ面白いゲームです。">
+        <meta property="og:site_name" content="Diamond_Clicker">
+        <meta property="og:image" content="https://syumiprogrammer256.web.fc2.com/Diamond_Clicker_Web_Beta/img/samune.webp">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="Script.js" defer></script>
+        <link rel="stylesheet" href="style.css">
+        <title>Diamond_Clicker</title>
+        <link rel="icon" href="img/daiya.webp">
+        <audio id="MainA_audio">
+            <source src="no_view/Mp_Mu_0001" type="audio/mp3">
+        </audio>
+        <audio id="Shop_Ok_audio">
+            <source src="no_view/Mp_Mu_0002" type="audio/mp3">
+        </audio>
+        <audio id="Shop_No_audio">
+            <source src="no_view/Mp_Mu_0003" type="audio/mp3">
+        </audio>
+        <audio id="Setting_Del_01_Audio">
+            <source src="no_view/Mp_Mu_Setting_001" type="audio/mp3">
+        </audio>
+        <audio id="Setting_Del_02_Audio">
+            <source src="no_view/Mp_Mu_Setting_002" type="audio/mp3">
+        </audio>
+    </head>
+    <body>
+        <header>
+            <details>
+                <summary>
+                   設定
+                </summary>
+                <button id="Setting_Del"
+                    onclick="deletes(true);">
+                    データ消去
+                </button>
+                <button onclick="Save();            document.getElementById('Shop_Ok_audio').currentTime = 0; //連続クリックに対応
+            document.getElementById('Shop_Ok_audio').play();">
+                    セーブ
+                </button>
+                <details>
+                    <summary>Backup</summary>
+                    <form>
+                        <button onclick="JSONup()">
+                            書き出し
+                        </button><br>
+                        <label for="file">
+                            読み込み
+                        </label>
+                        <input id="file_load" type="file">
+                    </form>
+                </details>
+            </details>
+           <details>
+                <summary>
+                 クレジット
+                </summary>
+                <p>
+                    効果音:
+                    <a href="https://soundeffect-lab.info">
+                        効果音ラボ
+                    </a>
+                    <br>
+                    画像制作:
+                    <a href="https://firealpaca.com/ja/">
+                        FireAlpaca
+                    </a>
+                    ,
+                    <a href="https://manjubox.net/ymm4/">
+                        ゆっくりムービーメーカー4
+                    </a>
+                    <br>
+                    開発:
+                    <a href="https://code.visualstudio.com">
+                        Visual Studio Code
+                    </a>
+                    <br>
+                    公開:
+                    <a href="https://fc2.com">
+                        FC2
+                    </a>
+                    <br>
+                    画像圧縮:
+                    <a href="https://imguma.com">
+                        あっしゅくま
+                    </a>
+                    <br>
+                    Webp変換:
+                    <a href="https://saruwakakun.com">
+                        サルカワ
+                    </a>
+                </p>
+            </details>
+            <details>
+                <summary>
+                    推奨条件
+                </summary>
+                <p>
+                    画面:550*550px以上<br>
+                    ブラウザ:Chromium系、Firefoxで確認済み
+                </p>
+            </details>
+            <details>
+                <summary>
+                    その他
+                </summary>
+                <details>
+                    <summary>
+                        ⚠️注意事項
+                    </summary>
+                    我々はこのゲームによる損害に対し、一切の責任を負いません
+                    また、外部から取得したJSONファイルはJSONファイルを直接見て、安全である確証を持てた場合を除き、読み込まないで下さい
+                </details>
+                <a href="../QandA.html">
+                    作者
+                </a>
+                <br>
+                <a href="https://github.com/CShapDaisuki-x64/Homepages-Project_/issues/new">
+                    フィードバック
+                </a>
+            </details>
+        </header>
+        <main>
+            <button onclick="Tensei()">
+                転生(100000ダイヤから)
+            </button>
+            <p id="MainP"
+                style="font-size: clamp(16px);">
+                0ダイヤ<br>
+                0ダイヤ/クリック<br>
+                0ダイヤ/秒
+            </p>
+            <button id="MainButton"
+                onclick="MainAtag_Click();">
+                <img src="img/daiya.webp"
+                    width="100%"
+                    height="100%"
+                    alt="画像を表示できませんでした">
+            </button>
+            <div class="ShopBox" >
+                
+            </div>
+        </main>
+    </body>
+</html>
