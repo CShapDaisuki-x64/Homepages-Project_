@@ -19,6 +19,7 @@ html, css{
 }
 body {
   background-image: url("img/back.webp");
+  background-size: cover;
   margin: 0;
   padding: 0;
 }
