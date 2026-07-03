@@ -9,22 +9,27 @@
     <link rel="stylesheet" href="style.css">
      
     <script src="script.js" defer></script>
-    <title>問い合わせ</title>
+    <script src="Video.js" defer></script>
+    <title>映像</title>
 </head>
 <body>
         <header>
             <div id="hedaer_div"></div>
             <h2>
-                問い合わせ
+                動画ID検索
             </h2>
         </header>
     <main>
-        <p>
-            <a href="mailto:syumi.programmer.ningen+toiawase@protonmail.com?body=問い合わせ">
-                <b>メール(syumi.programmer.ningen+toiawase@protonmail.com)</b>
-            </a>
-            にお問い合わせ下さい
-        </p>
+        <form>
+            <label>
+                🔍ここにIDを入力
+            </label>
+            <input type="search" id="ID">
+            <input type="button" value="検索" onclick="window.location.href = 'video.html#' + document.getElementById('ID').value;">
+        </form>
+        <div class="Videos">
+            
+        </div>
     </main>
        <footer>
            <div id="footer_div" >

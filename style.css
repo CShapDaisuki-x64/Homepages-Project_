@@ -2,6 +2,7 @@ html {
     height: 100%;
 }
 body{
+    font-variant-emoji: text;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -23,6 +24,7 @@ body{
         padding: 8px;
     }
     main,footer{
+        border-radius:5px;
         padding: 8px;
         a{
             color:#05c;
@@ -40,6 +42,7 @@ body{
             text-decoration: none;
         }
         .button{
+            border-radius:5px;
             user-select: none;
             text-align: center;
             background-color: #dee;
@@ -66,6 +69,16 @@ body{
                 }
                 width: 32px;
                 height: 32px;
+            }
+            ul{
+                list-style-type: none;
+                li{
+                    border-radius:5px;
+                    margin: 5px;
+                    padding: 1px;
+                    padding-left: 5px;
+                    border: solid 1px #314;
+                }
             }
         }
         .button:hover{
@@ -94,6 +107,40 @@ body{
         }
         svg{
             margin-top: 5px;
+        }
+        .videosty{
+            border-radius: 5px;
+            background-color: #05c;
+            color: #edeeee;
+            margin: 1vh;
+            padding: 2px;
+            
+            a{
+                color:#cbcfee;
+            }
+            a:hover{
+                color: #cbcfee;
+            }
+            a:visibility:hover{
+                color: #cbcfee;
+            }
+            .title{
+                border-radius: 5px;
+                margin-top: 0px;
+                background-color: #57e;
+                font-weight: bold;
+                padding: 2px;
+            }
+            .EX{
+                border-radius: 5px;
+                background-color: #e05;
+                padding: 2px;
+            }
+            .info{
+                border-radius: 5px;
+                padding: 2px;
+                background-color: #27d;
+            }
         }
     }
     main{
@@ -159,6 +206,17 @@ body{
         .button:hover{
             background-color: #dee;
             border: 2px solid #bcc;
+        }
+        .videosty{
+            a{
+                color:#cbcfee;
+            }
+            a:hover{
+                color: #cbcfee;
+            }
+            a:visibility:hover{
+                color: #cbcfee;
+            }
         }
     }
   }

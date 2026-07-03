@@ -26,7 +26,6 @@ sat=土
     <link>https://syumiprogrammer256.web.fc2.com</link>
     <description>サイトの説明</description>
     <language>ja</language>
-
     <item>
       <title>RSS導入！</title>
       <link>https://syumiprogrammer256.web.fc2.com/oshirase.html#20260317</link>
@@ -85,7 +84,13 @@ sat=土
       <title>XのDMを閉鎖します</title>
       <link>https://syumiprogrammer256.web.fc2.com/oshirase.html#20260630</link>
       <description>(´・ω・｀)ｼｮﾎﾞｰﾝ</description>
-      <pubDate>Mon, 30 Fri 2026 22:15:00 JST</pubDate>
+      <pubDate>Mon, 30 jul 2026 22:15:00 JST</pubDate>
+    </item>
+    <item>
+      <title>動画検索をできるようにしました</title>
+      <link>https://syumiprogrammer256.web.fc2.com/oshirase.html#20260630</link>
+      <description>(´・ω・｀)ｼｮﾎﾞｰﾝ</description>
+      <pubDate>Fri, 30 jul 2026 17:15:00 JST</pubDate>
     </item>
   </channel>
 </rss>
