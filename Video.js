@@ -1,18 +1,18 @@
 const ShopBox = document.querySelector('.Videos');
-let saved_Items
+let saved_Items;
 async function LoadJson()
 {
     let response = await fetch('video.json');
     saved_Items = await response.json();
     console.log(saved_Items["1s"]["title"])
     Load_View(saved_Items);
+    scrollToHash();
 }
 function Load_View(items)
 {
     ShopBox.innerHTML = '';
     Object.keys(items).forEach(key => {
         const item = items[key];
-        // ボタン要素を作成
         const btn = document.createElement('div');
         btn.className = "videosty";
         btn.id = key;
@@ -32,9 +32,29 @@ function Load_View(items)
         {
             btn.innerHTML = btn.innerHTML + "<div class='info'>🛈️情報:リメイク<br>元動画ID:<a href='video.html#"+item.topic.remake2+"'>"+item.topic.remake2+"</a></div>"
         }
-        // ShopBoxにボタンを追加
         ShopBox.appendChild(btn);
 
     });
 }
+function scrollToHash() {
+    const hash = window.location.hash;
+    if (hash) {
+        const targetElement = document.getElementById(hash.substring(1));
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'auto', block: 'start' });
+        }
+    }
+}
+const text_form = document.getElementById("ID");
+
+text_form.addEventListener("keydown", test_event);
+
+function test_event(e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    window.location.href = 'video.html#' + document.getElementById('ID').value;
+  }  
+  return false;
+}
+window.addEventListener('hashchange', scrollToHash);
 LoadJson();
