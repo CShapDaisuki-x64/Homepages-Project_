@@ -192,6 +192,11 @@ body{
         a:visited:hover{
             color:#ebe
         }
+        #hedaer_div_two{
+            img{
+                filter: invert(100%);
+            }
+        }
     }
     main,footer{
         color:#dde;
