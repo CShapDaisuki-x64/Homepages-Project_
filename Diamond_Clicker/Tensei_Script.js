@@ -16,6 +16,7 @@ const $_Shop_Items_$ = {
     Toki:{Text:"時の巻物",Default:10,Money:1,type:1,Num:10,Img:"img/Byou_Makimono.webp",Title:"時を超える知識"},
     JsVs:{Text:"スクリプトエディタ",Default:100,Money:1,type:2,Num:10,Img:"img/js.webp",Title:"tense = 1000"},
     Kikai:{Text:"謎の機械",Default:50,Money:1,type:2,Num:10,Img:"img/masin.webp",Title:"凄そう"},
+    Suisou:{Text:"水槽の中の脳",Default:200,Money:1,type:3,Num:5,Img:"img/suisou.webp",Title:"あなたの脳は水槽ですか？"}
 }
 function on()
 {
@@ -154,7 +155,7 @@ function Shop_Text()
         // ボタン要素を作成
         const btn = document.createElement('button');
         btn.id = key;
-        btn.innerHTML=`<img src=${item.Img}>`+item.Text+":"+(item.Default*item.Money)+`ダイヤ<br>${i}`;
+        btn.innerHTML=`<img src=${item.Img}>`+item.Text+":"+(item.Default*item.Money)+`転生ポイント<br>${i}`;
         btn.setAttribute('title', item.Title);
         if (tense >= (item.Default * item.Money)) 
         {
