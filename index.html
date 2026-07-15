@@ -25,7 +25,12 @@ fetch(url)
       li.innerHTML = `<a href="${item.link}">${item.title}</a>`;
       list.appendChild(li);
     });
-  });
+  })
+  .catch(err => {
+        console.error("RSSの読み込みに失敗しました:", err);
+        const list = document.getElementById("rss");
+        list.innerHTML = "<li>お知らせの読み込みに失敗しました</li>";
+    });
         </script>
         <meta name="google-site-verification" content="2fzWMwnm6Ni3SjJIUfw2ibt1j-UMgQ5rXe8K-PoUBSU" />
     </head>
