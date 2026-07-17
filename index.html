@@ -1,119 +1,161 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head id="head_div">
-        <meta http-equiv="Pragma" content="no-cache">
-        <meta http-equiv="Cache-Control" content="no-cache">
-        <meta http-equiv="Expires" content="86400">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <meta name="description" content="趣味プログラマー人間のホームページへ来てね">
-        <title>ホームページ</title>
-        <link rel="alternate" type="application/rss+xml" title="趣味プログラマー人間のホームページ" href="https://syumi-programmer-ningen.pages.dev/rss.xml">
-        <script src="script.js" defer></script>
-        <script>
-            const url = "https://api.rss2json.com/v1/api.json?rss_url=https://syumi-programmer-ningen.pages.dev/rss.xml";
-fetch(url)
-  .then(res => res.json())
-  .then(data => {
-    const list = document.getElementById("rss");
-    list.innerHTML="";
-    data.items.forEach(item => {
-      const li = document.createElement("li");
-      li.innerHTML = `<a href="${item.link}">${item.title}</a>`;
-      list.appendChild(li);
-    });
-  })
-  .catch(err => {
-        console.error("RSSの読み込みに失敗しました:", err);
-        const list = document.getElementById("rss");
-        list.innerHTML = "<li>お知らせの読み込みに失敗しました</li>";
-    });
-        </script>
-        <meta name="google-site-verification" content="2fzWMwnm6Ni3SjJIUfw2ibt1j-UMgQ5rXe8K-PoUBSU" />
-    </head>
-    <body>
-        <header>
-            <div id="hedaer_div"></div>
-<div id="hedaer_div_two">
-    <img src="img/index.html.webp">
-            <h2>
-                ホームページ
-            </h2>
-        </div>
-</header>
-        <main>
-            <script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=41012161&main=1"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=41012161&main=1" /></noscript>
-            <br>
-            <b style="font-size: 32px;">
-                趣味プログラマー人間のホームページへようこそ！！
-            </b>
-            <p>
-                このサイトは独自ランキングNo1のゲーム"Diamond_Clicker"(※1)を作った趣味プログラマー人間のホームページです
-            </p>
-            <p>
-                ※1:調査人数10人
-            </p>
-            <div class="osusume">
-                <div onclick="window.location.href = 'Diamond_Clicker_Web_Beta/index.html';" class="button">
-                    <img src="Diamond_Clicker_Web_Beta/img/daiya.webp" width="100">
-                    <br>
-                    <strong style="font-size: 16px;">
-                        Diamond_Clicker(Web)
-                    </strong>
-                    <br>
-                    あのまぁまぁカルト的人気を誇る
-                    <br>
-                    面白いゲームです。
-                </div>
-                <div onclick="window.location.href = 'create.html';" class="button">
-                    <img src="create.webp" width="100">
-                    <br>
-                    <strong style="font-size: 16px;">
-                        作品
-                    </strong>
-                    <br>
-                    私が作ったヤツであります
-                </div>
-                <div onclick="window.location.href = 'QandA.html';" class="button">
-                    <img src="enpitsu.webp" width="100">
-                    <br>
-                    <strong style="font-size: 16px;">
-                        自己紹介
-                    </strong>
-                    <br>
-                    サイトの管理人である
-                    <br>
-                    趣味プログラマー人間の紹介です
-                </div>
-            </div>
-            <div class="rss_css">
-                <b style="font-size: 25px;">お知らせ</b>
-                <div onclick="window.location.href = 'rss.xml'" class="button">
-                    <svg width="20" 
-                        height="20" 
-                        viewBox="0 0 20 20" 
-                        fill="none" 
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 0C11.0457 0 20 8.95431 20 20H17.5781C17.5781 10.2919 9.70813 2.42188 0 2.42188V0Z" fill="#001125"/>
-                        <path d="M0 6.32812C7.55077 6.32812 13.6719 12.4492 13.6719 20H10.8662C10.697 13.8993 5.94679 8.96904 0 8.6709V6.32812Z" fill="#001125"/>
-                        <path d="M0 12.1875C4.31472 12.1875 7.8125 15.6853 7.8125 20H5.23145C5.06254 16.8873 2.84442 14.3653 0 13.957V12.1875Z" fill="#001125"/>
-                        <path d="M0 16.875C1.72589 16.875 3.125 18.2741 3.125 20H0V16.875Z" fill="#001125"/>
-                    </svg>
-                </div>
-                <ul id="rss">
-                    <li>
-                        読み込み中
-                    </li>
-                </ul>
-            </div>
-        </main>
-       <footer>
-           <div id="footer_div" >
-                
-           </div>
-       </footer>
-    </body>
+	<head id="head_div">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<meta http-equiv="Expires" content="86400">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+			<link rel="stylesheet" href="style.css">
+		<meta name="description" content="趣味プログラマー人間のホームページへ来てね">
+		<title>趣味プログラマー人間-ホームページ</title>
+		<link rel="alternate" type="application/rss+xml" title="趣味プログラマー人間のホームページ" href="https://syumi-programmer-ningen.pages.dev/rss.xml">
+		<script src="script.js" defer></script>
+		<script>
+			fetch('rss.xml')
+			.then(response => {
+				console.log("1. rss.xmlの取得ステータス:", response.status);
+				if (!response.ok) throw new Error('ネットワークエラー');
+				return response.text();
+			})
+			.then(str => {
+				console.log("2. 取得した文字列の長さ:", str.length);
+				const parser = new DOMParser();
+				const xmlDoc = parser.parseFromString(str, "text/xml");
+				// パースエラーがないかチェック
+				const parserError = xmlDoc.getElementsByTagName("parsererror");
+				if (parserError.length > 0) {
+					console.error("XMLのパースエラー:", parserError[0].textContent);
+					throw new Error("XMLの形式が正しくありません");
+				}
+				const items = xmlDoc.getElementsByTagName("item");
+				console.log("3. 見つかったitemの数:", items.length);
+				// 画面の要素を待つ
+				const setupList = () => {
+					const list = document.getElementById("rss");
+					if (!list) {
+						console.error("4. エラー: id='rss' の要素が見つかりません");
+						return;
+					}
+					if (items.length === 0) {
+						list.innerHTML = "<li>お知らせはありません（itemが0件）</li>";
+						return;
+					}
+					list.innerHTML = "";
+					for (let i = 0; i < Math.min(items.length, 5); i++) {
+						const titleEl = items[i].getElementsByTagName("title")[0];
+						const linkEl = items[i].getElementsByTagName("link")[0];
+						const title = titleEl ? titleEl.textContent : "タイトルなし";
+						const link = linkEl ? linkEl.textContent : "#";
+						const li = document.createElement("li");
+						li.innerHTML = `<a href="${link}">${title}</a>`;
+						list.appendChild(li);
+					}
+					console.log("5. 画面への追加が完了しました！");
+				};
+
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', setupList);
+				} else {
+					setupList();
+				}
+			})
+			.catch(err => {
+				console.error("キャッチされたエラー:", err);
+				const showSubError = () => {
+					const list = document.getElementById("rss");
+					if (list) list.innerHTML = `<li>読み込み失敗: ${err.message}</li>`;
+				};
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', showSubError);
+				} else {
+					showSubError();
+				}
+			});
+		</script>
+		<meta name="google-site-verification" content="2fzWMwnm6Ni3SjJIUfw2ibt1j-UMgQ5rXe8K-PoUBSU" />
+	</head>
+	<body>
+		<header>
+			<div id="hedaer_div"></div>
+			<div id="hedaer_div_two">
+				<img src="img/index.html.webp">
+				<h2>
+					ホームページ
+				</h2>
+			</div>
+		</header>
+		<main>
+			<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=41012161&main=1"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=41012161&main=1" /></noscript>
+			<br>
+			<b style="font-size: 32px;">
+				趣味プログラマー人間のホームページへようこそ！！
+			</b>
+			<p>
+				このサイトは独自ランキングNo1のゲーム"Diamond_Clicker"(※1)を作った趣味プログラマー人間のホームページです
+			</p>
+			<p>
+				※1:調査人数10人
+			</p>
+			<div class="osusume">
+				<div onclick="window.location.href = 'Diamond_Clicker_Web_Beta/index.html';" class="button">
+					<img src="Diamond_Clicker_Web_Beta/img/daiya.webp" width="100">
+					<br>
+					<strong style="font-size: 16px;">
+						Diamond_Clicker(Web)
+					</strong>
+					<br>
+					あのまぁまぁカルト的人気を誇る
+					<br>
+					面白いゲームです。
+				</div>
+				<div onclick="window.location.href = 'create.html';" class="button">
+					<img src="create.webp" width="100">
+					<br>
+					<strong style="font-size: 16px;">
+						作品
+					</strong>
+					<br>
+					私が作ったヤツであります
+				</div>
+				<div onclick="window.location.href = 'QandA.html';" class="button">
+					<img src="enpitsu.webp" width="100">
+					<br>
+					<strong style="font-size: 16px;">
+						自己紹介
+					</strong>
+					<br>
+					サイトの管理人である
+					<br>
+					趣味プログラマー人間の紹介です
+				</div>
+			</div>
+			<div class="rss_css">
+				<b style="font-size: 25px;">お知らせ</b>
+				<div onclick="window.location.href = 'rss.xml'" class="button">
+					<svg width="20" 
+						height="20" 
+						viewBox="0 0 20 20" 
+						fill="none" 
+						xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 0C11.0457 0 20 8.95431 20 20H17.5781C17.5781 10.2919 9.70813 2.42188 0 2.42188V0Z" fill="#001125"/>
+						<path d="M0 6.32812C7.55077 6.32812 13.6719 12.4492 13.6719 20H10.8662C10.697 13.8993 5.94679 8.96904 0 8.6709V6.32812Z" fill="#001125"/>
+						<path d="M0 12.1875C4.31472 12.1875 7.8125 15.6853 7.8125 20H5.23145C5.06254 16.8873 2.84442 14.3653 0 13.957V12.1875Z" fill="#001125"/>
+						<path d="M0 16.875C1.72589 16.875 3.125 18.2741 3.125 20H0V16.875Z" fill="#001125"/>
+					</svg>
+				</div>
+				<ul id="rss">
+					<li>
+						読み込み中
+					</li>
+				</ul>
+			</div>
+		</main>
+		 <footer>
+			 <div id="footer_div" >
+				
+			 </div>
+		 </footer>
+	</body>
 </html>

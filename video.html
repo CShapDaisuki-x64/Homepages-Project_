@@ -1,46 +1,39 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex">
-    <link rel="stylesheet" href="style.css">
-     
-    <script src="script.js" defer></script>
-    <script src="Video.js" defer></script>
-    <title>映像</title>
-</head>
-<body>
-        <header>
-            <div id="hedaer_div"></div>
-<div id="hedaer_div_two">
-    <img src="img/video.html.webp">
-            <h2>
-                動画ID検索
-            </h2>
-        </div>
-</header>
-    <main>
-        <div class="button" onclick="window.location='video.json'">
-            元ファイル
-        </div>
-        <form>
-            <label>
-                🔍ここにIDを入力
-            </label>
-            <input type="search" id="ID">
-            <input type="button" value="検索" onclick="window.location.href = 'video.html#' + document.getElementById('ID').value;">
-        </form>
-        <div class="Videos">
-            
-        </div>
-    </main>
-       <footer>
-           <div id="footer_div" >
-
-           </div>
-       </footer>
-    </body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="style.css">
+		<script src="script.js" defer></script>
+		<script src="Video.js" defer></script>
+		<title>趣味プログラマー人間-映像</title>
+	</head>
+	<body>
+		<header>
+			<div id="hedaer_div"></div>
+			<div id="hedaer_div_two">
+				<img src="img/video.html.webp">
+				<h2>
+					動画ID検索
+				</h2>
+			</div>
+		</header>
+		<main>
+			<div class="button" onclick="window.location='video.json'">
+				元ファイル
+			</div>
+			<form>
+				<label>
+					🔍ここにIDを入力
+				</label>
+				<input type="search" id="ID">
+				<input type="button" value="検索" onclick="window.location.href = 'video.html#' + document.getElementById('ID').value;">
+			</form>
+			<div class="Videos"></div>
+		</main>
+		<footer>
+			<div id="footer_div"></div>
+		</footer>
+	</body>
 </html>
