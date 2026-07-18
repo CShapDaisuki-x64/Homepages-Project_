@@ -16,7 +16,8 @@ const $_Shop_Items_$ = {
 	Toki:{Text:"時の巻物",Default:10,Money:1,type:1,Num:10,Img:"img/Byou_Makimono.webp",Title:"時を超える知識"},
 	JsVs:{Text:"スクリプトエディタ",Default:100,Money:1,type:2,Num:10,Img:"img/js.webp",Title:"tense = 1000"},
 	Kikai:{Text:"謎の機械",Default:50,Money:1,type:2,Num:10,Img:"img/masin.webp",Title:"凄そう"},
-	Suisou:{Text:"水槽の中の脳",Default:200,Money:1,type:3,Num:5,Img:"img/suisou.webp",Title:"あなたの脳は水槽ですか？"}
+	Suisou:{Text:"水槽の中の脳",Default:200,Money:1,type:3,Num:5,Img:"img/suisou.webp",Title:"あなたの脳は水槽ですか？"},
+	robotdiamond:{Text:"機械仕掛けのダイヤモンド",Default:2000,Money:1,type:3,Num:20,Img:"img/robot_daiya.webp",Title:"ダイヤがないならダイヤを作ればいいじゃない"}
 }
 function on()
 {
@@ -26,7 +27,7 @@ function on()
 		if (i)
 		{
 			Save();
-			window.location.href = 'index.html?a=a'; 
+			window.location.href = 'index.html?a=a';
 		}
 }
 //type0=初期強化Ck
@@ -118,7 +119,7 @@ function Shop(yen,Money,type,Num)
 	}
 	else
 	{
-		
+
 	}
 	return yen;
 }
@@ -157,20 +158,20 @@ function Shop_Text()
 		btn.id = key;
 		btn.innerHTML=`<img src=${item.Img}>`+item.Text+":"+(item.Default*item.Money)+`転生ポイント<br>${i}`;
 		btn.setAttribute('title', item.Title);
-		if (tense >= (item.Default * item.Money)) 
+		if (tense >= (item.Default * item.Money))
 		{
 			btn.style.backgroundColor = "#ccc";
-		} 
+		}
 		else {
 			btn.style.backgroundColor = '#334';//なんでや！阪神関係ないやろ
 		}
 		// クリックイベントを設定
 		btn.onclick = function() {
 			item.Money = Shop(item.Money, item.Default, item.type, item.Num);
-			
+
 			// 購入後に表示を更新
 			Shop_Text();
-		 
+
 			TextLoad();
 			Save();
 		};
@@ -192,7 +193,7 @@ function timertowtow()
 setInterval(timertowtow, 60000);
 function Save()
 {
-	localStorage.setItem('tense',tense);	
+	localStorage.setItem('tense',tense);
 	localStorage.setItem('Ck_Plus', Ck_Plus);
 	localStorage.setItem('S_Plus', S_Plus);
 	localStorage.setItem('$Tensei_Shop_Items', JSON.stringify(Shop_Items));
@@ -216,13 +217,13 @@ function Load()
 }
 function TextLoad()
 {
-	document.getElementById('MainP').innerHTML = 
+	document.getElementById('MainP').innerHTML =
 		tense.toFixed(2) +
 		"転生ポイント<br>"+
 		Ck_Plus.toFixed(2) +
 		"購入クリック強化<br>" +
 		S_Plus.toFixed(2) +
-		"購入秒強化<br>" +	
+		"購入秒強化<br>" +
 		$Ck.toFixed(2) +
 		"初期クリック強化<br>" +
 		$S.toFixed(2) +

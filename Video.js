@@ -53,7 +53,7 @@ function test_event(e) {
 	if (e.key === "Enter") {
 	e.preventDefault();
 	window.location.href = 'video.html#' + document.getElementById('ID').value;
-	}	
+	}
 	return false;
 }
 window.addEventListener('hashchange', scrollToHash);
