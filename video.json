@@ -47,7 +47,7 @@
 			"nicovideonone":true,
 			"VoiceBig":true
 		}
-	},	
+	},
 	"A1s":{
 		"title":"【#まとめ動画】趣味プログラマー人間動画まとめその1",
 		"youtube":"PgSsc1IPtgY",
@@ -61,7 +61,7 @@
 		"youtube":"OJpIKedBCLI",
 		"nicovideo":"sm46130448",
 		"topic":{
-			
+
 		}
 	},
 	"G1s":{
@@ -69,7 +69,7 @@
 		"youtube":"MChZ87z8vVA",
 		"nicovideo":"sm46268503",
 		"topic":{
-			
+
 		}
 	},
 	"7s":{
@@ -85,23 +85,23 @@
 		"youtube":"hPYh-mCY1ig",
 		"nicovideo":"sm46345587",
 		"topic":{
-			
+
 		}
-	},	
+	},
 	"B2s":{
 		"title":"いいねメッセージ付きいいね催促BB",
 		"youtube":"fZaDVAVLe54",
 		"nicovideo":"sm46419758",
 		"topic":{
-			
+
 		}
-	},	
+	},
 	"B3s":{
 		"title":"フォロー催促BB",
 		"youtube":"kCXAGMa3p-E",
 		"nicovideo":"sm46423374",
 		"topic":{
-			
+
 		}
 	},
 	"B4s":{
@@ -109,9 +109,9 @@
 		"youtube":"RBad7cQDEGM",
 		"nicovideo":"sm46434951",
 		"topic":{
-			
+
 		}
-	},	
+	},
 	"S1s":{
 		"title":"【#プログラミング あるある】最低最悪のコード【#ずんだもん】【#shorts 】",
 		"youtube":"wfyF4qrjp8Q",
@@ -119,7 +119,7 @@
 		"topic":{
 			"nicovideonone":true
 		}
-	},	
+	},
 	"S2s":{
 		"title":"【#メイキング】ゲームの素材のメイキング【#shorts 】",
 		"youtube":"Cou7BMeS4EY",
@@ -136,7 +136,7 @@
 			"remake":true,
 			"remake2":"5s"
 		}
-	},	
+	},
 	"SR2s":{
 		"title":"#shorts 【クッキークリッカー】世界的ゲームを実況！最後にはアレも購入！切り抜き",
 		"youtube":"6jTWbnH8H6Y",
@@ -153,21 +153,21 @@
 		"topic":{
 
 		}
-	},	
+	},
 	"S4s":{
 		"title":"#shorts【プログラマーあるある？】HTMLをプログラミング言語と思う人",
 		"youtube":"1j1PoTBWauI",
 		"nicovideo":"ss46457108",
 		"topic":{
-			
+
 		}
-	},	
+	},
 	"S5s":{
 		"title":"【ずんだもん解説】世界の色んなライセンス解説|CC0 #shorts",
 		"youtube":"DZS95FAOG9Q",
 		"nicovideo":"ss46520107",
 		"topic":{
-			
+
 		}
 	}
 }

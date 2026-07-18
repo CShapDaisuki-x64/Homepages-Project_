@@ -151,6 +151,17 @@ body{
 				background-color: #27d;
 			}
 		}
+		table{
+			tr{
+				margin: 10px;
+				th{
+					padding: 3px;
+				}
+				td{
+					padding: 3px;
+				}
+			}
+		}
 	}
 	main{
 		flex: 1;
@@ -175,63 +186,87 @@ body{
 }
 @media (prefers-color-scheme: dark) {
 	body {
-	background-color: #555;
-	color:#dde;
-	header{
-		background-color: #05c;
+		background-color: #555;
 		color:#dde;
-		a{
-			color:#cde;
-		}
-		a:visited{
-			color:#dce
-		}
-		a:hover{
-			color:#bee;
-		}
-		a:visited:hover{
-			color:#ebe
-		}
-		#hedaer_div_two{
-			img{
-				filter: invert(100%);
-			}
-		}
-	}
-	main,footer{
-		color:#dde;
-		a{
-			color:#2be
-		}
-		a:visited{
-			color:#b8e;
-		}
-		a:hover{
-			color:#4de;
-		}
-		a:hover:visited{
-			color:#eae;
-		}
-		.button{
-			background-color: #bcc;
-			border: 2px solid #9aa;
-			color: #123;
-		}
-		.button:hover{
-			background-color: #dee;
-			border: 2px solid #bcc;
-		}
-		.videosty{
+		header{
+			background-color: #05c;
+			color:#dde;
 			a{
-				color:#cbcfee;
+				color:#cde;
+			}
+			a:visited{
+				color:#dce
 			}
 			a:hover{
-				color: #cbcfee;
+				color:#bee;
 			}
-			a:visibility:hover{
-				color: #cbcfee;
+			a:visited:hover{
+				color:#ebe
+			}
+			#hedaer_div_two{
+				img{
+					filter: invert(100%);
+				}
 			}
 		}
-	}
+		main,footer{
+			color:#dde;
+			a{
+				color:#2be
+			}
+			a:visited{
+				color:#b8e;
+			}
+			a:hover{
+				color:#4de;
+			}
+			a:hover:visited{
+				color:#eae;
+			}
+			.button{
+				background-color: #bcc;
+				border: 2px solid #9aa;
+				color: #123;
+			}
+			.button:hover{
+				background-color: #dee;
+				border: 2px solid #bcc;
+			}
+			.videosty{
+				a{
+					color:#cbcfee;
+				}
+				a:hover{
+					color: #cbcfee;
+				}
+				a:visibility:hover{
+					color: #cbcfee;
+				}
+			}
+		}
+		footer{
+			background-color: #05c;
+			color:#dde;
+			a{
+				h2{
+					color:#cde;
+				}
+			}
+			a:visited{
+				h2{
+					color:#dce
+				}
+			}
+			a:hover{
+				h2{
+					color:#bee;
+				}
+			}
+			a:visited:hover{
+				h2{
+					color:#ebe
+				}
+			}
+		}
 	}
 }
