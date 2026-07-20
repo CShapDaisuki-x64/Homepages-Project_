@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<meta name="robots" content="noindex, nofollow">
+		<style>
+			html{
+				height: 100%;
+			}
+			body{
+				height: 100%;
+				overflow: hidden;
+				form {
+					height: 100%;
+					width: 100%;
+					div{
+						background-color: #aaa;
+						height: 25px;
+					}
+					textarea{
+						width: 100%;
+						height: calc(100% - 25px);
+						box-sizing: border-box;
+						resize: none;
+					}
+				}
+			}
+		</style>
+		<script defer>
+				document.addEventListener('DOMContentLoaded', () => {
+					let url = new URL(window.location.href);
+					let params = url.searchParams;
+					const file_load = document.querySelector('#file_load');
+					const textarea = document.querySelector('#textarea');
+					if (params)
+					{
+						textarea.value = params.get("q");
+					}
+					file_load.addEventListener('change', e => {
+					 	if (e.target.files[0]) {
+						 	const file = e.target.files[0];
+						 	const reader = new FileReader();
+						 	// ファイルの読み込みが完了した時の処理
+							reader.onload = event => {
+								textarea.value = event.target.result; // テキストエリアに反映
+							};
+							reader.readAsText(file);
+					 	}
+				 	});
+				});
+				function save()
+				{
+						const link = document.createElement("a");
+						link.href = URL.createObjectURL(new Blob([document.querySelector("textarea").value],{type:"text/plain;charset=utf-8"}));
+						link.download = "text.txt";
+						link.click();
+				}
+		</script>
+	</head>
+	<body>
+		<form>
+			<div class="header">
+				<input id="file_load" type="file" accept="text/plain,.md">
+				<input type="button" value="保存" onclick="save();">
+			</div>
+			<textarea id="textarea" autocomplete="off"></textarea>
+		</form>
+	</body>
+</html>

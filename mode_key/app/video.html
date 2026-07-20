@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<meta name="robots" content="noindex, nofollow">
+		<style>
+			body{
+				overflow: hidden;
+				form {
+					width: 100%;
+					div{
+						background-color: #aaa;
+						height: 25px;
+					}
+					video{
+						width: 100%;
+						height: calc(100% - 25px);
+						box-sizing: border-box;
+						resize: none;
+					}
+				}
+			}
+		</style>
+		<script>
+			{
+				document.addEventListener('DOMContentLoaded', () => {
+					let url = new URL(window.location.href);
+					let params = url.searchParams;
+					const file_load = document.querySelector('#file_load');
+					const textarea = document.querySelector('#hil');
+					if (params)
+					{
+						textarea.src = params.get("q");
+					}
+					file_load.addEventListener('change', e => {
+					 	if (e.target.files[0]) {
+						 	const file = URL.createObjectURL(e.target.files[0]);
+						 	textarea.src = file;
+						 	// ファイルの読み込みが完了した時の処理
+							reader.onload = event => {
+								textarea.src=file;
+							};
+							reader.readAsvideo(file);
+					 	}
+				 	});
+				});
+			}
+
+		</script>
+	</head>
+	<body>
+		<form>
+			<div class="header">
+				<input id="file_load" type="file" accept="video/*,audio/*">
+			</div>
+			<video controls id="hil" src="test.mp4">
+			</video>
+		</form>
+	</body>
+</html>
