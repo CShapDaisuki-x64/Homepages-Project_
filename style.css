@@ -2,11 +2,12 @@ html {
 	height: 100%;
 }
 body{
+	font-family: sans-serif;
 	font-variant-emoji: text;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh; 
+	min-height: 100vh;
 	background-color: #eee;
 	margin: 0px;
 	color: #123;
@@ -95,7 +96,7 @@ body{
 			border: 2px solid #9aa;
 		}
 		table{
-			border-collapse:	collapse; 
+			border-collapse:	collapse;
 		}
 		th,td{
 			padding: 2px;
@@ -123,7 +124,7 @@ body{
 			color: #edeeee;
 			margin: 1vh;
 			padding: 2px;
-			
+
 			a{
 				color:#cbcfee;
 			}
@@ -161,6 +162,15 @@ body{
 					padding: 3px;
 				}
 			}
+		}
+		.index{
+			border: solid;
+			padding: 0px;
+			max-width: 500px;
+		}
+		.index::before{
+			content: "目次";
+			font-size: 20px;
 		}
 	}
 	main{

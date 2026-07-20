@@ -1,0 +1,26 @@
+{
+	"modekey_help":{
+		"name":"mode keyOSもどきについて",
+		"img":"./img/modekey.mini.webp",
+		"app":"./app/info.html",
+		"desktop":true
+	},
+	"notepad":{
+		"name":"メモ帳",
+		"img":"./img/notepad.webp",
+		"app":"./app/textedit.html",
+		"desktop":true
+	},
+	"image":{
+		"name":"画像閲覧",
+		"img":"./img/image.webp",
+		"app":"./app/image.html?q=../img/image.webp",
+		"desktop":false
+	},
+	"audioandvideo":{
+		"name":"プレイヤー",
+		"img":"./img/audio.webp",
+		"app":"./app/video.html?q=test.mp4",
+		"desktop":false
+	}
+}

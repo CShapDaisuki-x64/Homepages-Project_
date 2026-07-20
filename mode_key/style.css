@@ -1,0 +1,93 @@
+/* 【最重要】最大化されたダイアログの外枠を画面いっぱいに強制固定 */
+.ui-dialog.is-maximized {
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	width: 100vw !important;	/* 画面の横幅100% */
+	height: 100vh !important; /* 画面の縦幅100% */
+	box-sizing: border-box !important;
+	margin: 0 !important;
+	z-index: 9999 !important;
+}
+/* 最大化時、中身のコンテンツエリアもスクロールできるように縦幅をいっぱいに広げる */
+.ui-dialog.is-maximized .ui-dialog-content {
+	width: 100% !important;
+	height: calc(100vh - 40px) !important; /* 40pxはタイトルバーの大体の高さです */
+	box-sizing: border-box !important;
+}
+/* 最大化ボタンの位置（✕ボタンの左側） */
+.ui-dialog .ui-dialog-titlebar-maximize {
+	position: absolute;
+	right: 2.3em;
+	top: 50%;
+	width: 20px;
+	margin: -10px 0 0 0;
+	padding: 1px;
+	height: 20px;
+	cursor: pointer;
+}
+.ui-dialog .ui-dialog-content{
+	overflow: hidden;
+}
+html{
+	height: 100%;
+}
+body{
+	background-image: url("./img/back.webp");
+	height: 100%;
+	margin: 0px;
+	iframe{
+		border: 0px;
+	}
+	.desktop{
+		button{
+			width: 100px;
+			height: 120px;
+			margin: 5px;
+			padding: 0px;
+			background-color:#00000007;
+			border: #00000000;
+			img{
+				width: 80px;
+				height: 80px;
+			}
+			p{
+				font-size: 10px;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+	.taskbar{
+		position: fixed;
+		background: #1ae;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 5%;
+		overflow-x: scroll;
+		display: flex;
+		button{
+			background-color: #eeec;
+			border: solid #000c 1px;
+			display: flex;
+			height: 90%;
+			width: auto;
+			flex-shrink: 0;
+			margin: 1px;
+			font-size: 14px;
+			img{
+				height: 100%;
+				aspect-ratio: 1/1;
+			}
+		}
+	}
+}
+::backdrop {
+	background-color: transparent;
+}
+:fullscreen body{
+	width: 100%;
+	height: 100%;
+}
