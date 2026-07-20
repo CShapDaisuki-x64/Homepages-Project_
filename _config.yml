@@ -1,4 +1,4 @@
 url: "https://syumi-programmer-ningen.pages.dev"
 baseurl: ""
 plugins:
-	- jekyll-sitemap
+  - jekyll-sitemap
