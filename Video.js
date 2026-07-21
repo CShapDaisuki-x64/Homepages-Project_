@@ -22,7 +22,7 @@ function Load_View(items)
 		}
 		else
 		{
-			btn.innerHTML = "<div class='title'>"+item.title+"</div>ID:"+key+"<br>ニコニコ動画:<a href='https://www.nicovideo.jp/watch/"+item.nicovideo+"'>https://www.nicovideo.jp/watch"+item.nicovideo+"</a><br>YouTube:<a href='https://youtu.be/"+item.youtube+"'>https://youtu.be/"+item.youtube+"</a>";
+			btn.innerHTML = "<div class='title'>"+item.title+"</div>ID:"+key+"<br>ニコニコ動画:<a href='https://www.nicovideo.jp/watch/"+item.nicovideo+"'>https://www.nicovideo.jp/watch/"+item.nicovideo+"</a><br>YouTube:<a href='https://youtu.be/"+item.youtube+"'>https://youtu.be/"+item.youtube+"</a>";
 		}
 		if(item.topic.VoiceBig)
 		{
