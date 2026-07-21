@@ -22,5 +22,11 @@
 		"img":"./img/audio.webp",
 		"app":"./app/video.html?q=test.mp4",
 		"desktop":false
+	},
+	"Diamond_Clicker":{
+		"name":"Diamond_Clicker",
+		"img":"/Diamond_Clicker/img/daiya.webp",
+		"app":"/Diamond_Clicker/index.html",
+		"desktop":false
 	}
 }
