@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="robots" content="noindex, nofollow">
+		<link rel="stylesheet" href="style.css">
+		<title>趣味プログラマー人間-利用規約</title>
+		<script>
+			function a()
+			{
+				localStorage.setItem("Site_OK","true");
+				let url = new URL(window.location.href);
+				let params = url.searchParams;
+				if (params.get("q"))
+				{
+					window.location.href = (params.get("q"));
+				}
+				else{
+					window.location.href = "/index.html";
+				}
+			}
+			function b()
+			{
+				localStorage.setItem("Site_OK","false");
+
+			}
+		</script>
+	</head>
+	<body>
+		<header>
+			<div id="hedaer_div"></div>
+			<div id="hedaer_div_two">
+				<img src="img/QandA.html.webp">
+				<h2>
+					利用規約不同意
+				</h2>
+			</div>
+		</header>
+		<main>
+			<p>
+				このサイトは利用規約に同意しなければ利用できません。<br>
+				利用規約に同意して下さい。
+			</p>
+			<a href="/license.html">
+				利用規約同意ページ
+			</a>
+		</main>
+	</body>
+</html>

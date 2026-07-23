@@ -49,8 +49,8 @@
 				</a>
 			</li>
 			<li>
-				<a target="_top" href="https://github.com/CShapDaisuki-x64/Homepages-Project_/blob/main/LICENSE">
-					ライセンス
+				<a target="_top" href="/license.html">
+					利用規約
 				</a>
 			</li>
 			<li>
@@ -71,3 +71,9 @@
 		</ul>
 	</nav>
 </details>
+<script>
+	if(localStorage.getItem('Site_OK') != "true")
+{
+	window.location.href=("/license.html?q="+window.location.href);
+}
+</script>

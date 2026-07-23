@@ -1,3 +1,7 @@
+if(localStorage.getItem('Site_OK') != "true")
+{
+	window.location.href=("/license.html?q="+window.location.href);
+}
 let $Ck = 1;
 let $S = 0;
 const $Ck_Save = localStorage.getItem("$Ck");
