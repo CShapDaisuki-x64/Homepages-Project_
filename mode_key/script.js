@@ -1,3 +1,7 @@
+if(localStorage.getItem('Site_OK') != "true")
+{
+	window.location.href=("/license.html?q="+window.location.href);
+}
 function open_window(open_window_name, open_window_title) {
 	console.log('open_window 開始:', open_window_name);
 
@@ -51,7 +55,10 @@ function open_window(open_window_name, open_window_title) {
 				maxWidth: $dialog.dialog("option", "maxWidth")
 			});
 
-			$dialog.dialog("option", "maxWidth", false);
+			$dialog.dialog("option", {
+    		width: $(window).width(),
+    		height: $(window).height()
+				});
 
 			$uiDialog.addClass("is-maximized").css({
 				position: "fixed",

@@ -1,4 +1,9 @@
 //一般
+if(localStorage.getItem('Site_OK') != "true")
+{
+	window.location.href=("/license.html?q="+window.location.href);
+}
+
 let Main = 0;
 const Main_Save = localStorage.getItem("Main");
 let Ck = 1;
@@ -36,7 +41,7 @@ const $_Shop_Items_$ = {
 		var i = confirm("本当に読み込みしますか\nする場合は現在のデータが全てなくなります\nまた、外部から取得したJSONの場合は注意事項を\n理解した上で読み込むか判断して下さい");
 		if (i)
 		{
-			if (e.target.files[0]) 
+			if (e.target.files[0])
 			{
 				const file = e.target.files[0];
 				const reader = new FileReader();
@@ -77,18 +82,18 @@ function JSONup()
 }
 function JSONin(JSONs)
 {
-	try 
+	try
 	{
 	localStorage.clear();
 	const data = JSON.parse(JSONs);
-	for (const [key, value] of Object.entries(data)) 
+	for (const [key, value] of Object.entries(data))
 	{
 		localStorage.setItem(key, value);
 	}
 		 window.location.reload();
 	console.log("データのインポートが成功しました。");
 	}
-	catch (error) 
+	catch (error)
 	{
 		console.error("JSONERROR", error);
 		alert("JSONERORR", error);
@@ -96,7 +101,7 @@ function JSONin(JSONs)
 }
 function Load_Shop_Items() {
 	let saved_Items = JSON.parse(localStorage.getItem('Shop_Items'));
-	
+
 	if (saved_Items) {
 		Object.keys($_Shop_Items_$).forEach(key => {
 			if (!saved_Items[key]) {
@@ -140,7 +145,7 @@ function deletes()
 			window.location.reload();
 			alert("削除できました");
 		}
-		
+
 	}
 }
 function dels()
@@ -191,12 +196,12 @@ function Save()
 }
 function TextLoad()
 {
-	document.getElementById('MainP').innerHTML = 
-		Main.toFixed(2) + 
-		"ダイヤ <br>" + 
-		(Ck+$Ck).toFixed(2) + 
-		"ダイヤ/クリック<br>" + 
-		(S+$S).toFixed(2) + 
+	document.getElementById('MainP').innerHTML =
+		Main.toFixed(2) +
+		"ダイヤ <br>" +
+		(Ck+$Ck).toFixed(2) +
+		"ダイヤ/クリック<br>" +
+		(S+$S).toFixed(2) +
 		"ダイヤ/秒";
 }
 function Shop(yen,Money,CKK,SS)
@@ -224,32 +229,32 @@ function Shop_Text()
 	ShopBox.innerHTML = '';
 	Object.keys(Shop_Items).forEach(key => {
 		const item = Shop_Items[key];
-		
+
 		// ボタン要素を作成
 		const btn = document.createElement('button');
 		btn.id = key;
 		// ボタンに表示するテキストを設定
 		// 例：つるはし (10ダイヤ)
-		btn.innerHTML = "<img src="+ item.Img + ">" + "<p>" + item.Text + 
-			":" + ((item.Default * item.Money).toFixed(0)) + 
-			"ダイヤ<br>" + 
-			"一クリック毎に手に入るダイヤを" + (item.Ck * Ck_Plus) + "追加する<br>" + 
+		btn.innerHTML = "<img src="+ item.Img + ">" + "<p>" + item.Text +
+			":" + ((item.Default * item.Money).toFixed(0)) +
+			"ダイヤ<br>" +
+			"一クリック毎に手に入るダイヤを" + (item.Ck * Ck_Plus) + "追加する<br>" +
 			"一秒毎に手に入るダイヤを" + (item.S * S_Plus) + "追加する</p>";
 		btn.setAttribute('title', item.Title);
-		if (Main >= (item.Default * item.Money)) 
+		if (Main >= (item.Default * item.Money))
 		{
 			btn.style.backgroundColor = "#ccc";
-		} 
+		}
 		else {
 			btn.style.backgroundColor = '#334';//なんでや！阪神関係ないやろ
 		}
 		// クリックイベントを設定
 		btn.onclick = function() {
 			item.Money = Shop(item.Money, item.Default, item.Ck, item.S);
-			
+
 			// 購入後に表示を更新
 			Shop_Text();
-		 
+
 			TextLoad();
 		};
 
@@ -322,7 +327,7 @@ function Tensei()
 			tense = tense + (Math.floor(Main/100000));
 			dels();
 			Save();
-			window.location.href = 'tensei.html'; 
+			window.location.href = 'tensei.html';
 		}
 	}
 	else{
