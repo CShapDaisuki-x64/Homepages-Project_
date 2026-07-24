@@ -9,7 +9,7 @@
 		<script defer src="script.js" ></script>
 		<title>趣味プログラマー人間-お知らせ</title>
 	</head>
-	<body>
+	<body id="body">
 		<header>
 			<div id="hedaer_div"></div>
 			<div id="hedaer_div_two">
@@ -20,7 +20,7 @@
 			</div>
 		</header>
 		<main>
-			<div onclick="window.location.href = 'rss.xml'" class="button">
+			<button onclick="window.location.href = 'rss.xml'">
 				<svg width="20"
 					height="20"
 					viewBox="0 0 20 20"
@@ -32,7 +32,7 @@
 					<path d="M0 16.875C1.72589 16.875 3.125 18.2741 3.125 20H0V16.875Z" fill="#001125"/>
 				</svg>
 				RSSfeed
-			</div>
+			</button>
 			<div id="20260317" class="koumoku">
 				<h3>
 					RSS作ったよ

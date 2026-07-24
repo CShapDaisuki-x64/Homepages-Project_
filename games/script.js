@@ -1,3 +1,6 @@
+	fetch("/games/header.html")
+	.then((response) => response.text())
+	.then((data) => document.querySelector("#hedaer_div").innerHTML = data);
 if(localStorage.getItem('Site_OK') != "true")
 {
 	let bur = document.createElement('dialog');
