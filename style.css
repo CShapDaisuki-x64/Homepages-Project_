@@ -51,7 +51,7 @@ body{
 			color:#309;
 			text-decoration: none;
 		}
-		.button{
+		button{
 			border-radius:5px;
 			user-select: none;
 			text-align: center;
@@ -71,8 +71,16 @@ body{
 				text-align: center;
 			}
 		}
+		.osusume{
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+		}
+		.onaji{
+			height: 200px;
+		}
 		.rss_css{
-			.button{
+			button{
 				svg{
 					width: 20px;
 					height: 20px;
@@ -91,7 +99,7 @@ body{
 				}
 			}
 		}
-		.button:hover{
+		button:hover{
 			background-color: #bcc;
 			border: 2px solid #9aa;
 		}
@@ -186,7 +194,7 @@ body{
 				color: #134;
 			}
 		}
-		.button{
+		button{
 			font-weight: bold;
 			width: 50px;
 			height: 50px;
@@ -233,12 +241,12 @@ body{
 			a:hover:visited{
 				color:#eae;
 			}
-			.button{
+			button{
 				background-color: #bcc;
 				border: 2px solid #9aa;
 				color: #123;
 			}
-			.button:hover{
+			button:hover{
 				background-color: #dee;
 				border: 2px solid #bcc;
 			}

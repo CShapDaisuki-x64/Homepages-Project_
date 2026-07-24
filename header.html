@@ -1,9 +1,9 @@
-<link rel="icon" href="/./favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.ico" sizes="any">
 <div style="display: flex;align-items: center;">
-	<a href="index.html"
+	<a href="/index.html"
 		target="_top"
 		style="display: flex;">
-		<img src="enpitsu.webp" width="60" height="60">
+		<img src="/enpitsu.webp" width="60" height="60">
 		<h1>
 			趣味プログラマー人間のホームページ
 		</h1>
@@ -19,32 +19,32 @@
 	<nav>
 		<ul>
 			<li>
-				<a target="_top" href="index.html">
+				<a target="_top" href="/index.html">
 					HOME
 				</a>
 			</li>
 			<li>
-				<a target="_top" href="create.html">
+				<a target="_top" href="/create.html">
 					作品
 				</a>
 			</li>
 			<li>
-				<a target="_top" href="video.html">
+				<a target="_top" href="/video.html">
 					動画ID検索
 				</a>
 			</li>
 			<li>
-				<a target="_top" href="profile.html">
+				<a target="_top" href="/profile.html">
 					プロフィール
 				</a>
 			</li>
 			<li>
-				<a target="_top" href="rss.html">
+				<a target="_top" href="/rss.html">
 					RSS
 				</a>
 			</li>
 			<li>
-				<a target="_top" href="toiawase.html">
+				<a target="_top" href="/toiawase.html">
 					問い合わせ
 				</a>
 			</li>
@@ -54,12 +54,12 @@
 				</a>
 			</li>
 			<li>
-				<a target="_top" href="oshirase.html">
+				<a target="_top" href="/oshirase.html">
 					お知らせ
 				</a>
 			</li>
 			<li>
-				<a target="_top" href="Diamond_Clicker_Web_Beta/index.html">
+				<a target="_top" href="/Diamond_Clicker_Web_Beta/index.html">
 					Diamond_Clicker_Web
 				</a>
 			</li>
@@ -74,6 +74,11 @@
 <script>
 	if(localStorage.getItem('Site_OK') != "true")
 {
-	window.location.href=("/license.html?q="+window.location.href);
+	let bur = document.createElement('dialog');
+	bur.id="bur";
+	bur.style="position:fixed;bottom:0px;left:0px;right:0px;margin:0px;width: 100%;";
+	bur.innerHTML=`<iframe width="200" height="300px" src='/license.js.html'><a href='/license.html'>iframe対応してない人はここ</a></iframe><button onclick='localStorage.setItem("Site_OK","true");this.closest("dialog").close();this.closest("dialog").remove();'>同意する</button><button onclick='localStorage.setItem("Site_OK","false");window.location.href="/license.go.html";'>同意しない</button>`;
+	document.body.appendChild(bur);
+	bur.show();
 }
 </script>

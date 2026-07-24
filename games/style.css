@@ -1,0 +1,25 @@
+html{
+	body{
+		display: flex;
+		header{
+			#hedaer_div{
+				display: flex;
+				a{
+					display: flex;
+					img{
+						display: flex;
+						width: 55px;
+						height: 55px;
+					}
+			}
+			}
+		}
+	}
+}
+@media (prefers-color-scheme: dark){
+	header{
+		img{
+			filter: invert(100%);
+		}
+	}
+}

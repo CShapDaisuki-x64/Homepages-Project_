@@ -1,44 +1,7 @@
-<!DOCTYPE html>
-<html lang="ja">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="robots" content="noindex, nofollow">
-		<link rel="stylesheet" href="style.css">
-		<title>趣味プログラマー人間-利用規約</title>
-		<script>
-			function a()
-			{
-				localStorage.setItem("Site_OK","true");
-				let url = new URL(window.location.href);
-				let params = url.searchParams;
-				if (params.get("q"))
-				{
-					window.location.href = (params.get("q"));
-				}
-				else{
-					window.location.href = "/index.html";
-				}
-			}
-			function b()
-			{
-				localStorage.setItem("Site_OK","false");
-				window.location.href="/license.go.html";
-			}
-		</script>
-	</head>
-	<body>
-		<header>
-			<div id="hedaer_div"></div>
-			<div id="hedaer_div_two">
-				<img src="img/QandA.html.webp">
-				<h2>
-					利用規約
-				</h2>
-			</div>
-		</header>
-		<main>
+<meta name="robots" content="noindex, nofollow">
+<h1>
+	利用規約
+</h1>
 <p>この利用規約(以下、本規約とする)は、GitHubリポジトリである<a href="https://github.com/CShapDaisuki-x64/Homepages-Project_">https://github.com/CShapDaisuki-x64/Homepages-Project_</a> (以下、本リポジトリとする)及び、公開サイトである<a href="https://syumi-programmer-ningen.pages.dev">https://syumi-programmer-ningen.pages.dev</a> （以下、本サイトとする）の利用に適用されるものです。</p>
 <h2>1条 (適用)</h2>
 <p>1. 本規約の2条は、本リポジトリの転載、利用、改変、実行に適用されるものとします。</p>
@@ -73,12 +36,3 @@
 </ul>
 <h2>7条 (問い合わせ)</h2>
 <p>1. 不明な点や問い合わせたい内容があれば、問い合わせ先(<a href="mailto:syumi.programmer.ningen+toiawase@protonmail.com">syumi.programmer.ningen+toiawase@protonmail.com</a>)にお問い合わせ下さい。</p>
-		<button onclick="a();">
-			同意する
-		</button>
-			<button onclick="b();">
-			同意しない
-		</button>
-</main>
-	</body>
-</html>
