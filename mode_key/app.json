@@ -28,5 +28,11 @@
 		"img":"/Diamond_Clicker/img/daiya.webp",
 		"app":"/Diamond_Clicker/index.html",
 		"desktop":false
+	},
+	"Games":{
+		"name":"ゲーム！！",
+		"img":"/games/img/game.webp",
+		"app":"/games/index.html",
+		"desktop":false
 	}
 }
