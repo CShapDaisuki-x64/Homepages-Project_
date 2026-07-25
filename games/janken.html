@@ -13,20 +13,34 @@
 		<header>
 			<div id="hedaer_div"></div>
 			<div id="hedaer_div_two">
-				<img src="/games/img/game.webp">
+				<img src="/games/img/janken_gu.webp">
 				<h2>
 					じゃんけん
 				</h2>
 			</div>
 		</header>
 		<main>
-			<!--やれ！-->
-			<p>
-				準備中です
+			<button onclick="main(0)">
+				<img src="./img/janken_gu.webp"><br>
+				グー
+			</button>
+			<button onclick="main(1)">
+				<img src="./img/janken_choki.webp"><br>
+				チョキ
+			</button>
+			<button onclick="main(0)">
+				<img src="./img/janken_pa.webp"><br>
+				パー
+			</button>
+			<p id="log">
+				結果:<br>あなた:<br>相手:
+			</p>
+			<p id="point">
+				0勝<br>0敗<br>0分
+			</p>
+			<p id="points">
+				0ポイント
 			</p>
 		</main>
-		<footer>
-			<div id="footer_div"></div>
-		</footer>
 	</body>
 </html>
