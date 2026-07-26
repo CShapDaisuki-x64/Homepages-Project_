@@ -1,8 +1,27 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
 html {
 	height: 100%;
 }
+@font-face {
+  font-family: 'MyFont-LINESeedJP';
+  src: url('/WOFF2/LINESeedJP_OTF_Rg.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MyFont-LINESeedJP';
+      src: url('/WOFF2/LINESeedJP_OTF_Bd.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 body{
-	font-family: sans-serif;
+	font-family: 'MyFont-LINESeedJP',sans-serif;
 	font-variant-emoji: text;
 	height: 100%;
 	display: flex;
@@ -12,6 +31,9 @@ body{
 	margin: 0px;
 	color: #123;
 	header{
+		background-color: #9ae;
+		margin: 0px;
+		padding: 8px;
 		#hedaer_div_two{
 			display: flex;
 			img{
@@ -29,9 +51,6 @@ body{
 			color: #134;
 			text-decoration:none;
 		}
-		background-color: #9ae;
-		margin: 0px;
-		padding: 8px;
 	}
 	main,footer{
 		border-radius:5px;
@@ -139,7 +158,7 @@ body{
 			a:hover{
 				color: #cbcfee;
 			}
-			a:visibility:hover{
+			a:visited:hover{
 				color: #cbcfee;
 			}
 			.title{
@@ -257,7 +276,7 @@ body{
 				a:hover{
 					color: #cbcfee;
 				}
-				a:visibility:hover{
+				a:visited:hover{
 					color: #cbcfee;
 				}
 			}
