@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="/style.css">
+		<title>URL延長サービス</title>
+	</head>
+	<body id="body">
+		<header>
+			<div id="hedaer_div_two">
+				<img alt="logo" src="urllong.webp">
+				<h2>
+					URL延長サービス
+				</h2>
+			</div>
+		</header>
+		<main>
+			<input type="url" id="ID" placeholder="延長したいURLを入力">
+			<p id="url"></p>
+		</main>
+		<script>
+			const text_form = document.getElementById("ID");
+			text_form.addEventListener("keydown", test_event);
+			function test_event(e) {
+				if (e.key === "Enter") {
+					e.preventDefault();
+					let A = crypto.randomUUID();
+					let B = Math.random()+A+Math.random()+A+Math.random()+A;
+					let C = Math.random()+B+Math.random()+B+Math.random()+B+Math.random()+B;
+					let URL=window.location.origin +
+    				window.location.pathname +
+    				"?q=" +
+    				encodeURIComponent(text_form.value) +
+    				"&URLLONGIMINAI=" +Math.random()+ C +
+    				"&ABCDEFGHIJK=" + Math.random()+C +
+    				"&VERYLONGURL=" + Math.random()+C +
+						"&TIMESTAMP="+new Date() +
+						"&TEXTS="+text_form.value.charCodeAt(0) +
+						"&a="+encodeURIComponent(text_form.value);
+					document.getElementById("url").innerText=URL;
+				}
+				return false;
+			}
+			const params = new URLSearchParams(location.search);
+			const target = params.get("q");
+			if (target) {
+				 document.body.innerHTML = "<h2>リダイレクトしています...</h2>";
+    		window.location.href = target;
+			}
+		</script>
+	</body>
+</html>
