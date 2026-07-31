@@ -22,6 +22,7 @@ html {
 }
 body{
 	font-family: 'MyFont-LINESeedJP',sans-serif;
+	font-size: 16px;
 	font-variant-emoji: text;
 	height: 100%;
 	display: flex;
@@ -64,10 +65,10 @@ body{
 			text-decoration: none;
 		}
 		a:hover{
-			color:#008;
+			color:#12b;
 		}
 		a:visited:hover{
-			color:#309;
+			color:#30a;
 			text-decoration: none;
 		}
 		button{

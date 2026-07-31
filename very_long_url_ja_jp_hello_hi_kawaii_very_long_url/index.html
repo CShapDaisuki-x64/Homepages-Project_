@@ -36,7 +36,7 @@
     				"&URLLONGIMINAI=" +Math.random()+ C +
     				"&ABCDEFGHIJK=" + Math.random()+C +
     				"&VERYLONGURL=" + Math.random()+C +
-						"&TIMESTAMP="+new Date() +
+						"&TIMESTAMP="+Date.now() +
 						"&TEXTS="+text_form.value.charCodeAt(0) +
 						"&a="+encodeURIComponent(text_form.value);
 					document.getElementById("url").innerText=URL;
