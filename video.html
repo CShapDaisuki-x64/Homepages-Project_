@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
+		<link rel="alternate" type="application/rss+xml" title="趣味プログラマー人間のホームページ" href="https://syumi-programmer-ningen.pages.dev/rss.xml">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<link rel="stylesheet" href="style.css">
 		<script defer src="script.js" ></script>
-		<script defer src="Video.js" ></script>
 		<title>趣味プログラマー人間-映像</title>
 	</head>
 	<body id="body">
@@ -20,6 +20,9 @@
 			</div>
 		</header>
 		<main>
+			<p>
+				※IDは完全一致させてください
+			</p>
 			<button onclick="window.location='video.json'">
 				元ファイル
 			</button>
@@ -35,5 +38,66 @@
 		<footer>
 			<div id="footer_div"></div>
 		</footer>
+				<script>
+			const ShopBox = document.querySelector('.Videos');
+			let saved_Items;
+			async function LoadJson()
+			{
+				let response = await fetch('video.json');
+				saved_Items = await response.json();
+				console.log(saved_Items["1s"]["title"])
+				Load_View(saved_Items);
+				scrollToHash();
+			}
+			function Load_View(items)
+			{
+				ShopBox.innerHTML = '';
+				Object.keys(items).forEach(key => {
+					const item = items[key];
+					const btn = document.createElement('div');
+					btn.className = "videosty";
+					btn.id = key;
+					if(item.topic.nicovideonone)
+					{
+						btn.innerHTML = "<div class='title'>"+item.title+"</div>ID:"+key+"<br>ニコニコ動画:動画なし<br>YouTube:<a href='https://youtu.be/"+item.youtube+"'>https://youtu.be/"+item.youtube+"</a>";
+					}
+					else
+					{
+						btn.innerHTML = "<div class='title'>"+item.title+"</div>ID:"+key+"<br>ニコニコ動画:<a href='https://www.nicovideo.jp/watch/"+item.nicovideo+"'>https://www.nicovideo.jp/watch/"+item.nicovideo+"</a><br>YouTube:<a href='https://youtu.be/"+item.youtube+"'>https://youtu.be/"+item.youtube+"</a>";
+					}
+					if(item.topic.VoiceBig)
+					{
+						btn.innerHTML = btn.innerHTML + "<div class='EX'>⚠注意:騒音</div>"
+					}
+					if(item.topic.remake)
+					{
+						btn.innerHTML = btn.innerHTML + "<div class='info'>🛈️情報:リメイク<br>元動画ID:<a href='video.html#"+item.topic.remake2+"'>"+item.topic.remake2+"</a></div>"
+					}
+					ShopBox.appendChild(btn);
+				});
+			}
+			function scrollToHash() {
+				const hash = window.location.hash;
+				if (hash) {
+				const targetElement = document.getElementById(hash.substring(1));
+					if (targetElement) {
+						targetElement.scrollIntoView({ behavior: 'auto', block: 'start' });
+					}
+				}
+			}
+			const text_form = document.getElementById("ID");
+
+			text_form.addEventListener("keydown", test_event);
+
+			function test_event(e) {
+				if (e.key === "Enter") {
+					e.preventDefault();
+					window.location.href = 'video.html#' + document.getElementById('ID').value;
+				}
+				return false;
+			}
+			window.addEventListener('hashchange', scrollToHash);
+			LoadJson();
+		</script>
 	</body>
 </html>
