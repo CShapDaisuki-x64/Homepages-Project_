@@ -20,83 +20,107 @@ thu=木
 fri=金
 sat=土
 -->
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
+		<atom:link href="https://syumi-programmer-ningen.pages.dev/rss.xml" rel="self" type="application/rss+xml"/>
 		<title>趣味プログラマー人間のホームページ</title>
 		<link>https://syumi-programmer-ningen.pages.dev</link>
 		<description>サイトの説明</description>
 		<language>ja</language>
+		<author>syumi.programmer.ningen+toiawase@protonmail.com (趣味プログラマー人間)</author>
+		<copyright>Copyright 2026 趣味プログラマー人間</copyright>
+		<docs>https://www.rssboard.org/rss-specification</docs>
+		<lastBuildDate>Sun, 02 Aug 2026 11:00:00 +0900</lastBuildDate>
+		<item>
+			<title>大幅デザイン変更！</title>
+			<link>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260802</link>
+			<description>ライトモードが見やすくなった</description>
+			<pubDate>Sun, 02 Aug 2026 11:00:00 +0900</pubDate>
+			<guid isPermaLink="false">0260802</guid>
+		</item>
 		<item>
 			<title>ページ移行(FC2→Cloudflare)</title>
 			<link>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260714</link>
 			<description>また変えます</description>
-			<pubDate>Tue, 14 jul 2026 20:45:00 JST</pubDate>
+			<pubDate>Tue, 14 Jul 2026 20:45:00 +0900</pubDate>
+			<guid isPermaLink="false">0260714</guid>
 		</item>
 		<item>
 			<title>動画検索をできるようにしました</title>
 			<link>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260630</link>
-			<description>(´・ω・｀)ｼｮﾎﾞｰﾝ</description>
-			<pubDate>Fri, 30 jul 2026 17:15:00 JST</pubDate>
+			<description />
+			<pubDate>Tue, 30 Jun 2026 17:15:00 +0900</pubDate>
+			<guid isPermaLink="false">0260631</guid>
 		</item>
 		<item>
 			<title>XのDMを閉鎖します</title>
 			<link>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260630</link>
 			<description>(´・ω・｀)ｼｮﾎﾞｰﾝ</description>
-			<pubDate>Mon, 30 jul 2026 22:15:00 JST</pubDate>
+			<pubDate>Tue, 30 Jun 2026 22:15:00 +0900</pubDate>
+			<guid isPermaLink="false">0260630</guid>
 		</item>
 		<item>
 			<title>問い合わせ用メールを用意しました</title>
 			<link>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260615</link>
 			<description>念願</description>
-			<pubDate>Mon, 15 jun 2026 00:20:30 JST</pubDate>
+			<pubDate>Mon, 15 Jun 2026 00:20:30 +0900</pubDate>
+			<guid isPermaLink="false">0260615</guid>
 		</item>
 		<item>
 			<title>SNSを追加しました</title>
 			<link>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260612</link>
 			<description>blueskyっていうSNSなんですけどね</description>
-			<pubDate>Fri, 11 jun 2026 00:22:30 JST</pubDate>
+			<pubDate>Fri, 11 Jun 2026 00:22:30 +0900</pubDate>
+			<guid isPermaLink="false">0260612</guid>
 		</item>
 		<item>
 			<title>ホームページを大幅リニューアルしました</title>
 			<link>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260607</link>
 			<description>スタイルが変わりました</description>
-			<pubDate>Sun, 07 jun 2026 00:01:30 JST</pubDate>
+			<pubDate>Sun, 07 Jun 2026 00:01:30 +0900</pubDate>
+			<guid isPermaLink="false">0260607</guid>
 		</item>
 		<item>
 			<title>Diamond_ClickerWeb版(β)を公開しました</title>
 			<link>https://syumi-programmer-ningen.pages.dev/Diamond_Clicker_Web_Beta/Main.html</link>
 			<description>やってみてね！</description>
-			<pubDate>Mon, 06 Apr 2026 00:09:00 JST</pubDate>
+			<pubDate>Mon, 06 Apr 2026 00:09:00 +0900</pubDate>
+			<guid isPermaLink="false">0260406</guid>
 		</item>
 		<item>
 			<title>Discordサーバー！</title>
 			<link>https://discord.gg/FaJHFZAqn</link>
 			<description>入ってね</description>
-			<pubDate>Sun, 01 Apr 2026 00:06:30 JST</pubDate>
+			<pubDate>Wed, 01 Apr 2026 00:06:30 +0900</pubDate>
+			<guid isPermaLink="false">0260401</guid>
 		</item>
 		<item>
 			<title>SNSを追加しました</title>
 			<link>https://syumi-programmer-ningen.pages.dev/sns.html#20260323</link>
 			<description>フォローお願いします</description>
-			<pubDate>Sun, 23 Mar 2026 00:09:48 JST</pubDate>
+			<pubDate>Sun, 23 Mar 2026 00:09:48 +0900</pubDate>
+			<guid isPermaLink="false">0260323</guid>
 		</item>
 		<item>
 			<title>世界記録保持者</title>
 			<link>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260321</link>
 			<description>よっしゃー！</description>
-			<pubDate>Sat, 21 Mar 2026 21:00:00 JST</pubDate>
+			<pubDate>Sat, 21 Mar 2026 21:00:00 +0900</pubDate>
+			<guid isPermaLink="false">0260321</guid>
 		</item>
 		<item>
 			<title>Diamond_Clickerがバージョンアップ</title>
 			<link>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260320</link>
 			<description>入れてね</description>
-			<pubDate>Sat, 21 Mar 2026 01:30:00 JST</pubDate>
+			<pubDate>Sat, 21 Mar 2026 01:30:00 +0900</pubDate>
+			<guid isPermaLink="false">0260320</guid>
 		</item>
 		<item>
 			<title>RSS導入！</title>
 			<link>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260317</link>
 			<description>作ったよ</description>
-			<pubDate>Tue, 17 Mar 2026 20:30:00 JST</pubDate>
+			<pubDate>Tue, 17 Mar 2026 20:30:00 +0900</pubDate>
+			<guid isPermaLink="false">0260317</guid>
 		</item>
 
 	</channel>

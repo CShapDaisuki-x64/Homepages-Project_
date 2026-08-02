@@ -1,7 +1,48 @@
+:root{
+	--bck_color:#eee;
+	--haf_bck_color:#0ce;
+	--haf_link_in_color:#456;
+	--haf_img_rod:invert(0%);
+	--acs_color:#112;
+	--btn_bck_color:#ddd;
+	--btn_bdr_color:#bbb;
+	--btn_bck_in_color:#ccc;
+	--btn_bdr_in_color:#aaa;
+	--btn_in_img_rod:brightness(80%);
+	--link_color:#07d;
+	--link_color_ace:#90e;
+	--link_color_in:#1cd;
+	--link_color_ace_in:#c1d;
+	--kmk-vdo_bck_color:#0ad;
+	--vdo_acs_color:#eee;
+	--vdo_link_color:#cde;
+	--vdo_link_in_color:#dee;
+	--vdo_ex_bck_color:#e05;
+	--vdo_inf_bck_color:#05e;
+}
+@media (prefers-color-scheme: dark) {
+	:root{
+		--bck_color:#444;
+		--haf_bck_color:#16b;
+		--haf_link_in_color:#bbb;
+		--haf_img_rod:invert(100%);
+		--acs_color:#ddd;
+		--btn_bck_color:#bbb;
+		--btn_bdr_color:#999;
+		--btn_in_img_rod:brightness(120%);
+		--link_color:#29d;
+		--link_color_ace:#b5e;
+		--link_color_ace_in:#d7e;
+		--kmk-vdo_bck_color:#27b;
+		--vdo_acs_color:#ddd;
+		--vdo_link_color:#cdd;
+		--vdo_link_in_color:#bbb;
+	}
+}
 *,
 *::before,
 *::after{
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 html {
 	height: 100%;
@@ -22,22 +63,43 @@ html {
 }
 body{
 	font-family: 'MyFont-LINESeedJP',sans-serif;
-	font-size: 16px;
+	font-size: 1rem;
 	font-variant-emoji: text;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	background-color: #eee;
+	background-color: var(--bck_color);
 	margin: 0px;
-	color: #123;
+	color: var(--acs_color);
+	button{
+			border-radius:5px;
+			user-select: none;
+			text-align: center;
+			background-color: var(--btn_bck_color);
+			border: 2px solid var(--btn_bdr_color);
+			margin: 5px;
+			img{
+				display: inline-block;
+				text-align: center;
+			}
+			&:hover{
+				cursor: pointer;
+				background-color: var(--btn_bck_in_color);
+				border: 2px solid var(--btn_bdr_in_color);
+				img{
+					filter: var(--btn_in_img_rod);
+				}
+			}
+	}
 	header{
-		background-color: #9ae;
+		background-color: var(--haf_bck_color);
 		margin: 0px;
 		padding: 8px;
 		#hedaer_div_two{
 			display: flex;
 			img{
+				filter: var(--haf_img_rod);
 				display: flex;
 				width: 50px;
 				height: 50px;
@@ -49,55 +111,42 @@ body{
 			 font-size: 25px;
 		}
 		a{
-			color: #134;
+			color: var(--acs_color);
 			text-decoration:none;
+		}
+		a:hover{
+			color: var(--haf_link_in_color);
 		}
 	}
 	main,footer{
 		border-radius:5px;
 		padding: 8px;
 		a{
-			color:#05c;
+			color:var(--link_color);
 			text-decoration: none;
-		}
-		a:visited{
-			color:#61c;
-			text-decoration: none;
-		}
-		a:hover{
-			color:#12b;
-		}
-		a:visited:hover{
-			color:#30a;
-			text-decoration: none;
-		}
-		button{
-			border-radius:5px;
-			user-select: none;
-			text-align: center;
-			background-color: #dee;
-			border: 2px solid #bcc;
-			margin: 5px;
-			width: 300px;
-			a{
-				text-decoration: none;
-				color: #134;
+			&:visited{
+				color:var(--link_color_ace);
 			}
-			a:visited{
-				color:#314;
-			}
-			img{
-				display: inline-block;
-				text-align: center;
+			&:hover{
+				color: var(--link_color_in);
+				&:visited{
+					color: var(--link_color_ace_in);
+				}
 			}
 		}
 		.osusume{
 			display: flex;
 			flex-wrap: wrap;
 			gap: 10px;
+			button{
+				width: 300px;
+			}
 		}
 		.onaji{
 			height: 200px;
+		}
+		ul{
+			list-style-type: disc;
 		}
 		.rss_css{
 			button{
@@ -105,8 +154,6 @@ body{
 					width: 20px;
 					height: 20px;
 				}
-				width: 32px;
-				height: 32px;
 			}
 			ul{
 				list-style-type: none;
@@ -115,16 +162,9 @@ body{
 					margin: 5px;
 					padding: 1px;
 					padding-left: 5px;
-					border: solid 1px #314;
+					border: solid 1px var(--acs_color);
 				}
 			}
-		}
-		button:hover{
-			background-color: #bcc;
-			border: 2px solid #9aa;
-		}
-		table{
-			border-collapse:	collapse;
 		}
 		th,td{
 			padding: 2px;
@@ -133,11 +173,11 @@ body{
 		.koumoku{
 			margin: 8px;
 			padding:0px;
-			border:2px solid #09e;
+			border:2px solid var(--kmk-vdo_bck_color);
 			h3{
 				margin: 0px;
 				padding:0px;
-				background-color: #09e;
+				background-color: var(--kmk-vdo_bck_color);
 			}
 			p{
 				margin:4px;
@@ -148,39 +188,36 @@ body{
 		}
 		.videosty{
 			border-radius: 5px;
-			background-color: #05c;
-			color: #edeeee;
+			background-color: var(--kmk-vdo_bck_color);
+			color: var(--vdo_acs_color);
 			margin: 1vh;
 			padding: 2px;
-
 			a{
-				color:#cbcfee;
+				color:var(--vdo_link_color);
 			}
 			a:hover{
-				color: #cbcfee;
-			}
-			a:visited:hover{
-				color: #cbcfee;
+				color: var(--vdo_link_in_color);
 			}
 			.title{
 				border-radius: 5px;
 				margin-top: 0px;
-				background-color: #57e;
+				background-color: var(--kmk-vdo_bck_color);
 				font-weight: bold;
 				padding: 2px;
 			}
 			.EX{
 				border-radius: 5px;
-				background-color: #e05;
+				background-color: var(--vdo_ex_bck_color);
 				padding: 2px;
 			}
 			.info{
 				border-radius: 5px;
 				padding: 2px;
-				background-color: #27d;
+				background-color: var(--vdo_inf_bck_color);
 			}
 		}
 		table{
+			border-collapse:	collapse;
 			tr{
 				margin: 10px;
 				th{
@@ -208,10 +245,17 @@ body{
 		bottom: 0;
 		left: 0;
 		width: 100%;
-		background-color: #a0aaee;
+		background-color: var(--haf_bck_color);
 		a{
-			h2{
-				color: #134;
+			color: var(--acs_color);
+			&:visited{
+				color: var(--acs_color);
+			}
+			&:hover{
+				color: var(--haf_link_in_color);
+				&:visited{
+					color: var(--haf_link_in_color);
+				}
 			}
 		}
 		button{
@@ -219,92 +263,6 @@ body{
 			width: 50px;
 			height: 50px;
 			font-size: 32px;
-		}
-	}
-}
-@media (prefers-color-scheme: dark) {
-	body {
-		background-color: #555;
-		color:#dde;
-		header{
-			background-color: #05c;
-			color:#dde;
-			a{
-				color:#cde;
-			}
-			a:visited{
-				color:#dce
-			}
-			a:hover{
-				color:#bee;
-			}
-			a:visited:hover{
-				color:#ebe
-			}
-			#hedaer_div_two{
-				img{
-					filter: invert(100%);
-				}
-			}
-		}
-		main,footer{
-			color:#dde;
-			a{
-				color:#2be
-			}
-			a:visited{
-				color:#b8e;
-			}
-			a:hover{
-				color:#4de;
-			}
-			a:hover:visited{
-				color:#eae;
-			}
-			button{
-				background-color: #bcc;
-				border: 2px solid #9aa;
-				color: #123;
-			}
-			button:hover{
-				background-color: #dee;
-				border: 2px solid #bcc;
-			}
-			.videosty{
-				a{
-					color:#cbcfee;
-				}
-				a:hover{
-					color: #cbcfee;
-				}
-				a:visited:hover{
-					color: #cbcfee;
-				}
-			}
-		}
-		footer{
-			background-color: #05c;
-			color:#dde;
-			a{
-				h2{
-					color:#cde;
-				}
-			}
-			a:visited{
-				h2{
-					color:#dce
-				}
-			}
-			a:hover{
-				h2{
-					color:#bee;
-				}
-			}
-			a:visited:hover{
-				h2{
-					color:#ebe
-				}
-			}
 		}
 	}
 }
