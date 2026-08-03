@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head id="head_div">
+		<meta name="robots" content="noindex, nofollow">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<meta http-equiv="Expires" content="86400">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="style.css">
+		<meta name="description" content="趣味プログラマー人間のホームページへ来てね">
+		<title>趣味プログラマー人間-設定</title>
+		<link rel="alternate" type="application/rss+xml" title="趣味プログラマー人間のホームページ" href="https://syumi-programmer-ningen.pages.dev/rss.xml">
+		<script defer src="script.js" ></script>
+		<meta name="google-site-verification" content="2fzWMwnm6Ni3SjJIUfw2ibt1j-UMgQ5rXe8K-PoUBSU" />
+	</head>
+	<body id="body">
+		<header>
+			<div id="hedaer_div"></div>
+			<div id="hedaer_div_two">
+				<img src="img/index.html.webp">
+				<h2>
+					設定
+				</h2>
+			</div>
+		</header>
+		<main>
+			<form>
+				<label>
+					テーマ
+				</label>
+				<select onchange="darkfo()" name="pets" id="theme_">
+					<option value="system">システムのテーマ</option>
+  				<option value="light">ライトテーマ</option>
+  				<option value="dark">ダークテーマ</option>
+				</select><br>
+				<label>
+					アクセントカラー
+				</label>
+				<input id="color" value="#00ccee" type="color">
+				<br>
+				<label>
+					デフォルト設定へ復元
+				</label>
+				<input type="checkbox" id="defolt">
+				<br>
+				<input onclick="ok()" type="button" value="決定">
+			</form>
+		</main>
+		 <footer>
+			 <div id="footer_div" >
+
+			 </div>
+		 </footer>
+		 <script>
+			let color=document.getElementById("color").value;
+			let theme=document.getElementById("theme_").value;
+			let colorNV=document.getElementById("color");
+			let defolt=document.getElementById("defolt").checked;
+			function isDarkMode() {
+  			return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+			}
+			if((isDarkMode())&&localStorage.getItem("site_dark")!="false")
+			{
+				colorNV.value="#1166bb"
+			}
+			function darkfo()
+			{
+				theme=document.getElementById("theme_").value;
+				if(theme=="light")
+				{
+					colorNV.value="#00ccee"
+				}
+				else if(theme=="dark")
+				{
+					colorNV.value="#1166bb"
+				}
+				else
+				{
+					if((isDarkMode())&&localStorage.getItem("site_dark")!="false")
+					{
+						colorNV.value="#1166bb"
+					}
+					else
+					{
+						colorNV.value="#00ccee"
+					}
+				}
+			}
+			function ok()
+			{
+				color=document.getElementById("color").value;
+				theme=document.getElementById("theme_").value
+				defolt=document.getElementById("defolt").checked;
+				localStorage.setItem("site_color",color)
+				if(theme=="light")
+				{
+					localStorage.setItem("site_dark","false");
+				}
+				else if(theme=="dark")
+				{
+					localStorage.setItem("site_dark","true");
+				}
+				if(defolt)
+				{
+					localStorage.removeItem("site_color");
+					localStorage.removeItem("site_dark");
+				}
+				window.location.reload();
+			}
+		 </script>
+	</body>
+</html>
