@@ -21,46 +21,26 @@
 	--vdo_ex_bck_color:#e05;
 	--vdo_inf_bck_color:#05e;
 }
-@media (prefers-color-scheme: dark) {
-	:root{
-		--bck_color:#444;
-		--haf_bck_color:#16b;
-		--haf_link_in_color:#bbb;
-		--haf_img_rod:invert(100%);
-		--acs_color:#ddd;
-		--btn_bck_color:#bbb;
-		--btn_bdr_color:#999;
-		--btn_in_img_rod:brightness(120%);
-		--link_color:#29d;
-		--link_color_ace:#b5e;
-		--link_color_ace_in:#d7e;
-		--kmk-vdo_bck_color:#27b;
-		--vdo_acs_color:#ddd;
-		--vdo_link_color:#cdd;
-		--vdo_link_in_color:#bbb;
-	}
-}
-*,
-*::before,
-*::after{
-  box-sizing: border-box;
+*{
+	box-sizing: border-box;
+	overflow-wrap: break-word;
 }
 html {
 	height: 100%;
 }
 @font-face {
-  font-family: 'MyFont-LINESeedJP';
-  src: url('/WOFF2/LINESeedJP_OTF_Rg.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+	font-family: 'MyFont-LINESeedJP';
+	src: url('/WOFF2/LINESeedJP_OTF_Rg.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
 @font-face {
-  font-family: 'MyFont-LINESeedJP';
-      src: url('/WOFF2/LINESeedJP_OTF_Bd.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+	font-family: 'MyFont-LINESeedJP';
+			src: url('/WOFF2/LINESeedJP_OTF_Bd.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
 }
 body{
 	font-family: 'MyFont-LINESeedJP',sans-serif;
@@ -135,6 +115,15 @@ body{
 					color: var(--link_color_ace_in);
 				}
 			}
+		}
+		a[target="_blank"]::after{
+			content: "　";
+			width: 0.9m;
+			height: 0.9em;
+			display:inline-block;
+			background-color: currentColor;
+			mask: url(/img/_brank.svg) no-repeat center;
+			mask-size: contain;
 		}
 		.osusume{
 			display: flex;

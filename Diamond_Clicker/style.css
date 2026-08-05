@@ -1,7 +1,7 @@
 *,
 *::before,
 *::after{
-    box-sizing: border-box;
+		box-sizing: border-box;
 }
 dialog {
 	padding: 1.5rem;
@@ -23,18 +23,18 @@ html, css{
 	max-height: 80vw;
 }
 @font-face {
-  font-family: 'MyFont-LINESeedJP';
-  src: url('/WOFF2/LINESeedJP_OTF_Rg.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+	font-family: 'MyFont-LINESeedJP';
+	src: url('/WOFF2/LINESeedJP_OTF_Rg.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
 @font-face {
-  font-family: 'MyFont-LINESeedJP';
-      src: url('/WOFF2/LINESeedJP_OTF_Bd.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+	font-family: 'MyFont-LINESeedJP';
+			src: url('/WOFF2/LINESeedJP_OTF_Bd.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
 }
 body {
 	font-family: 'MyFont-LINESeedJP',sans-serif;

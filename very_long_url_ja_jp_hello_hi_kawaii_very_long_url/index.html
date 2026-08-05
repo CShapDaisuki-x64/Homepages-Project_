@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<link rel="stylesheet" href="/style.css">
+		<script defer src="./script.js"></script>
 		<title>URL延長サービス</title>
 	</head>
 	<body id="body">
@@ -30,12 +31,12 @@
 					let B = Math.random()+A+Math.random()+A+Math.random()+A;
 					let C = Math.random()+B+Math.random()+B+Math.random()+B+Math.random()+B;
 					let URL=window.location.origin +
-    				window.location.pathname +
-    				"?q=" +
-    				encodeURIComponent(text_form.value) +
-    				"&URLLONGIMINAI=" +Math.random()+ C +
-    				"&ABCDEFGHIJK=" + Math.random()+C +
-    				"&VERYLONGURL=" + Math.random()+C +
+						window.location.pathname +
+						"?q=" +
+						encodeURIComponent(text_form.value) +
+						"&URLLONGIMINAI=" +Math.random()+ C +
+						"&ABCDEFGHIJK=" + Math.random()+C +
+						"&VERYLONGURL=" + Math.random()+C +
 						"&TIMESTAMP="+Date.now() +
 						"&TEXTS="+text_form.value.charCodeAt(0) +
 						"&a="+encodeURIComponent(text_form.value);
@@ -47,7 +48,7 @@
 			const target = params.get("q");
 			if (target) {
 				 document.body.innerHTML = "<h2>リダイレクトしています...</h2>";
-    		window.location.href = target;
+				window.location.href = target;
 			}
 		</script>
 	</body>
