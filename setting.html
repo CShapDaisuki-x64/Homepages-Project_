@@ -32,8 +32,8 @@
 				</label>
 				<select onchange="darkfo()" name="pets" id="theme_">
 					<option value="system">システムのテーマ</option>
-  				<option value="light">ライトテーマ</option>
-  				<option value="dark">ダークテーマ</option>
+					<option value="light">ライトテーマ</option>
+					<option value="dark">ダークテーマ</option>
 				</select><br>
 				<label>
 					アクセントカラー
@@ -59,7 +59,7 @@
 			let colorNV=document.getElementById("color");
 			let defolt=document.getElementById("defolt").checked;
 			function isDarkMode() {
-  			return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+				return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 			}
 			if((isDarkMode())&&localStorage.getItem("site_dark")!="false")
 			{
