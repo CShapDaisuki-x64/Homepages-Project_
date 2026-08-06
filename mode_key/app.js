@@ -1,6 +1,8 @@
+import { open_window } from "./script.js";
 const desktop = document.querySelector('.desktop');
 const dialogtemplate = document.querySelector('.dialog-template');
 const taskbar=document.querySelector(".taskbar");
+
 let saved_Items;
 async function LoadJson()
 {
