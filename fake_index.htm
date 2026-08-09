@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head id="head_div">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<meta http-equiv="Expires" content="86400">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="robots" content="noindex, nofollow">
+		<meta name="description" content="趣味プログラマー人間のホームページへ来てね">
+		<title>趣味プログラマー人間-ホームページ</title>
+		<link rel="alternate" type="application/rss+xml" title="趣味プログラマー人間のホームページ" href="https://syumi-programmer-ningen.pages.dev/rss.xml">
+		<script defer type="module" type="module" >
+			fetch('rss.xml')
+			.then(response => {
+				console.log("1. rss.xmlの取得ステータス:", response.status);
+				if (!response.ok) throw new Error('ネットワークエラー');
+				return response.text();
+			})
+			.then(str => {
+				console.log("2. 取得した文字列の長さ:", str.length);
+				const parser = new DOMParser();
+				const xmlDoc = parser.parseFromString(str, "text/xml");
+				// パースエラーがないかチェック
+				const parserError = xmlDoc.getElementsByTagName("parsererror");
+				if (parserError.length > 0) {
+					console.error("XMLのパースエラー:", parserError[0].textContent);
+					throw new Error("XMLの形式が正しくありません");
+				}
+				const items = xmlDoc.getElementsByTagName("item");
+				console.log("3. 見つかったitemの数:", items.length);
+				// 画面の要素を待つ
+				const setupList = () => {
+					const list = document.getElementById("rss");
+					if (!list) {
+						console.error("4. エラー: id='rss' の要素が見つかりません");
+						return;
+					}
+					if (items.length === 0) {
+						list.innerHTML = "<li>お知らせはありません（itemが0件）</li>";
+						return;
+					}
+					list.innerHTML = "";
+					for (let i = 0; i < Math.min(items.length, 5); i++) {
+						const titleEl = items[i].getElementsByTagName("title")[0];
+						const linkEl = items[i].getElementsByTagName("link")[0];
+						const title = titleEl ? titleEl.textContent : "タイトルなし";
+						const link = linkEl ? linkEl.textContent : "#";
+						const li = document.createElement("li");
+						li.innerHTML = `<a href="${link}">${title}</a>`;
+						list.appendChild(li);
+					}
+					console.log("5. 画面への追加が完了しました！");
+				};
+
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', setupList);
+				} else {
+					setupList();
+				}
+			})
+			.catch(err => {
+				console.error("キャッチされたエラー:", err);
+				const showSubError = () => {
+					const list = document.getElementById("rss");
+					if (list) list.innerHTML = `<li>読み込み失敗: ${err.message}</li>`;
+				};
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', showSubError);
+				} else {
+					showSubError();
+				}
+			});
+		</script>
+	</head>
+	<body id="body">
+		<header>
+			<div id="hedaer_div">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<div style="display: flex;align-items: center;">
+	<a href="/index.html"
+		target="_top"
+		style="display: flex;">
+		<img src="/enpitsu.webp" width="60" height="60">
+		<h1>
+			趣味プログラマー人間のホームページ
+		</h1>
+	</a>
+	<button onclick="window.location.href='https://cse.google.com/cse?cx=7620a4ecc1efa4f99#gsc.tab=0';" style="height: 50px;width: 50px;font-size: 150%;font-variant-emoji: text;margin: 10px;">
+		🔍
+	</button>
+</div>
+<details>
+	<summary>
+		ページ一覧
+	</summary>
+	<nav>
+		<ul>
+			<li>
+				<a target="_top" href="/index.html">
+					HOME
+				</a>
+			</li>
+			<li>
+				<a target="_top" href="/about.html">
+					サイト概要
+				</a>
+			</li>
+			<li>
+				<a target="_top" href="/new_profile.html">
+					プロフィール
+				</a>
+			</li>
+			<li>
+				<a target="_top" href="/oshirase.html">
+					お知らせ
+				</a>
+			</li>
+			<li>
+				<a target="_top" href="/create.html">
+					作品
+				</a>
+			</li>
+			<li>
+				<a target="_top" href="/video.html">
+					動画ID検索
+				</a>
+			</li>
+			<li>
+				<a target="_top" href="/rss.html">
+					RSS
+				</a>
+			</li>
+			<li>
+				<a target="_top" href="/Diamond_Clicker_Web_Beta/index.html">
+					Diamond_Clicker_Web
+				</a>
+			</li>
+			<li>
+				<a target="_top" href="/mode_key/index.html">
+					mode keyOSもどき
+				</a>
+			</li>
+			<li>
+				<a target="_top" href="/games/index.html">
+					Games
+				</a>
+			</li>
+			<li>
+				<a target="_top" href="/very_long_url_ja_jp_hello_hi_kawaii_very_long_url/index.html">
+					URL延長サービス
+				</a>
+			</li>
+			<li>
+				<a target="_top" href="/setting.html">
+					設定
+				</a>
+			</li>
+			<li>
+				<a target="_top" href="/toiawase.html">
+					問い合わせ
+				</a>
+			</li>
+			<li>
+				<a target="_top" href="/license.html">
+					利用規約
+				</a>
+			</li>
+		</ul>
+	</nav>
+</details>
+			</div><br>
+			<div id="hedaer_div_two">
+				<img id="sad" src="img/index.html.webp">
+				<h2>
+					ホームページ
+				</h2>
+			</div>
+		</header>
+		<main>
+			<div style="background-color: #ffff00;">
+				<hr/>
+					<p style="color: #000000;">
+						※Chromiumで見て下さい！<br>
+						<a href="index.html">
+							オシャレなのはこっち！
+						</a>
+					</p>
+				<hr/>
+			</div>
+			<b style="font-size: 32px;" id="niji_color">
+				<i>
+					趣味プログラマー人間のホームページへようこそ！！
+				</i>
+			</b>
+			<p>
+				このサイトは独自ランキングNo1のゲーム"Diamond_Clicker"(※1)を作った趣味プログラマー人間のホームページです
+			</p>
+			<p>
+				※1:調査人数10人
+			</p>
+			<div class="osusume">
+				<button onclick="window.location.href = 'Diamond_Clicker_Web_Beta/index.html';" class="onaji">
+					<img src="Diamond_Clicker_Web_Beta/img/daiya.webp" width="100">
+					<br>
+					<strong style="font-size: 16px;">
+						Diamond_Clicker(Web)
+					</strong>
+					<br>
+					あのまぁまぁ人気を誇る
+					<br>
+					面白いゲームです。
+				</button>
+				<button onclick="window.location.href = 'create.html';"class="onaji">
+					<img src="create.webp" width="100">
+					<br>
+					<strong style="font-size: 16px;">
+						作品
+					</strong>
+					<br>
+					私が作ったヤツです<br>色々あるよ
+				</button>
+				<button onclick="window.location.href = 'QandA.html'"class="onaji">
+					<img src="enpitsu.webp" width="100">
+					<br>
+					<strong style="font-size: 16px;">
+						サイト概要
+					</strong>
+					<br>
+					サイトの紹介です
+				</button>
+			</div>
+
+			<div class="rss_css">
+				<b style="font-size: 25px;">お知らせ</b>
+				<button onclick="window.location.href = 'rss.xml'">
+					<img src="rss.svg">
+				</button>
+				<ul id="rss">
+					<li>
+						読み込み中
+					</li>
+				</ul>
+			</div>
+		</main>
+		 <footer>
+			 <div id="footer_div" >
+<div style="display: flex;">
+	<a href="/index.html"
+		target="_top"
+		style="display: flex;">
+		<img src="/enpitsu.webp" width="60" height="60">
+		<h2>
+			趣味プログラマー人間のホームページ
+		</h2>
+	</a>
+</div>
+<button id="sdai" onclick="window.scrollTo(0,0);">
+	↑
+</button>
+<br>
+<a href="//x.com/compose/post?text=https://syumi-programmer-ningen.pages.dev">
+	<img src="/img/Xto.webp" alt="Xで拡散">
+</a>
+<a href="mailto:?body=https://syumi-programmer-ningen.pages.dev">
+	<img src="/img/mailto.webp" alt="メールで拡散">
+</a>
+<a href="javascript:navigator.clipboard.writeText('https://syumi-programmer-ningen.pages.dev');">
+	<img src="/img/URLcopy.webp" alt="URLをコピー">
+</a>
+<br>
+<a href="/toiawase.html">
+	お問い合わせ
+</a>
+<p>
+	S1.0.5_D3.0.0
+</p>
+<script>
+	if(localStorage.getItem('Site_OK') != "true")
+{
+	let bur = document.createElement('dialog');
+	bur.id="bur";
+	bur.style="position:fixed;bottom:0px;left:0px;right:0px;margin:0px;width: 100%;";
+	bur.innerHTML=`<iframe width="200" height="300px" src='/license.js.html'><a href='/license.html'>iframe対応してない人はここ</a></iframe><button onclick='localStorage.setItem("Site_OK","true");this.closest("dialog").close();this.closest("dialog").remove();'>同意する</button><button onclick='localStorage.setItem("Site_OK","false");window.location.href="/license.go.html";'>同意しない</button>`;
+	document.body.appendChild(bur);
+	bur.show();
+}
+</script>
+
+			 </div>
+		 </footer>
+	</body>
+	<style>
+		html{
+			margin: 10px;
+		}
+		main{
+			background-color: #ff00ff;
+			color:#ffffff;
+		}
+		header{
+			display: flex;
+			background-color: #00ff00;
+		}
+		#hedaer_div_two{
+			display: flex;
+		}
+		#sad{
+			display: flex;
+			width: 50px;
+		}
+		footer{
+			background-color: #0000ff;
+			color: #ff0000;
+		}
+		footer a{
+			color: #00ffff;
+		}
+		#sdai{
+			width: 50px;
+			height: 50px;
+		}
+		#niji_color{
+			color: transparent;
+			background: linear-gradient(to right,#ff0000,#ffff00,#00ff00,#00ffff,#0000ff,#ff00ff,#ff0000);
+			background-clip: text;
+			-webkit-background-clip: text;
+			background-image : 趣味プログラマー人間のホームページへようこそ！！;
+			color: transparent;
+		}
+		button{
+			font-family: "MS Mincho","Osaka",sans-serif;
+			width: 300px;
+			height: 300px;
+		}
+		.osusume button img{
+			width: 50px;
+		}
+		.rss_css button{
+			width: 50px;
+			height: 50px;
+		}
+		body{
+			font-family: "MS Mincho","Osaka",sans-serif;
+			font-weight: 1000;
+		}
+		b{
+			font-weight: 1000;
+		}
+	</style>
+</html>
