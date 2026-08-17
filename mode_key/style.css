@@ -54,7 +54,7 @@ html{
 body{
 	font-family: 'MyFont-LINESeedJP',sans-serif;
 	font-variant-emoji: text;
-	background-image: url("./img/back.webp");
+	background-image: url("./img/back.avif");
 	height: 100%;
 	margin: 0px;
 	iframe{
