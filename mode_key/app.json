@@ -1,37 +1,37 @@
 {
 	"modekey_help":{
 		"name":"mode keyOSもどきについて",
-		"img":"./img/modekey.mini.webp",
+		"img":"./img/modekey.mini.avif",
 		"app":"./app/info.html",
 		"desktop":true
 	},
 	"notepad":{
 		"name":"メモ帳",
-		"img":"./img/notepad.webp",
+		"img":"./img/notepad.avif",
 		"app":"./app/textedit.html",
 		"desktop":true
 	},
 	"image":{
 		"name":"画像閲覧",
-		"img":"./img/image.webp",
-		"app":"./app/image.html?q=../img/image.webp",
+		"img":"./img/image.avif",
+		"app":"./app/image.html?q=../img/image.avif",
 		"desktop":false
 	},
 	"audioandvideo":{
 		"name":"プレイヤー",
-		"img":"./img/audio.webp",
+		"img":"./img/audio.avif",
 		"app":"./app/video.html?q=test.mp4",
 		"desktop":false
 	},
 	"Diamond_Clicker":{
 		"name":"Diamond_Clicker",
-		"img":"/Diamond_Clicker/img/daiya.webp",
+		"img":"/Diamond_Clicker/img/daiya.avif",
 		"app":"/Diamond_Clicker/index.html",
 		"desktop":false
 	},
 	"Games":{
 		"name":"ゲーム！！",
-		"img":"/games/img/game.webp",
+		"img":"/games/img/game.avif",
 		"app":"/games/index.html",
 		"desktop":false
 	}
