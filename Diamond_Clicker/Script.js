@@ -89,7 +89,6 @@ function JSONin(JSONs)
 {
 	try
 	{
-	localStorage.clear();
 	const data = JSON.parse(JSONs);
 	for (const [key, value] of Object.entries(data))
 	{
@@ -144,21 +143,30 @@ function deletes()
 		var gati = confirm("本当に本当に削除しますか？！")
 		if (gati)
 		{
-			localStorage.clear();
+			localStorage.removeItem("Ck");
+			localStorage.removeItem("Main");
+			localStorage.removeItem("S");
+			localStorage.removeItem("Shop_Items");
+			localStorage.removeItem("tense");
+			localStorage.removeItem("Ck_Plus");
+			localStorage.removeItem("S_Plus");
+			localStorage.removeItem("$Tensei_Shop_Items");
+			localStorage.removeItem("$Ck");
+			localStorage.removeItem("$S");
 			document.getElementById('Shop_Ok_audio').currentTime = 0; //連続クリックに対応
 			document.getElementById('Shop_Ok_audio').play();
-			window.location.reload();
 			alert("削除できました");
+			window.location.reload();
 		}
 
 	}
 }
 function dels()
 {
-				Main = 0;
-			Ck = 1;
-			S = 0;
-			Shop_Del();
+	Main = 0;
+	Ck = 1;
+	S = 0;
+	Shop_Del();
 }
 function TimerOne()
 {
