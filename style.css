@@ -242,6 +242,17 @@ body{
 		.svg_nocolor{
 			filter: var(--haf_img_rod);
 		}
+		input{
+			background-color: var(--btn_bck_color);
+			border: solid 2px var(--btn_bdr_color);
+			border-radius: 5px;
+			&[type="color"]{
+				width: 70px;
+			}
+			&[type="range"]{
+				accent-color: var(--haf_bck_color);
+			}
+		}
 	}
 	main{
 		flex: 1;
