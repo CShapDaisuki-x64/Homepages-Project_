@@ -22,13 +22,17 @@ export function style()
 const thema = window.matchMedia('(prefers-color-scheme: dark)').matches;
 const dark =
 `	:root{
+		color-scheme: light dark;
 		--bck_color:#444;
 		--haf_bck_color:#16b;
 		--haf_link_in_color:#bbb;
 		--haf_img_rod:invert(100%);
 		--acs_color:#ddd;
-		--btn_bck_color:#bbb;
-		--btn_bdr_color:#999;
+		--btn_bck_in_color:#777;
+		--btn_bdr_in_color:#999;
+		--btn_bck_color:#555;
+		--btn_bdr_color:#777;
+		--btn_txt_color:#ddd;
 		--btn_in_img_rod:brightness(120%);
 		--link_color:#29d;
 		--link_color_ace:#c6e;

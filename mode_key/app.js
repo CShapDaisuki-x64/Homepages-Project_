@@ -1,4 +1,4 @@
-import { open_window } from "./script.js";
+import { open_window } from "./script.min.js";
 const desktop = document.querySelector('.desktop');
 const dialogtemplate = document.querySelector('.dialog-template');
 const taskbar=document.querySelector(".taskbar");

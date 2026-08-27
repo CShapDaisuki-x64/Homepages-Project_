@@ -239,6 +239,9 @@ body{
 			content: "目次";
 			font-size: 20px;
 		}
+		.svg_nocolor{
+			filter: var(--haf_img_rod);
+		}
 	}
 	main{
 		flex: 1;
@@ -267,7 +270,4 @@ body{
 			font-size: 32px;
 		}
 	}
-}
-:root {
-	color-scheme: light dark;
 }
