@@ -17,8 +17,7 @@ let rss = `
 `;
 async function LoadJson()
 {
-	let response = await fetch('https://syumi-programmer-ningen.pages.dev/oshirase.json');
-	const saved_Items = await response.json();
+	const saved_Items = JSON.parse(fs.readFileSync("oshirase.json", "utf8"));
 	Load_View(saved_Items);
 }
 function Load_View(items)
