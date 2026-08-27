@@ -129,8 +129,19 @@ body{
 			button{
 				aspect-ratio: 1/1;
 			}
+			.rss_css_two
+			{
+				border: solid 1px var(--acs_color);
+				border-radius: 5px;
+				padding: 3px;
+				overflow-y:auto;
+				width: 95vw;
+				height: 250px;
+			}
 			ul{
 				list-style-type: none;
+    		margin: 0;
+    		padding: 0;
 				li{
 					border-radius:5px;
 					margin: 5px;
@@ -256,4 +267,7 @@ body{
 			font-size: 32px;
 		}
 	}
+}
+:root {
+	color-scheme: light dark;
 }

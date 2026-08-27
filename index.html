@@ -12,68 +12,6 @@
 		<title>趣味プログラマー人間-ホームページ</title>
 		<link rel="alternate" type="application/rss+xml" title="趣味プログラマー人間のホームページ" href="https://syumi-programmer-ningen.pages.dev/now_rss.xml">
 		<script defer type="module" type="module"	src="script.min.js" ></script>
-		<script defer type="module" type="module" >
-			fetch('now_rss.xml')
-			.then(response => {
-				console.log("1. now_rss.xmlの取得ステータス:", response.status);
-				if (!response.ok) throw new Error('ネットワークエラー');
-				return response.text();
-			})
-			.then(str => {
-				console.log("2. 取得した文字列の長さ:", str.length);
-				const parser = new DOMParser();
-				const xmlDoc = parser.parseFromString(str, "text/xml");
-				// パースエラーがないかチェック
-				const parserError = xmlDoc.getElementsByTagName("parsererror");
-				if (parserError.length > 0) {
-					console.error("XMLのパースエラー:", parserError[0].textContent);
-					throw new Error("XMLの形式が正しくありません");
-				}
-				const items = xmlDoc.getElementsByTagName("item");
-				console.log("3. 見つかったitemの数:", items.length);
-				// 画面の要素を待つ
-				const setupList = () => {
-					const list = document.getElementById("rss");
-					if (!list) {
-						console.error("4. エラー: id='rss' の要素が見つかりません");
-						return;
-					}
-					if (items.length === 0) {
-						list.innerHTML = "<li>お知らせはありません（itemが0件）</li>";
-						return;
-					}
-					list.innerHTML = "";
-					for (let i = 0; i < Math.min(items.length, 5); i++) {
-						const titleEl = items[i].getElementsByTagName("title")[0];
-						const linkEl = items[i].getElementsByTagName("link")[0];
-						const title = titleEl ? titleEl.textContent : "タイトルなし";
-						const link = linkEl ? linkEl.textContent : "#";
-						const li = document.createElement("li");
-						li.innerHTML = `<a href="${link}">${title}</a>`;
-						list.appendChild(li);
-					}
-					console.log("5. 画面への追加が完了しました！");
-				};
-
-				if (document.readyState === 'loading') {
-					document.addEventListener('DOMContentLoaded', setupList);
-				} else {
-					setupList();
-				}
-			})
-			.catch(err => {
-				console.error("キャッチされたエラー:", err);
-				const showSubError = () => {
-					const list = document.getElementById("rss");
-					if (list) list.innerHTML = `<li>読み込み失敗: ${err.message}</li>`;
-				};
-				if (document.readyState === 'loading') {
-					document.addEventListener('DOMContentLoaded', showSubError);
-				} else {
-					showSubError();
-				}
-			});
-		</script>
 		<meta name="google-site-verification" content="2fzWMwnm6Ni3SjJIUfw2ibt1j-UMgQ5rXe8K-PoUBSU" />
 	</head>
 	<body id="body">
@@ -154,11 +92,13 @@
 				<button onclick="window.location.href = 'now_rss.xml'">
 					<img src="rss.svg">
 				</button>
-				<ul id="rss">
-					<li>
-						読み込み中
-					</li>
-				</ul>
+				<div class="rss_css_two">
+					<ul id="rss">
+						<li>
+							読み込み中
+						</li>
+					</ul>
+				</div>
 			</div>
 		</main>
 		 <footer>
@@ -166,5 +106,29 @@
 
 			 </div>
 		 </footer>
+		 <script>
+			const ShopBox = document.querySelector('#rss');
+			let saved_Items;
+			async function LoadJson()
+			{
+				let response = await fetch('oshirase.json');
+				saved_Items = await response.json();
+				Load_View(saved_Items);
+				scrollToHash();
+			}
+			function Load_View(items)
+			{
+				ShopBox.innerHTML = '';
+				Object.keys(items).sort((a, b) => b.localeCompare(a)).forEach(key => {
+					const item = items[key];
+					const btn = document.createElement('li');
+					btn.innerHTML = `
+					<a>${item.title}</a>
+					`;
+					ShopBox.appendChild(btn);
+				});
+			}
+			LoadJson();
+		</script>
 	</body>
 </html>
