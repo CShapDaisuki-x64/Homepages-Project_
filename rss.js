@@ -1,6 +1,5 @@
 const fs = require("fs");
-let rss = `
-	<?xml version="1.0" encoding="UTF-8"?>
+let rss = `<?xml version="1.0" encoding="UTF-8"?>
 	<feed xmlns="http://www.w3.org/2005/Atom">
 		<link href="https://syumi-programmer-ningen.pages.dev/now_rss.xml" rel="self" type="application/atom+xml"/>
 		<title>趣味プログラマー人間のホームページ</title>
