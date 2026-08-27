@@ -10,12 +10,12 @@
 		<link rel="stylesheet" href="style.css">
 		<meta name="description" content="趣味プログラマー人間のホームページへ来てね">
 		<title>趣味プログラマー人間-ホームページ</title>
-		<link rel="alternate" type="application/rss+xml" title="趣味プログラマー人間のホームページ" href="https://syumi-programmer-ningen.pages.dev/rss.xml">
-		<script defer type="module" type="module"	src="script.js" ></script>
+		<link rel="alternate" type="application/rss+xml" title="趣味プログラマー人間のホームページ" href="https://syumi-programmer-ningen.pages.dev/now_rss.xml">
+		<script defer type="module" type="module"	src="script.min.js" ></script>
 		<script defer type="module" type="module" >
-			fetch('rss.xml')
+			fetch('now_rss.xml')
 			.then(response => {
-				console.log("1. rss.xmlの取得ステータス:", response.status);
+				console.log("1. now_rss.xmlの取得ステータス:", response.status);
 				if (!response.ok) throw new Error('ネットワークエラー');
 				return response.text();
 			})
@@ -126,10 +126,32 @@
 					<br>
 					サイトの紹介です
 				</button>
+				<button onclick="window.location.href = './fake_index.htm';" class="onaji">
+					<img src="/img/index_fake.html.avif" width="100">
+					<br>
+					<strong style="font-size: 16px;">
+						ﾎｰﾑﾍﾟｰｼﾞ(ｸｿﾀﾞｻ版)
+					</strong>
+					<br>
+					虹色だったりしてｸｿﾀﾞｻい
+					<br>
+					眩しい(物理)なページです
+				</button>
+				<button onclick="window.location.href = './AI_Diamond_Clicker/index.html';" class="onaji">
+					<img src="/img/ChatGPT Image 2026年8月27日 10_34_23.avif" width="100">
+					<br>
+					<strong style="font-size: 16px;">
+						AI_Diamond_Clicker
+					</strong>
+					<br>
+					ChatGPT様が作ってくださったDiamond_Clickerです
+					<br>
+					私がいらなくなるかもね
+				</button>
 			</div>
 			<div class="rss_css">
 				<b style="font-size: 25px;">お知らせ</b>
-				<button onclick="window.location.href = 'rss.xml'">
+				<button onclick="window.location.href = 'now_rss.xml'">
 					<img src="rss.svg">
 				</button>
 				<ul id="rss">

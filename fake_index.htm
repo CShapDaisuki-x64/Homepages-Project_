@@ -10,11 +10,11 @@
 		<meta name="robots" content="noindex, nofollow">
 		<meta name="description" content="趣味プログラマー人間のホームページへ来てね">
 		<title>趣味プログラマー人間-ホームページ</title>
-		<link rel="alternate" type="application/rss+xml" title="趣味プログラマー人間のホームページ" href="https://syumi-programmer-ningen.pages.dev/rss.xml">
+		<link rel="alternate" type="application/rss+xml" title="趣味プログラマー人間のホームページ" href="https://syumi-programmer-ningen.pages.dev/now_rss.xml">
 		<script defer type="module" type="module" >
-			fetch('rss.xml')
+			fetch('now_rss.xml')
 			.then(response => {
-				console.log("1. rss.xmlの取得ステータス:", response.status);
+				console.log("1. now_rss.xmlの取得ステータス:", response.status);
 				if (!response.ok) throw new Error('ネットワークエラー');
 				return response.text();
 			})
@@ -234,7 +234,7 @@
 
 			<div class="rss_css">
 				<b style="font-size: 25px;">お知らせ</b>
-				<button onclick="window.location.href = 'rss.xml'">
+				<button onclick="window.location.href = 'now_rss.xml'">
 					<img src="rss.svg">
 				</button>
 				<ul id="rss">

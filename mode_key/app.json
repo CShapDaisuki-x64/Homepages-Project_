@@ -25,9 +25,9 @@
 	},
 	"Diamond_Clicker":{
 		"name":"Diamond_Clicker",
-		"img":"/Diamond_Clicker/img/daiya.avif",
+		"img":"/Diamond_Clicker/img/daiya.webp",
 		"app":"/Diamond_Clicker/index.html",
-		"desktop":false
+		"desktop":true
 	},
 	"Games":{
 		"name":"ゲーム！！",

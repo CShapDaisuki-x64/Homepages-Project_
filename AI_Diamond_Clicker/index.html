@@ -1,0 +1,764 @@
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Diamond Clicker</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111827;
+            color: white;
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+            background: #1f2937;
+            border-bottom: 1px solid #374151;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .game {
+            display: flex;
+            min-height: calc(100vh - 80px);
+        }
+
+        /* 左側 */
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .diamond-count {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .per-second {
+            color: #9ca3af;
+        }
+
+        #diamond {
+            width: 220px;
+            height: 220px;
+            cursor: pointer;
+            user-select: none;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 130px;
+
+            filter: drop-shadow(0 0 25px #38bdf8);
+
+            transition:
+                transform 0.08s,
+                filter 0.2s;
+        }
+
+        #diamond:hover {
+            filter: drop-shadow(0 0 40px #38bdf8);
+        }
+
+        #diamond:active {
+            transform: scale(0.85);
+        }
+
+        /* 右側 */
+        .shop {
+            width: 350px;
+            background: #1f2937;
+            padding: 20px;
+            border-left: 1px solid #374151;
+            overflow-y: auto;
+        }
+
+        .shop h2 {
+            margin-top: 0;
+        }
+
+        .upgrade {
+            width: 100%;
+            margin-bottom: 12px;
+            padding: 15px;
+
+            border: 1px solid #374151;
+            border-radius: 10px;
+
+            background: #111827;
+            color: white;
+
+            cursor: pointer;
+            text-align: left;
+
+            transition: 0.15s;
+        }
+
+        .upgrade:hover {
+            background: #273449;
+            transform: translateY(-2px);
+        }
+
+        .upgrade:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .upgrade-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .upgrade-description {
+            margin-top: 5px;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .upgrade-price {
+            margin-top: 10px;
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        .stats {
+            margin-top: 20px;
+            padding: 15px;
+
+            background: #111827;
+            border-radius: 10px;
+        }
+
+        .float-text {
+            position: fixed;
+            pointer-events: none;
+
+            font-size: 24px;
+            font-weight: bold;
+
+            color: #38bdf8;
+
+            animation: floatUp 0.8s ease-out forwards;
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-80px);
+            }
+        }
+
+        @media (max-width: 700px) {
+            .game {
+                flex-direction: column;
+            }
+
+            .shop {
+                width: 100%;
+                border-left: none;
+                border-top: 1px solid #374151;
+            }
+
+            .main {
+                min-height: 500px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>💎 Diamond Clicker</h1>
+</header>
+
+<div class="game">
+
+    <main class="main">
+
+        <div class="diamond-count">
+            💎 <span id="diamondCount">0</span>
+        </div>
+
+        <div class="per-second">
+            毎秒 <span id="perSecond">0</span> ダイヤ
+        </div>
+
+        <div id="diamond">
+            💎
+        </div>
+
+        <div>
+            クリック：+<span id="clickPower">1</span> 💎
+        </div>
+
+    </main>
+
+
+    <aside class="shop">
+
+        <h2>ショップ</h2>
+
+        <button class="upgrade" id="pickaxeButton">
+            <div class="upgrade-name">
+                ⛏️ 自動ツルハシ
+            </div>
+
+            <div class="upgrade-description">
+                1秒ごとにダイヤを採掘します。
+            </div>
+
+            <div class="upgrade-price">
+                💎 <span id="pickaxePrice">10</span>
+            </div>
+
+            <div>
+                所持数：<span id="pickaxeCount">0</span>
+            </div>
+        </button>
+
+
+        <button class="upgrade" id="drillButton">
+            <div class="upgrade-name">
+                🛠️ ダイヤモンドドリル
+            </div>
+
+            <div class="upgrade-description">
+                1秒ごとに大量のダイヤを採掘します。
+            </div>
+
+            <div class="upgrade-price">
+                💎 <span id="drillPrice">100</span>
+            </div>
+
+            <div>
+                所持数：<span id="drillCount">0</span>
+            </div>
+        </button>
+
+
+        <button class="upgrade" id="factoryButton">
+            <div class="upgrade-name">
+                🏭 ダイヤ工場
+            </div>
+
+            <div class="upgrade-description">
+                圧倒的なダイヤ生産力。
+            </div>
+
+            <div class="upgrade-price">
+                💎 <span id="factoryPrice">1000</span>
+            </div>
+
+            <div>
+                所持数：<span id="factoryCount">0</span>
+            </div>
+        </button>
+
+
+        <button class="upgrade" id="clickUpgradeButton">
+            <div class="upgrade-name">
+                💪 強化クリック
+            </div>
+
+            <div class="upgrade-description">
+                クリックで獲得できるダイヤを増やします。
+            </div>
+
+            <div class="upgrade-price">
+                💎 <span id="clickUpgradePrice">50</span>
+            </div>
+
+            <div>
+                レベル：<span id="clickUpgradeCount">0</span>
+            </div>
+        </button>
+
+
+        <div class="stats">
+
+            <h3>📊 統計</h3>
+
+            <p>
+                総獲得ダイヤ：
+                <span id="totalDiamond">0</span>
+            </p>
+
+            <p>
+                クリック回数：
+                <span id="clickCount">0</span>
+            </p>
+
+            <p>
+                クリティカル：
+                <span id="criticalCount">0</span>
+            </p>
+
+        </div>
+
+    </aside>
+
+</div>
+
+
+<script>
+
+    /* =========================
+       ゲームデータ
+    ========================= */
+
+    const game = {
+
+        diamond: 0,
+
+        totalDiamond: 0,
+
+        clickCount: 0,
+
+        criticalCount: 0,
+
+        clickPower: 1,
+
+        pickaxe: 0,
+
+        drill: 0,
+
+        factory: 0,
+
+        clickUpgrade: 0
+
+    };
+
+
+    /* =========================
+       価格
+    ========================= */
+
+    function getPickaxePrice() {
+
+        return Math.floor(
+            10 * Math.pow(1.15, game.pickaxe)
+        );
+
+    }
+
+
+    function getDrillPrice() {
+
+        return Math.floor(
+            100 * Math.pow(1.15, game.drill)
+        );
+
+    }
+
+
+    function getFactoryPrice() {
+
+        return Math.floor(
+            1000 * Math.pow(1.15, game.factory)
+        );
+
+    }
+
+
+    function getClickUpgradePrice() {
+
+        return Math.floor(
+            50 * Math.pow(1.5, game.clickUpgrade)
+        );
+
+    }
+
+
+    /* =========================
+       毎秒の生産量
+    ========================= */
+
+    function getPerSecond() {
+
+        const pickaxe =
+            game.pickaxe * 1;
+
+        const drill =
+            game.drill * 10;
+
+        const factory =
+            game.factory * 100;
+
+        return pickaxe + drill + factory;
+
+    }
+
+
+    /* =========================
+       UI更新
+    ========================= */
+
+    function updateUI() {
+
+        document.getElementById("diamondCount")
+            .textContent =
+            Math.floor(game.diamond).toLocaleString();
+
+        document.getElementById("totalDiamond")
+            .textContent =
+            Math.floor(game.totalDiamond).toLocaleString();
+
+        document.getElementById("clickCount")
+            .textContent =
+            game.clickCount.toLocaleString();
+
+        document.getElementById("criticalCount")
+            .textContent =
+            game.criticalCount.toLocaleString();
+
+        document.getElementById("clickPower")
+            .textContent =
+            game.clickPower.toLocaleString();
+
+        document.getElementById("perSecond")
+            .textContent =
+            getPerSecond().toLocaleString();
+
+
+        document.getElementById("pickaxeCount")
+            .textContent =
+            game.pickaxe;
+
+        document.getElementById("drillCount")
+            .textContent =
+            game.drill;
+
+        document.getElementById("factoryCount")
+            .textContent =
+            game.factory;
+
+        document.getElementById("clickUpgradeCount")
+            .textContent =
+            game.clickUpgrade;
+
+
+        document.getElementById("pickaxePrice")
+            .textContent =
+            getPickaxePrice().toLocaleString();
+
+        document.getElementById("drillPrice")
+            .textContent =
+            getDrillPrice().toLocaleString();
+
+        document.getElementById("factoryPrice")
+            .textContent =
+            getFactoryPrice().toLocaleString();
+
+        document.getElementById("clickUpgradePrice")
+            .textContent =
+            getClickUpgradePrice().toLocaleString();
+
+
+        document.getElementById("pickaxeButton")
+            .disabled =
+            game.diamond < getPickaxePrice();
+
+        document.getElementById("drillButton")
+            .disabled =
+            game.diamond < getDrillPrice();
+
+        document.getElementById("factoryButton")
+            .disabled =
+            game.diamond < getFactoryPrice();
+
+        document.getElementById("clickUpgradeButton")
+            .disabled =
+            game.diamond < getClickUpgradePrice();
+
+    }
+
+
+    /* =========================
+       ダイヤ追加
+    ========================= */
+
+    function addDiamond(amount) {
+
+        game.diamond += amount;
+
+        game.totalDiamond += amount;
+
+        updateUI();
+
+    }
+
+
+    /* =========================
+       ダイヤクリック
+    ========================= */
+
+    document.getElementById("diamond")
+        .addEventListener("click", function(event) {
+
+            game.clickCount++;
+
+
+            let amount =
+                game.clickPower;
+
+
+            /*
+             * 5%でクリティカル
+             */
+
+            if (Math.random() < 0.05) {
+
+                amount *= 10;
+
+                game.criticalCount++;
+
+                showFloatText(
+                    "+" + amount + " 💎 CRITICAL!"
+                );
+
+            } else {
+
+                showFloatText(
+                    "+" + amount + " 💎"
+                );
+
+            }
+
+
+            addDiamond(amount);
+
+        });
+
+
+    /* =========================
+       浮き文字
+    ========================= */
+
+    function showFloatText(text) {
+
+        const element =
+            document.createElement("div");
+
+        element.className =
+            "float-text";
+
+        element.textContent =
+            text;
+
+        element.style.left =
+            event.clientX + "px";
+
+        element.style.top =
+            event.clientY + "px";
+
+        document.body.appendChild(element);
+
+
+        setTimeout(function() {
+
+            element.remove();
+
+        }, 800);
+
+    }
+
+
+    /* =========================
+       自動ツルハシ
+    ========================= */
+
+    document.getElementById("pickaxeButton")
+        .addEventListener("click", function() {
+
+            const price =
+                getPickaxePrice();
+
+            if (game.diamond < price)
+                return;
+
+            game.diamond -= price;
+
+            game.pickaxe++;
+
+            updateUI();
+
+        });
+
+
+    /* =========================
+       ドリル
+    ========================= */
+
+    document.getElementById("drillButton")
+        .addEventListener("click", function() {
+
+            const price =
+                getDrillPrice();
+
+            if (game.diamond < price)
+                return;
+
+            game.diamond -= price;
+
+            game.drill++;
+
+            updateUI();
+
+        });
+
+
+    /* =========================
+       工場
+    ========================= */
+
+    document.getElementById("factoryButton")
+        .addEventListener("click", function() {
+
+            const price =
+                getFactoryPrice();
+
+            if (game.diamond < price)
+                return;
+
+            game.diamond -= price;
+
+            game.factory++;
+
+            updateUI();
+
+        });
+
+
+    /* =========================
+       クリック強化
+    ========================= */
+
+    document.getElementById("clickUpgradeButton")
+        .addEventListener("click", function() {
+
+            const price =
+                getClickUpgradePrice();
+
+            if (game.diamond < price)
+                return;
+
+            game.diamond -= price;
+
+            game.clickUpgrade++;
+
+            game.clickPower *= 2;
+
+            updateUI();
+
+        });
+
+
+    /* =========================
+       自動生産
+    ========================= */
+
+    setInterval(function() {
+
+        const production =
+            getPerSecond();
+
+        addDiamond(production);
+
+    }, 1000);
+
+
+    /* =========================
+       セーブ
+    ========================= */
+
+    function saveGame() {
+
+        localStorage.setItem(
+            "DiamondClickerSave",
+            JSON.stringify(game)
+        );
+
+    }
+
+
+    /* =========================
+       ロード
+    ========================= */
+
+    function loadGame() {
+
+        const saved =
+            localStorage.getItem(
+                "DiamondClickerSave"
+            );
+
+        if (!saved)
+            return;
+
+        try {
+
+            const data =
+                JSON.parse(saved);
+
+            Object.assign(game, data);
+
+        } catch(error) {
+
+            console.error(
+                "セーブデータの読み込みに失敗:",
+                error
+            );
+
+        }
+
+    }
+
+
+    /* =========================
+       10秒ごとにセーブ
+    ========================= */
+
+    setInterval(function() {
+
+        saveGame();
+
+    }, 10000);
+
+
+    /* =========================
+       起動
+    ========================= */
+
+    loadGame();
+
+    updateUI();
+
+</script>
+
+</body>
+</html>
+```

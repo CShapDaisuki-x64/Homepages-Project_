@@ -28,22 +28,9 @@
 html {
 	height: 100%;
 }
-@font-face {
-	font-family: 'MyFont-LINESeedJP';
-	src: url('/WOFF2/LINESeedJP_OTF_Rg.woff2') format('woff2');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'MyFont-LINESeedJP';
-			src: url('/WOFF2/LINESeedJP_OTF_Bd.woff2') format('woff2');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
+
 body{
-	font-family: 'MyFont-LINESeedJP',sans-serif;
+	font-family: sans-serif;
 	font-size: 1rem;
 	font-variant-emoji: text;
 	height: 100%;
@@ -56,7 +43,6 @@ body{
 	button{
 		color:var(--btn_txt_color);
 		border-radius:5px;
-		user-select: none;
 		text-align: center;
 		background-color: var(--btn_bck_color);
 		border: 2px solid var(--btn_bdr_color);
@@ -162,7 +148,24 @@ body{
 			margin: 8px;
 			padding:0px;
 			border:2px solid var(--kmk-vdo_bck_color);
+			.day{
+				font-size: 1.1em;
+				&::before{
+					content: "";
+					width: 1.2em;
+					height: 1.2em;
+					display:inline-block;
+					background-color: currentColor;
+					mask: url(/img/day.svg) no-repeat center;
+					background-size: contain;
+					mask-size: contain;
+					vertical-align: -0.17em;
+					margin: 1px;
+				}
+				background-color: var(--kmk-vdo_bck_color);
+			}
 			h3{
+				font-size:1.2em;
 				margin: 0px;
 				padding:0px;
 				background-color: var(--kmk-vdo_bck_color);

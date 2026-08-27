@@ -32,6 +32,12 @@ sat=土
 		<docs>https://www.rssboard.org/rss-specification</docs>
 		<lastBuildDate>Sun, 02 Aug 2026 11:00:00 +0900</lastBuildDate>
 		<item>
+			<title>RSSのパス変更のお願い</title>
+			<link>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260827</link>
+			<description>新システムの導入に伴い、RSS(atom)のパスが変わります。変更をお願いします</description>
+			<pubDate>Sun, 02 Aug 2026 11:00:00 +0900</pubDate>
+		</item>
+		<item>
 			<title>大幅デザイン変更！</title>
 			<link>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260802</link>
 			<description>ライトモードが見やすくなった</description>

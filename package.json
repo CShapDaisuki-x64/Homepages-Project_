@@ -1,0 +1,22 @@
+{
+  "name": "homepages-project_",
+  "version": "1.0.0",
+  "description": "",
+  "main": "allfile.js",
+  "scripts": {
+    "build":"node rss.min.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CShapDaisuki-x64/Homepages-Project_.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/CShapDaisuki-x64/Homepages-Project_/issues"
+  },
+  "homepage": "https://github.com/CShapDaisuki-x64/Homepages-Project_#readme"
+}

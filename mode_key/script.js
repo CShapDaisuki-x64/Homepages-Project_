@@ -1,4 +1,4 @@
-import * as allfile from '/allfile.js';
+import * as allfile from '../allfile.js';
 allfile.open_main();
 export function open_window(open_window_name, open_window_title) {
 	console.log('open_window 開始:', open_window_name);
