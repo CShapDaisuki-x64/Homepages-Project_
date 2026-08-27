@@ -63,7 +63,7 @@
 					if(item.link_type=="insite")
 					{
 						btn.innerHTML=btn.innerHTML+`
-						<button onclick="window.location.href = '/${item.link}';">
+						<button onclick="window.open('/${item.link}');">
 							リンクを開く
 						</button>
 						`;
@@ -71,7 +71,7 @@
 					else if(item.link_type=="outsite")
 					{
 						btn.innerHTML=btn.innerHTML+`
-						<button onclick="window.location.href = '${item.link}';">
+						<button onclick="window.open('${item.link}')">
 							リンクを開く
 						</button>
 						`;
