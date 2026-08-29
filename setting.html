@@ -38,8 +38,11 @@
 				<label>
 					アクセントカラー
 				</label>
-				<input id="color" value="#00ccee" type="color">
-				<br>
+				<input id="color" value="#00ccee" type="color"><br>
+				<label>
+					自社循環広告を許可(Adringは無効化できません)
+				</label>
+				<input id="pr"type=checkbox><br>
 				<label>
 					デフォルト設定へ復元
 				</label>
@@ -57,6 +60,7 @@
 			let color=document.getElementById("color").value;
 			let theme=document.getElementById("theme_").value;
 			let colorNV=document.getElementById("color");
+			let prok=document.getElementById("pr").checked;
 			let defolt=document.getElementById("defolt").checked;
 			function isDarkMode() {
 				return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -90,10 +94,19 @@
 			}
 			function ok()
 			{
+				prok=document.getElementById("pr").checked;
 				color=document.getElementById("color").value;
 				theme=document.getElementById("theme_").value
 				defolt=document.getElementById("defolt").checked;
-				localStorage.setItem("site_color",color)
+				localStorage.setItem("site_color",color);
+				if(prok)
+				{
+					localStorage.setItem("Site_pr","true")
+				}
+				else
+				{
+					localStorage.setItem("Site_pr","false")
+				}
 				if(theme=="light")
 				{
 					localStorage.setItem("site_dark","false");

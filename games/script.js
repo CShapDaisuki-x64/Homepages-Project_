@@ -2,6 +2,7 @@ import * as allfile from '../allfile.js';
 allfile.open_main();
 allfile.footer("./header.html","hedaer_div");
 allfile.style();
+allfile.pr();
 const html_points = document.getElementById("points");
 let points = 0;
 let points_local=localStorage.getItem("games_points")

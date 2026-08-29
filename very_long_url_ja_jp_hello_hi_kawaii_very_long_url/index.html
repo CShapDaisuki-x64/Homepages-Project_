@@ -29,7 +29,8 @@
 			</button>
 			<button onclick="navigator.clipboard.writeText(copy)">
 				コピーする
-			</button>
+			</button><br>
+			<button class='pr_box'></button>
 			<p id="url"></p>
 		</main>
 		<script>
@@ -46,16 +47,16 @@
 			const params = new URLSearchParams(location.search);
 			const target = params.get("q");
 			if (target) {
-				 document.body.innerHTML = "<h2>リダイレクトしています...</h2>";
+				document.body.innerHTML = "<h2>リダイレクトしています...</h2><button class='pr_box'></button>";
 				window.location.href = target;
 			}
 			function long()
 			{
-									let A = crypto.randomUUID();
-					let B = Math.random()+A+Math.random()+A+Math.random()+A;
-					let C = Math.random()+B+Math.random()+B+Math.random()+B+Math.random()+B;
-					let URL=window.location.origin +
-						window.location.pathname +
+				let A = crypto.randomUUID();
+				let B = Math.random()+A+Math.random()+A+Math.random()+A;
+				let C = Math.random()+B+Math.random()+B+Math.random()+B+Math.random()+B;
+				let URL=window.location.origin +
+					window.location.pathname +
 						"?q=" +
 						encodeURIComponent(text_form.value) +
 						"&URLLONGIMINAI=" +Math.random()+ C +
