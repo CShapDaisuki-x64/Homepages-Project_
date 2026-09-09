@@ -68,21 +68,35 @@ function JSONup()
 {
 	Save();
 	const localStorageData = {};
-	for (let i = 0; i < localStorage.length; i++)
+	const keys=
+		[
+			"Ck",
+			"Main",
+			"S",
+			"Shop_Items",
+			"tense",
+			"Ck_Plus",
+			"S_Plus",
+			"$Tensei_Shop_Items",
+			"$Ck",
+			"$S"
+		];
+	for (const key of keys)
 	{
-		const key = localStorage.key(i);
-		const value = localStorage.getItem(key);
-		localStorageData[key] = value;
+		const value =localStorage.getItem(key);
+		if(value!==null)
+		{
+			localStorageData[key] = value;
+		}
 	}
 	console.log(JSON.stringify(localStorageData,null,0));
-	alert(JSON.stringify(localStorageData,null,0));
 	const jsonString = JSON.stringify(localStorageData, null, 2);
 	const blob = new Blob([jsonString], { type: "application/json" });
 
 	const url = URL.createObjectURL(blob);
 	const link = document.createElement("a");
 	link.href = url;
-	link.download = "data.json";
+	link.download = "Diamond_Clicker_data.json";
 	link.click();
 }
 function JSONin(JSONs)
@@ -99,8 +113,7 @@ function JSONin(JSONs)
 	}
 	catch (error)
 	{
-		console.error("JSONERROR", error);
-		alert("JSONERORR", error);
+
 	}
 }
 function Load_Shop_Items() {
