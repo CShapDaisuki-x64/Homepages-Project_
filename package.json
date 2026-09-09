@@ -4,8 +4,8 @@
 	"description": "",
 	"main": "allfile.js",
 	"scripts": {
-		"build:one":"node rss.min.js",
-		"build:two":"pagefind --site dist",
+		"build:one": "node rss.min.js",
+		"build:two": "pagefind --site dist",
 		"build": "run-s build:one build:two",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
@@ -23,5 +23,8 @@
 	"homepage": "https://github.com/CShapDaisuki-x64/Homepages-Project_#readme",
 	"dependencies": {
 		"pagefind": "^1.5.2"
+	},
+	"devDependencies": {
+		"npm-run-all": "^4.1.5"
 	}
 }
