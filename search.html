@@ -21,7 +21,14 @@
 			</div>
 		</header>
 		<main>
-			<div class="search"></div>
+		<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
+<script src="/pagefind/pagefind-ui.js"></script>
+<div id="search"></div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  new PagefindUI({ element: "#search" });
+});
+</script>
 		</main>
 		<footer>
 			<div id="footer_div" ></div>
