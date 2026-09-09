@@ -87,6 +87,11 @@ body{
 		}
 	}
 	main,footer{
+		--pagefind-ui-primary: var(--acs_color);
+  	--pagefind-ui-text: var(--acs_color);
+	  --pagefind-ui-background: var(--bck_color);
+  	--pagefind-ui-border: var(--bck_color);
+  	--pagefind-ui-tag: var(--bck_color);
 		border-radius:5px;
 		padding: 8px;
 		a{
