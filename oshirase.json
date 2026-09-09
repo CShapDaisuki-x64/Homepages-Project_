@@ -1,4 +1,10 @@
 {
+	"20260909":{
+		"title":"検索を変更しました",
+		"content":"GoogleCSEからpagefindに変更しました\nこれにより、Googleの依存を減らせました",
+		"link":"search.html",
+		"link_type":"insite"
+	},
 	"20260829":{
 		"title":"広告が出ます",
 		"content":"従来のAdringの広告に加え、自者コンテンツで循環する広告を追加します。\n自者循環広告は設定から消すことができます。",
