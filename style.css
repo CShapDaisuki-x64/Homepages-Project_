@@ -44,6 +44,15 @@
 		--vdo_link_in_color:#bbb;
 	}
 }
+:root{
+	--pf-background: var(--bck_color);
+	--pf-text: var(--acs_color);
+	--pf-text-secondary: var(--btn_bdr_in_color);
+	--pf-text-muted: var(--btn_bdr_in_color);
+ 	--pf-border: var(--btn_bck_in_color);
+	--pf-border-focus: #00000000;
+	--pf-skeleton: var(--acs_color);
+}
 *{
 	box-sizing: border-box;
 	overflow-wrap: break-word;
