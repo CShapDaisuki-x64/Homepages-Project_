@@ -44,14 +44,74 @@
 		--vdo_link_in_color:#bbb;
 	}
 }
-:root{
-	--pf-background: var(--bck_color);
-	--pf-text: var(--acs_color);
-	--pf-text-secondary: var(--btn_bdr_in_color);
-	--pf-text-muted: var(--btn_bdr_in_color);
- 	--pf-border: var(--btn_bck_in_color);
-	--pf-border-focus: #00000000;
-	--pf-skeleton: var(--acs_color);
+:root {
+  /* Colors */
+  --pf-text: var(--acs_color);
+  --pf-text-secondary: var(--haf_link_in_color);
+  --pf-text-muted: var(--btn_bck_in_color);
+  --pf-background: var(--btn_bck_color);
+  --pf-border: var(--btn_bdr_color);
+  --pf-border-focus: var(--btn_bdr_in_color);
+  --pf-skeleton: var(--btn_bdr_color);
+  --pf-skeleton-shine: var(--btn_bdr_in_color);
+  --pf-hover: var(--btn_bck_in_color);
+  --pf-mark: #1a1a1a;
+  --pf-scroll-shadow: rgba(0, 0, 0, 0.08);
+
+  /* Shadows */
+  --pf-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --pf-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --pf-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.2);
+
+  /* Error states */
+  --pf-error-bg: #fef2f2;
+  --pf-error-border: #fecaca;
+  --pf-error-text: #dc2626;
+  --pf-error-text-secondary: #b91c1c;
+
+  /* Focus ring */
+  --pf-outline-focus: #0969da;
+  --pf-outline-width: 2px;
+  --pf-outline-offset: 2px;
+
+  /* Typography */
+  --pf-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Sizing */
+  --pf-input-height: 36px;
+  --pf-input-font-size: 16px; /* Keep at 16px+ to prevent iOS auto-zoom on focus */
+  --pf-summary-font-size: 12px;
+  --pf-result-title-font-size: 14px;
+  --pf-result-excerpt-font-size: 13px;
+
+  /* Results layout */
+  --pf-results-display: flex;
+  --pf-results-flex-direction: column;
+  --pf-results-flex-wrap: nowrap;
+  --pf-results-columns: none; /* grid-template-columns value, used when display is grid */
+  --pf-results-gap: 8px;
+
+  --pf-border-radius: 6px;
+  --pf-image-width: 64px;
+  --pf-image-height: 48px;
+
+  /* Icons (SVG data URIs) */
+  --pf-icon-search: url("data:image/svg+xml,...");
+  --pf-icon-arrow: url("data:image/svg+xml,...");
+
+  /* Modal */
+  --pf-modal-backdrop: rgba(0, 0, 0, 0.5);
+  --pf-modal-max-width: 560px;
+  --pf-modal-max-height: min(80dvh, 800px);
+  --pf-modal-top: 10dvh;
+
+  /* Searchbox dimensions */
+  --pf-searchbox-max-width: 480px;
+  --pf-searchbox-dropdown-max-height: 320px;
+
+  /* Dropdown settings */
+  --pf-dropdown-max-height: 280px;
+  --pf-dropdown-z-index: 9999;
 }
 *{
 	box-sizing: border-box;
