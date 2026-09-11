@@ -112,7 +112,7 @@ body{
 				margin: 5px;
 			}
 		}
-		width: 100%;
+		width: calc(100vw - 60px);
 		h1{
 			 font-size: 25px;
 		}
@@ -309,7 +309,7 @@ body{
 	footer{
 		bottom: 0;
 		left: 0;
-		width: 100%;
+		width: calc(100vw - 60px);
 		background-color: var(--haf_bck_color);
 		a{
 			color: var(--acs_color);
