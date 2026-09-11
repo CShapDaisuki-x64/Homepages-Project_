@@ -90,7 +90,19 @@ body{
 		}
 		details{
 			padding: 5px;
+			&[open]{
+				summary::before{
+					content: "✕";
+					font-weight: bold;
+					margin: 2px;
+				}
+			}
 			summary{
+				&::before{
+					content: "≡";
+					margin: 2px;
+					font-weight: bold;
+				}
 				user-select: none;
 				font-size: 30px;
 				list-style: none;
