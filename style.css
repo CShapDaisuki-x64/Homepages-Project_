@@ -29,8 +29,7 @@ html {
 	height: 100%;
 }
 body{
-	&:has(#nav_div details[open]) .sites{
-		overflow: hidden;
+	&:has(.nav_style details[open]) .sites{
 		filter: brightness(50%);
 		pointer-events: none;
 		user-select: none;
@@ -55,8 +54,11 @@ body{
 	background-color: var(--bck_color);
 	margin: 0px;
 	color: var(--acs_color);
-	#nav_div{
+	.nav_style{
 		details{
+			h4{
+				margin-left: 5px;
+			}
 			summary{
 				list-style: none;
 				&::before{
