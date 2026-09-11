@@ -29,13 +29,41 @@ html {
 	height: 100%;
 }
 
-body:has(nav details[open]) .sites {
+body:has(#menu details[open]) .sites {
 	filter: brightness(0.5);
 	pointer-events: none;
 	user-select: none;
 }
-
 body{
+	.sites{
+		margin-left: 45px;
+	}
+	#menu{
+		position: fixed;
+		width:45px;
+		height: 100vh;
+		background-color: var(--haf_bck_color);
+		z-index: 1000;
+		details{
+			summary{
+				list-style: none;
+				&::before{
+					content:"≡";
+					font-size: 45px;
+				}
+			}
+			&[open]{
+				summary::before{
+					content: "✕";
+					font-size: 42px;
+					margin-left: 5px;
+				}
+			}
+		}
+		&:has(details[open]){
+			width: 50vw;
+		}
+	}
 	width: 100%;
 	max-width: 100%;
 	display: flex;
@@ -50,13 +78,6 @@ body{
 	flex-direction: row;
 	align-items: stretch;
 	color: var(--acs_color);
-	.sites{
-		flex:1;
-		display: flex;
-		min-width: 0;
-		min-height: 100vh;
-		flex-direction: column;
-	}
 	button{
 		color:var(--btn_txt_color);
 		border-radius:5px;
@@ -76,44 +97,6 @@ body{
 				filter: var(--btn_in_img_rod);
 			}
 		}
-	}
-	nav{
-		top: 0px;
-		left: 0px;
-		bottom: 0px;
-		background-color: var(--haf_bck_color);
-		flex-shrink: 0;
-		z-index: 1000;
-		&:has(details[open]){
-			position: fixed;
-			width: 50vw;
-		}
-		details{
-			padding: 5px;
-			&[open]{
-				summary::before{
-					content: "✕";
-					font-weight: bold;
-					margin: 2px;
-				}
-			}
-			summary{
-				&::before{
-					content: "≡";
-					margin: 2px;
-					font-weight: bold;
-				}
-				user-select: none;
-				font-size: 30px;
-				list-style: none;
-			}
-		}
-	}
-	.menu{
-		position: fixed;
-		top: 0;
-		flex-shrink: 0;
-		z-index: 1000;
 	}
 	header{
 		background-color: var(--haf_bck_color);
@@ -143,10 +126,10 @@ body{
 	}
 	main,footer{
 		--pagefind-ui-primary: var(--acs_color);
-  	--pagefind-ui-text: var(--acs_color);
-	  --pagefind-ui-background: var(--bck_color);
-  	--pagefind-ui-border: var(--bck_color);
-  	--pagefind-ui-tag: var(--bck_color);
+		--pagefind-ui-text: var(--acs_color);
+		--pagefind-ui-background: var(--bck_color);
+		--pagefind-ui-border: var(--bck_color);
+		--pagefind-ui-tag: var(--bck_color);
 		padding: 8px;
 		a{
 			color:var(--link_color);
