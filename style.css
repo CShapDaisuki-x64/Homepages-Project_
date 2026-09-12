@@ -29,6 +29,7 @@ html {
 	height: 100%;
 }
 body{
+	overflow: hidden;
 	.svg_nocolor{
 		img{
 			filter: var(--haf_img_rod);
@@ -41,12 +42,16 @@ body{
 	}
 	&:has(.nav_style details[open]) .sites{
 		filter: brightness(50%);
-		pointer-events: none;
 		user-select: none;
+		header,main,footer{
+			pointer-events:none;
+		}
 	}
 	.sites{
+		overflow-y: scroll;
+		overflow-x:auto;
 		width: 100vw;
-		min-height: 100vh;
+		height: 100vh;
 	}
 	&:has(nav) .sites{
 		width: calc(100vw - 35px);
@@ -74,8 +79,9 @@ body{
 		flex-direction: column;
 		background-color: var(--haf_bck_color);
 		z-index: 1000;
+		overflow-y:hidden;
 		.nav_style{
-			height: 100%;
+			height: 100vh;
 			display: flex;
 			flex-direction: column;
 			details{
@@ -91,6 +97,7 @@ body{
 					height: calc(100vh - 200px);
 				}
 				summary{
+					cursor:pointer;
 					flex-shrink: 0;
 					list-style: none;
 					&::before{
@@ -99,21 +106,37 @@ body{
 						font-weight: bold;
 					}
 				}
+				justify-content: center;
 				&[open]{
-					summary::before{
-						content: "✕";
-						font-size: 32x;
-						margin-left: 3px;
-						font-weight: bold;
+					summary{
+						justify-content: space-between;
+						display: block;
+						width: 100%;
+						position: relative;
+						&::before{
+							content: "✕";
+							font-size: 32px;
+							margin-left: 3px;
+							font-weight: bold;
+							vertical-align:top;
+						}
+						&::after{
+							content:"MENU";
+							font-size: 32px;
+							position: absolute;
+							right: 0;
+							margin-left: auto;
+							margin-right: 5px;
+							vertical-align:top;
+						}
 					}
 				}
 			}
 		}
 		#nav_share_div{
-			flex-shrink: 0;
-			margin-bottom: 0;
-			margin-top: auto;
+			margin-bottom: 0px;
 			button{
+				width: 30px;
 				bottom: 0;
 				margin: 2px;
 				aspect-ratio:1/1;
@@ -198,8 +221,8 @@ body{
 		}
 		a[target="_blank"]::after{
 			content: "　";
-			width: 0.9m;
-			height: 0.9em;
+			width: 1.2em;
+			height: 1em;
 			display:inline-block;
 			background-color: currentColor;
 			mask: url(/img/_brank.svg) no-repeat center;

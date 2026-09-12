@@ -6,3 +6,11 @@ allfile.footer("/nav.html","nav_div");
 allfile.footer("/share.html","nav_share_div");
 allfile.style();
 allfile.pr();
+const nav = document.querySelector('.nav_style > details');
+window.sites =function()
+{
+	if(nav.open)
+	{
+		nav.open=false;
+	}
+}

@@ -98,7 +98,7 @@ function url_img(url,img)
 	IMG=img;
 }
 export function pr(){
-	if(localStorage.getItem("Site_pr")!="false")
+	if(localStorage.getItem("Site_pr")=="true")
 	{let js_randoms = Math.floor(Math.random() * 5);
 	htm_pr.forEach(function(htm_pr){
 				if(js_randoms>4){
