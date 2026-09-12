@@ -3,5 +3,6 @@ allfile.open_main();
 allfile.footer("/header.html","hedaer_div");
 allfile.footer("/footer.html","footer_div");
 allfile.footer("/nav.html","nav_div");
+allfile.footer("/share.html","nav_share_div");
 allfile.style();
 allfile.pr();

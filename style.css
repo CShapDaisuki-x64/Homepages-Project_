@@ -29,6 +29,16 @@ html {
 	height: 100%;
 }
 body{
+	.svg_nocolor{
+		img{
+			filter: var(--haf_img_rod);
+		}
+		&:hover{
+			img{
+				filter:var(--haf_img_rod);
+			}
+		}
+	}
 	&:has(.nav_style details[open]) .sites{
 		filter: brightness(50%);
 		pointer-events: none;
@@ -54,35 +64,64 @@ body{
 	background-color: var(--bck_color);
 	margin: 0px;
 	color: var(--acs_color);
-	.nav_style{
-		details{
-			h4{
-				margin-left: 5px;
-			}
-			summary{
-				list-style: none;
-				&::before{
-					content: "≡";
-					font-size: 35px;
-					font-weight: bold;
+	nav{
+		width: 35px;
+		max-height: 100vh;
+		min-height: 100vh;
+		height: 100vh;
+		position: fixed;
+		display: flex;
+		flex-direction: column;
+		background-color: var(--haf_bck_color);
+		z-index: 1000;
+		.nav_style{
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			details{
+				flex: 1;
+				height: 100%;
+				overflow-y:visible;
+				h4{
+					margin-left: 5px;
 				}
-			}
-			&[open]{
-				summary::before{
-					content: "✕";
-					font-size: 32x;
-					margin-left: 3px;
-					font-weight: bold;
+				.nav_style_in{
+					overflow-x: hidden;
+					overflow-y: scroll;
+					height: calc(100vh - 200px);
+				}
+				summary{
+					flex-shrink: 0;
+					list-style: none;
+					&::before{
+						content: "≡";
+						font-size: 35px;
+						font-weight: bold;
+					}
+				}
+				&[open]{
+					summary::before{
+						content: "✕";
+						font-size: 32x;
+						margin-left: 3px;
+						font-weight: bold;
+					}
 				}
 			}
 		}
-	}
-	nav{
-		width: 35px;
-		height: 100vh;
-		position: fixed;
-		background-color: var(--haf_bck_color);
-		z-index: 1000;
+		#nav_share_div{
+			flex-shrink: 0;
+			margin-bottom: 0;
+			margin-top: auto;
+			button{
+				bottom: 0;
+				margin: 2px;
+				aspect-ratio:1/1;
+				img{
+					width: 15px;
+				}
+			}
+		}
 		&:has(details[open]){
 			width: 50vw;
 		}
@@ -293,9 +332,6 @@ body{
 		.index::before{
 			content: "目次";
 			font-size: 20px;
-		}
-		.svg_nocolor{
-			filter: var(--haf_img_rod);
 		}
 		input,textarea{
 			background-color: var(--btn_bck_color);
