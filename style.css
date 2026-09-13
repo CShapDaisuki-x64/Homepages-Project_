@@ -233,11 +233,20 @@ body{
 			flex-wrap: wrap;
 			gap: 10px;
 			button{
+				justify-content: center;
+				align-items: center;
+				display:flex;
+				flex-flow: column;
 				width: 300px;
+				height: 200px;
+				strong{
+					font-size: 16px;
+				}
+				img{
+					width: 100px;
+					height: 100px;
+				}
 			}
-		}
-		.onaji{
-			height: 200px;
 		}
 		ul{
 			list-style-type: disc;
