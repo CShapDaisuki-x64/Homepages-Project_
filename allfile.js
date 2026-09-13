@@ -4,8 +4,8 @@ export function open_main()
 {
 	let bur = document.createElement('dialog');
 	bur.id="bur";
-	bur.style="position:fixed;bottom:0px;left:0px;right:0px;margin:0px;width: 100%;";
-	bur.innerHTML=`<iframe width="200" height="300px" src='/license.js.html'><a href='/license.html'>iframe対応してない人はここ</a></iframe><button onclick='localStorage.setItem("Site_OK","true");this.closest("dialog").close();this.closest("dialog").remove();'>同意する</button><button onclick='localStorage.setItem("Site_OK","false");window.location.href="/license.go.html";'>同意しない</button>`;
+	bur.style="bottom:0px;left:35px;right:0px;margin:0px;width: calc(100% - 35px);z-index:1005;";
+	bur.innerHTML=`<iframe height="300px" src='/license.js.html'><a href='license.html'>iframe対応してない人はここ</a></iframe><button onclick='localStorage.setItem("Site_OK","true");this.closest("dialog").close();this.closest("dialog").remove();'>同意する</button><button onclick='localStorage.setItem("Site_OK","false");window.location.href="/license.go.html";'>同意しない</button><a href="license.html">詳細はこちら</a>`;
 	document.body.appendChild(bur);
 	bur.show();
 }
