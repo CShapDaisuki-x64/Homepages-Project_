@@ -14,7 +14,7 @@ dialog {
 	max-height: none;
 }
 html, css{
-	touch-action:none;
+	touch-action: pan-x pan-y;
 }
 #MainButton {
 	width: 300px;

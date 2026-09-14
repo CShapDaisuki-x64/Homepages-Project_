@@ -29,6 +29,10 @@ html {
 	height: 100%;
 }
 body{
+	.textsize{
+		width: 1em;
+		height: 1em;
+	}
 	overflow: hidden;
 	.svg_nocolor{
 		img{
@@ -39,6 +43,9 @@ body{
 				filter:var(--haf_img_rod);
 			}
 		}
+	}
+	.svg_nocolor_no{
+		filter: var(--haf_img_rod);
 	}
 	&:has(.nav_style details[open]) .sites{
 		filter: brightness(50%);
@@ -101,9 +108,15 @@ body{
 					flex-shrink: 0;
 					list-style: none;
 					&::before{
-						content: "≡";
-						font-size: 35px;
-						font-weight: bold;
+						content: "　";
+						width: 25px;
+						height: 25px;
+						margin: 4.5px;
+						margin-top: 7px;
+						display:inline-block;
+						background-color: currentColor;
+						mask: url(/img/nav.svg) no-repeat center;
+						mask-size: contain;
 					}
 				}
 				justify-content: center;
@@ -114,11 +127,15 @@ body{
 						width: 100%;
 						position: relative;
 						&::before{
-							content: "✕";
-							font-size: 32px;
-							margin-left: 3px;
-							font-weight: bold;
-							vertical-align:top;
+							content: "　";
+							width: 25px;
+							height: 25px;
+							margin: 4.5px;
+							margin-top: 7px;
+							display:inline-block;
+							background-color: currentColor;
+							mask: url(/img/batsu.svg) no-repeat center;
+							mask-size: contain;
 						}
 						&::after{
 							content:"MENU";
@@ -342,6 +359,11 @@ body{
 				border-radius: 5px;
 				padding: 2px;
 				background-color: var(--vdo_inf_bck_color);
+			}
+			img{
+				width: 1em;
+				height: 1em;
+				margin-right: 2px;
 			}
 		}
 		table{

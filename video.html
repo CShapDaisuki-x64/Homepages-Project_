@@ -31,7 +31,7 @@
 			</button>
 			<form>
 				<label>
-					🔍ここにIDを入力
+					<img class="svg_nocolor_no" style="width: 1em;height: 1em;" src="/img/seartch.svg" alt="検索マーク">ここにIDを入力
 				</label>
 				<input type="search" id="ID">
 				<input type="button" value="検索" onclick="window.location.href = 'video.html#' + document.getElementById('ID').value;">
@@ -70,11 +70,11 @@
 					}
 					if(item.topic.VoiceBig)
 					{
-						btn.innerHTML = btn.innerHTML + "<div class='EX'>⚠注意:騒音</div>"
+						btn.innerHTML = btn.innerHTML + "<div class='EX'><img class='svg_nocolor_no'src='/img/exp.svg' alt='検索マーク'>注意:騒音</div>"
 					}
 					if(item.topic.remake)
 					{
-						btn.innerHTML = btn.innerHTML + "<div class='info'>🛈️情報:リメイク<br>元動画ID:<a href='video.html#"+item.topic.remake2+"'>"+item.topic.remake2+"</a></div>"
+						btn.innerHTML = btn.innerHTML + "<div class='info'><img class='svg_nocolor_no'src='/img/info.svg' alt='検索マーク'>情報:リメイク<br>元動画ID:<a href='video.html#"+item.topic.remake2+"'>"+item.topic.remake2+"</a></div>"
 					}
 					ShopBox.appendChild(btn);
 				});
