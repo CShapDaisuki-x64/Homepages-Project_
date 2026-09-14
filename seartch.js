@@ -24,7 +24,14 @@ for(let i=0;i<fileslo.length;i++)
 	// 特定の文字列が含まれているか判定,複数を防止
 	if (name_0.test(data)&&!data.includes("data-pagefind-ignore"))
 	{
-		fs.writeFileSync(fileslo[i], data.replace("<html", '<html data-pagefind-ignore'), 'utf-8');
+		if(/<html\b/i.test(data))
+		{
+			fs.writeFileSync(fileslo[i], data.replace(/<html/i, '<html data-pagefind-ignore'), 'utf-8');
+		}
+		else
+		{
+			fs.writeFileSync(fileslo[i],"<div data-pagefind-ignore>"+data+"</div>","utf-8");
+		}
 	}
 	else
 	{
