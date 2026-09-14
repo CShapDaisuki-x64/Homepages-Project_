@@ -6,7 +6,8 @@
 	"scripts": {
 		"build:one": "node rss.min.js",
 		"build:two": "pagefind --site .",
-		"build": "run-s build:one build:two",
+		"build:three": "node seartch.js",
+		"build": "run-s build:one build:three build:two",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
