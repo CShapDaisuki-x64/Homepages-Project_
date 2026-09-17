@@ -1,6 +1,23 @@
-<a href="/games/index.html">
-	<img src="/games/img/game.avif">
-	<h1>
-		ゲームズ！！
-	</h1>
-</a>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<div style="display: flex;align-items: center;">
+	<a href="./index.html"
+		target="_top"
+		style="display: flex;">
+		<img src="./img/game.avif" class="svg_nocolor_no" width="60" height="60">
+		<h1>
+			Games
+		</h1>
+	</a>
+</div>
+<p id="points"></p>
+<script>
+	if(localStorage.getItem('Site_OK')?.length>=1)
+{
+	let bur = document.createElement('dialog');
+	bur.id="bur";
+	bur.style="position:fixed;bottom:0px;left:0px;right:0px;margin:0px;width: 100%;";
+	bur.innerHTML=`<iframe width="200" height="300px" src='/license.js.html'><a href='/license.html'>iframe対応してない人はここ</a></iframe><button onclick="localStorage.removeItem('Site_OK');this.closest("dialog").close();this.closest("dialog").remove();">OK</button>`;
+	document.body.appendChild(bur);
+	bur.show();
+}
+</script>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+<meta property="og:site_name" content="趣味プログラマー人間">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="/style.css">
+		<link rel="stylesheet" href="/games/style.css">
+		<script defer type="module" type="module"	src="/games/script.min.js" ></script>
+		<title>趣味プログラマー人間-ゲーム</title>
+	</head>
+		<body id="body">
+		<nav><div class="nav_style"><details><summary></summary><div class="nav_style_in"><div id="nav_div"></div></details><div id="nav_share_div"></div></div></nav>
+		<div onclick="sites()" class="sites">
+		<header>
+			<div id="hedaer_div"></div>
+			<div id="hedaer_div_two">
+				<img src="/games/img/game.avif">
+				<h2>
+					3択クイズ(β)
+				</h2>
+			</div>
+		</header>
+		<main>
+			<div>
+				<h3 id="title">　</h3>
+				<div style="flex-wrap: wrap;display: flex;">
+					<button id="no1" style="width: 25%;height: 100px;">　</button>
+					<button id="no2" style="width: 25%;height: 100px;">　</button>
+					<button id="no3" style="width: 25%;height: 100px;">　</button>
+				</div>
+				<p id="massege">
+					　
+				</p>
+				<details id="hint">
+					<summary>
+						ヒント
+					</summary>
+				</details>
+				<button id="next" style="width: 99%;"onclick="randomset()">
+					次へ
+				</button>
+			</div>
+			<br><button class="pr_box"></button>
+		</main>
+		<script>
+			const randomlist=[
+				[
+					"LLMとは何の事？",
+					[
+						"Local Language Mode",
+						"Large Language Model",
+						"Large List Model"
+					],
+					"日本語では大規模言語モデルだよ",
+					2
+				],
+				[
+					"東京スカイツリーの高さは？",
+					[
+						"634m",
+						"630m",
+						"333m"
+					],
+					"昔、武蔵国という国があったらしい",
+					1
+				]
+			];
+			const html_id_next=document.getElementById("next");
+			const html_id_title=document.getElementById("title");
+			const html_id_no1=document.getElementById("no1");
+			const html_id_no2=document.getElementById("no2");
+			const html_id_no3=document.getElementById("no3");
+			const html_id_hint=document.getElementById("hint");
+			const html_id_message=document.getElementById("massege");
+			let tmp;
+			function randomset()
+			{
+				tmp=(Math.floor(Math.random()*randomlist.length));
+				html_id_title.innerText=randomlist[tmp][0];
+				html_id_no1.innerText=randomlist[tmp][1][0];
+				html_id_no2.innerText=randomlist[tmp][1][1];
+				html_id_no3.innerText=randomlist[tmp][1][2];
+				html_id_hint.innerHTML=`<summary>ヒント</summary>${randomlist[tmp][2]}`;
+				if(randomlist[tmp][3]==1)
+				{
+					console.log("1");
+					html_id_no1.onclick=ok;
+					html_id_no2.onclick=fake;
+					html_id_no3.onclick=fake;
+				}
+				else if(randomlist[tmp][3]==2)
+				{
+					console.log("2");
+					html_id_no1.onclick=fake;
+					html_id_no2.onclick=ok;
+					html_id_no3.onclick=fake;
+				}
+				else if(randomlist[tmp][3]==3)
+				{
+					console.log("3");
+					html_id_no1.onclick=fake;
+					html_id_no2.onclick=fake;
+					html_id_no3.onclick=ok;
+				}
+				tsugi(true);
+				html_id_hint.open=false;
+				html_id_message.innerText="　";
+			}
+			function ok()
+			{
+				html_id_message.innerText="正解です。";
+				tsugi(false);
+			}
+			function fake()
+			{
+				html_id_message.innerText="不正解です。";
+			}
+			function tsugi(on)
+			{
+				if(on==true)
+				{
+					html_id_next.style="width: 99%;filter:brightness(50%);pointer-events:none;"
+				}
+				else
+				{
+					html_id_next.style="width:99%;"
+				}
+			}
+		</script>
+	</body>
+</html>

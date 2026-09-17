@@ -29,6 +29,15 @@ html {
 	height: 100%;
 }
 body{
+	a[target="_blank"]::after{
+		content: "　";
+		width: 1.2em;
+		height: 1em;
+		display:inline-block;
+		background-color: currentColor;
+		mask: url(/img/_brank.svg) no-repeat center;
+		mask-size: contain;
+	}
 	.textsize{
 		width: 1em;
 		height: 1em;
@@ -77,6 +86,13 @@ body{
 	margin: 0px;
 	color: var(--acs_color);
 	nav{
+		a{
+			color: var(--acs_color);
+			text-decoration:none;
+		}
+		a:hover{
+			color: var(--haf_link_in_color);
+		}
 		width: 35px;
 		max-height: 100vh;
 		min-height: 100vh;
@@ -235,15 +251,6 @@ body{
 					color: var(--link_color_ace_in);
 				}
 			}
-		}
-		a[target="_blank"]::after{
-			content: "　";
-			width: 1.2em;
-			height: 1em;
-			display:inline-block;
-			background-color: currentColor;
-			mask: url(/img/_brank.svg) no-repeat center;
-			mask-size: contain;
 		}
 		.osusume{
 			display: flex;

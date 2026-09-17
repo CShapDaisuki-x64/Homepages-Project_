@@ -1,4 +1,10 @@
 {
+	"20260917":{
+		"title":"利用規約を変更しました。",
+		"content":"サイトに関しては規約廃止、ソースコードについてはMITライセンスに変更しました。",
+		"link":"license.html",
+		"link_type":"insite"
+	},
 	"20260909":{
 		"title":"検索を変更しました",
 		"content":"GoogleCSEからpagefindに変更しました\nこれにより、Googleの依存を減らせました",
