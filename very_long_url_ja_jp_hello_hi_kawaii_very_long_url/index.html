@@ -1,76 +1,22 @@
-<!DOCTYPE html>
-<html lang="ja">
-	<head>
-<meta property="og:site_name" content="趣味プログラマー人間">
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<link rel="stylesheet" href="/style.css">
-		<script defer type="module" type="module"	src="./script.min.js"></script>
-		<title>URL延長サービス</title>
-	</head>
-		<body id="body">
 
-		<div onclick="sites()" class="sites">
-		<header>
-			<div id="hedaer_div_two">
-				<img alt="logo" src="urllong.avif">
-				<h2>
-					URL延長サービス
-				</h2>
-			</div>
-		</header>
-		<main>
-			<p>
-				※完全URLを入力して下さい
-			</p>
-			<form>
-			<input name="a" autocomplete="url" type="url" id="ID" placeholder="延長したいURLを入力">
-			</form>
-			<button onclick="long()">
-				延長する
-			</button>
-			<button onclick="navigator.clipboard.writeText(copy)">
-				コピーする
-			</button><br>
-			<button class='pr_box'></button>
-			<p id="url"></p>
-		</main>
 		<script>
-			let copy = "https://syumi-programmer-ningen.pages.dev/very_long_url_ja_jp_hello_hi_kawaii_very_long_url/?q=https%3A%2F%2Fsyumi-programmer-ningen.pages.dev%2F&URLLONGIMINAI=0.79227602687373780.26720832604638690.3020488180144676071a1e38-e598-40fd-9810-bbb1a45feb750.7256930571351089071a1e38-e598-40fd-9810-bbb1a45feb750.5462797501381658071a1e38-e598-40fd-9810-bbb1a45feb750.53794327358959860.3020488180144676071a1e38-e598-40fd-9810-bbb1a45feb750.7256930571351089071a1e38-e598-40fd-9810-bbb1a45feb750.5462797501381658071a1e38-e598-40fd-9810-bbb1a45feb750.42168308250472310.3020488180144676071a1e38-e598-40fd-9810-bbb1a45feb750.7256930571351089071a1e38-e598-40fd-9810-bbb1a45feb750.5462797501381658071a1e38-e598-40fd-9810-bbb1a45feb750.135109484515049340.3020488180144676071a1e38-e598-40fd-9810-bbb1a45feb750.7256930571351089071a1e38-e598-40fd-9810-bbb1a45feb750.5462797501381658071a1e38-e598-40fd-9810-bbb1a45feb75&ABCDEFGHIJK=0.153592461904685780.26720832604638690.3020488180144676071a1e38-e598-40fd-9810-bbb1a45feb750.7256930571351089071a1e38-e598-40fd-9810-bbb1a45feb750.5462797501381658071a1e38-e598-40fd-9810-bbb1a45feb750.53794327358959860.3020488180144676071a1e38-e598-40fd-9810-bbb1a45feb750.7256930571351089071a1e38-e598-40fd-9810-bbb1a45feb750.5462797501381658071a1e38-e598-40fd-9810-bbb1a45feb750.42168308250472310.3020488180144676071a1e38-e598-40fd-9810-bbb1a45feb750.7256930571351089071a1e38-e598-40fd-9810-bbb1a45feb750.5462797501381658071a1e38-e598-40fd-9810-bbb1a45feb750.135109484515049340.3020488180144676071a1e38-e598-40fd-9810-bbb1a45feb750.7256930571351089071a1e38-e598-40fd-9810-bbb1a45feb750.5462797501381658071a1e38-e598-40fd-9810-bbb1a45feb75&VERYLONGURL=0.347057388219115140.26720832604638690.3020488180144676071a1e38-e598-40fd-9810-bbb1a45feb750.7256930571351089071a1e38-e598-40fd-9810-bbb1a45feb750.5462797501381658071a1e38-e598-40fd-9810-bbb1a45feb750.53794327358959860.3020488180144676071a1e38-e598-40fd-9810-bbb1a45feb750.7256930571351089071a1e38-e598-40fd-9810-bbb1a45feb750.5462797501381658071a1e38-e598-40fd-9810-bbb1a45feb750.42168308250472310.3020488180144676071a1e38-e598-40fd-9810-bbb1a45feb750.7256930571351089071a1e38-e598-40fd-9810-bbb1a45feb750.5462797501381658071a1e38-e598-40fd-9810-bbb1a45feb750.135109484515049340.3020488180144676071a1e38-e598-40fd-9810-bbb1a45feb750.7256930571351089071a1e38-e598-40fd-9810-bbb1a45feb750.5462797501381658071a1e38-e598-40fd-9810-bbb1a45feb75&TIMESTAMP=1787626286761&TEXTS=104&a=https%3A%2F%2Fsyumi-programmer-ningen.pages.dev%2F";
-			const text_form = document.getElementById("ID");
-			text_form.addEventListener("keydown", test_event);
-			function test_event(e) {
-				if (e.key === "Enter") {
-					e.preventDefault();
-					long();
-				}
-				return false;
-			}
 			const params = new URLSearchParams(location.search);
 			const target = params.get("q");
 			if (target) {
-				document.body.innerHTML = "<h2>リダイレクトしています...</h2><button class='pr_box'></button>";
 				window.location.href = target;
 			}
-			function long()
+			else
 			{
-				let A = crypto.randomUUID();
-				let B = Math.random()+A+Math.random()+A+Math.random()+A;
-				let C = Math.random()+B+Math.random()+B+Math.random()+B+Math.random()+B;
-				let URL=window.location.origin +
-					window.location.pathname +
-						"?q=" +
-						encodeURIComponent(text_form.value) +
-						"&URLLONGIMINAI=" +Math.random()+ C +
-						"&ABCDEFGHIJK=" + Math.random()+C +
-						"&VERYLONGURL=" + Math.random()+C +
-						"&TIMESTAMP="+Date.now() +
-						"&TEXTS="+text_form.value.charCodeAt(0) +
-						"&a="+encodeURIComponent(text_form.value);
-					document.getElementById("url").innerText=URL;
-					copy=URL;
+				window.location.href="/tool/very_long_url_ja_jp_hello_hi_kawaii_very_long_url.html"
 			}
 		</script>
-	</body>
-</html>
+		<h1>
+	自動リダイレクトページ
+</h1>
+<p>
+	/tool/very_long_url_ja_jp_hello_hi_kawaii_very_long_url.htmlにリダイレクトします
+</p>
+<a href="/tool/very_long_url_ja_jp_hello_hi_kawaii_very_long_url.html">
+	リダイレクトしない場合はここをクリック
+</a>
+<meta name="robots" content="noindex, nofollow">

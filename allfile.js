@@ -67,6 +67,7 @@ const notdark =
 	--btn_bdr_color:#bbb;
 	--btn_bck_in_color:#ccc;
 	--btn_bdr_in_color:#aaa;
+	--btn_txt_color:#112;
 	--btn_in_img_rod:brightness(80%);
 	--link_color:#07d;
 	--link_color_ace:#90e;
@@ -136,7 +137,7 @@ export function pr(){
 	else if(3==js_randoms)
 	{
 		console.log("url_long");
-		url_img("very_long_url_ja_jp_hello_hi_kawaii_very_long_url/index.html","pr_longurl.avif")
+		url_img("tool/very_long_url_ja_jp_hello_hi_kawaii_very_long_url.html","pr_longurl.avif")
 	}
 	else
 	{

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+<meta property="og:site_name" content="趣味プログラマー人間">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="/style.css">
+		<script defer type="module" type="module"	src="/tool/script.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/10.4.2/decimal.min.js"></script>
+		<title>単位変換</title>
+	</head>
+		<body id="body">
+		<nav><div class="nav_style"><details><summary></summary><div class="nav_style_in"><div id="nav_div"></div>
+		<h4>
+			目次
+		</h4>
+		<ul>
+			<li>
+				<a href="#long">
+					長さ
+				</a>
+			</li>
+		</ul>
+		</details><div id="nav_share_div"></div></div></nav>
+		<div onclick="sites()" class="sites">
+		<header>
+			<div id="hedaer_div"></div>
+			<div id="hedaer_div_two">
+				<img alt="logo" src="./img/henkan.avif">
+				<h2>
+					単位変換
+				</h2>
+			</div>
+		</header>
+		<main>
+			<p>
+				使用上、ある程度の誤差が出る可能性があります。信頼性が必要な場面では使用しないでください
+			</p>
+			<h3 id="long">
+				長さ
+			</h3>
+			<label>変換前</label>
+			<input id="number" type="number">
+			<select id="long_from">
+				<option value="mm">mm</option>
+				<option value="cm">cm</option>
+				<option value="m">m</option>
+				<option value="km">km</option>
+				<option value="in">in</option>
+				<option value="ft">ft</option>
+				<option value="yd">yd</option>
+				<option value="mi">mi</option>
+				<option value="nmi">nmi</option>
+				<option value="分">分</option>
+				<option value="寸">寸</option>
+				<option value="尺">尺</option>
+				<option value="間">間</option>
+				<option value="町">町</option>
+				<option value="里">里</option>
+			</select><br>
+			<label>
+				変換後
+			</label>
+			<select id="long_to">
+				<option value="mm">mm</option>
+				<option value="cm">cm</option>
+				<option value="m">m</option>
+				<option value="km">km</option>
+				<option value="in">in</option>
+				<option value="ft">ft</option>
+				<option value="yd">yd</option>
+				<option value="mi">mi</option>
+				<option value="nmi">nmi</option>
+				<option value="分">分</option>
+				<option value="寸">寸</option>
+				<option value="尺">尺</option>
+				<option value="間">間</option>
+				<option value="町">町</option>
+				<option value="里">里</option>
+			</select><br>
+			<button onclick="long_ivent()">
+				変換
+			</button>
+			<button onclick="copy('long_out')">
+				コピー
+			</button>
+			<p id="long_out"></p>
+		</main>
+		<script>
+			const long_units = {
+				"mm": new Decimal("0.001"),
+				"cm": new Decimal("0.01"),
+				"m": new Decimal("1"),
+				"km": new Decimal("1000"),
+				"in": new Decimal("0.0254"),
+				"ft": new Decimal("0.3048"),
+				"yd": new Decimal("0.9144"),
+				"mi": new Decimal("1609.344"),
+				"nmi": new Decimal("1852"),
+				"分": new Decimal(1).div(330),
+				"寸": new Decimal(1).div(33),
+				"尺": new Decimal(10).div(33),
+				"間": new Decimal(20).div(11),
+				"町": new Decimal(600).div(11),
+				"里": new Decimal(21600).div(11)
+			};
+			function long_ivent()
+			{
+				const value = new Decimal(document.getElementById("number").value);
+				document.getElementById("long_out").innerText = long_from(document.getElementById("long_from").value,value,document.getElementById("long_to").value);
+			}
+			function long_from(type, value, totype)
+			{
+				const meter = value.mul(long_units[type]);
+				return meter.div(long_units[totype]).toString() + totype;
+			}
+			function copy(wath)
+			{
+				navigator.clipboard.writeText(document.getElementById(wath).innerText);
+			}
+		</script>
+	</body>
+</html>

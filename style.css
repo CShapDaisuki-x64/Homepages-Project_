@@ -21,6 +21,28 @@
 	--vdo_ex_bck_color:#e05;
 	--vdo_inf_bck_color:#05e;
 }
+@media(prefers-color-scheme:dark){
+	:root{
+		--bck_color:#444;
+		--haf_bck_color:#16b;
+		--haf_link_in_color:#bbb;
+		--haf_img_rod:invert(100%);
+		--acs_color:#ddd;
+		--btn_bck_in_color:#777;
+		--btn_bdr_in_color:#999;
+		--btn_bck_color:#555;
+		--btn_bdr_color:#777;
+		--btn_txt_color:#ddd;
+		--btn_in_img_rod:brightness(120%);
+		--link_color:#29d;
+		--link_color_ace:#c6e;
+		--link_color_ace_in:#e9e;
+		--kmk-vdo_bck_color:#27b;
+		--vdo_acs_color:#ddd;
+		--vdo_link_color:#cdd;
+		--vdo_link_in_color:#bbb;
+	}
+}
 *{
 	box-sizing: border-box;
 	overflow-wrap: break-word;
@@ -57,8 +79,20 @@ body{
 		filter: var(--haf_img_rod);
 	}
 	&:has(.nav_style details[open]) .sites{
-		filter: brightness(50%);
 		user-select: none;
+		&::after{
+			content:"　";
+			z-index: 1050;
+			position: fixed;
+			background: #000;
+			opacity: 0.5;
+			inset:0;
+			height: 100dvh;
+			width: calc(50dvw);
+			margin-right: 0;
+			margin-left:50dvw;
+			right: 0;
+		}
 		header,main,footer{
 			pointer-events:none;
 		}
@@ -66,11 +100,11 @@ body{
 	.sites{
 		overflow-y: scroll;
 		overflow-x:auto;
-		width: 100vw;
-		height: 100vh;
+		width: 100dvw;
+		height: 100dvh;
 	}
 	&:has(nav) .sites{
-		width: calc(100vw - 35px);
+		width: calc(100dvw - 35px);
 		margin-right: 0;
 		margin-left:35px;
 		right: 0;
@@ -394,7 +428,7 @@ body{
 			content: "目次";
 			font-size: 20px;
 		}
-		input,textarea{
+		input,textarea,select{
 			background-color: var(--btn_bck_color);
 			border: solid 2px var(--btn_bdr_color);
 			border-radius: 5px;

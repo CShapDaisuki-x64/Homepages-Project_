@@ -9,6 +9,15 @@
 		<link rel="stylesheet" href="/games/style.css">
 		<script defer type="module" type="module"	src="/games/script.min.js" ></script>
 		<title>趣味プログラマー人間-ゲーム</title>
+		<audio id="Shop_Ok_audio">
+			<source src="./no_view/qaok" type="audio/mp3">
+		</audio>
+		<audio id="Shop_No_audio">
+			<source src="./no_view/qang" type="audio/mp3">
+		</audio>
+		<audio id="qa">
+			<source src="./no_view/qa" type="audio/mp3">
+		</audio>
 	</head>
 		<body id="body">
 		<nav><div class="nav_style"><details><summary></summary><div class="nav_style_in"><div id="nav_div"></div></details><div id="nav_share_div"></div></div></nav>
@@ -18,14 +27,14 @@
 			<div id="hedaer_div_two">
 				<img src="/games/img/game.avif">
 				<h2>
-					3択クイズ(β)
+					3択クイズ
 				</h2>
 			</div>
 		</header>
 		<main>
 			<div>
 				<h3 id="title">　</h3>
-				<div style="flex-wrap: wrap;display: flex;">
+				<div id="buttons" style="flex-wrap: wrap;display: flex;">
 					<button id="no1" style="width: 25%;height: 100px;">　</button>
 					<button id="no2" style="width: 25%;height: 100px;">　</button>
 					<button id="no3" style="width: 25%;height: 100px;">　</button>
@@ -42,9 +51,13 @@
 					次へ
 				</button>
 			</div>
+			<p id="points"></p>
+			<p>
+				このクイズに記載されている団体、個人は運営主と関係ありません。<br>
+			</p>
 			<br><button class="pr_box"></button>
 		</main>
-		<script>
+		<script >
 			const randomlist=[
 				[
 					"LLMとは何の事？",
@@ -65,8 +78,41 @@
 					],
 					"昔、武蔵国という国があったらしい",
 					1
+				],
+				[
+					"浜松市にはいくつ行政区がある？(2026/09/17時点)",
+					[
+						"23つ",
+						"7つ",
+						"3つ"
+					],
+					"最近再編したよ",
+					3
+				],
+				[
+					"HTMLの標準化団体は？",
+					[
+						"WHATWG",
+						"W3C",
+						"JIS"
+					],
+					"最近変わったよ",
+					1
+				],
+				[
+					"1+1=",
+					[
+						"2",
+						"田",
+						"11"
+					],
+					"電卓を使おう",
+					1
 				]
 			];
+			let points = 0;
+			let points_local=localStorage.getItem("games_points");
+			const html_points=document.getElementById("points");
 			const html_id_next=document.getElementById("next");
 			const html_id_title=document.getElementById("title");
 			const html_id_no1=document.getElementById("no1");
@@ -74,9 +120,15 @@
 			const html_id_no3=document.getElementById("no3");
 			const html_id_hint=document.getElementById("hint");
 			const html_id_message=document.getElementById("massege");
+			const html_id_buttons=document.getElementById("buttons");
 			let tmp;
+			if(points_local!==null)
+			{
+				points=Number(points_local);
+			}
 			function randomset()
 			{
+				html_id_buttons.style="";
 				tmp=(Math.floor(Math.random()*randomlist.length));
 				html_id_title.innerText=randomlist[tmp][0];
 				html_id_no1.innerText=randomlist[tmp][1][0];
@@ -107,15 +159,35 @@
 				tsugi(true);
 				html_id_hint.open=false;
 				html_id_message.innerText="　";
+				document.getElementById('qa').currentTime = 0;
+				document.getElementById('qa').play();
 			}
 			function ok()
 			{
+				points=points+10;
+				localStorage.setItem("games_points",points);
+				html_points.innerText = (points+"ポイント");
 				html_id_message.innerText="正解です。";
 				tsugi(false);
+				html_id_buttons.style="filter:brightness(50%);pointer-events:none;";
+				document.getElementById('Shop_Ok_audio').currentTime = 0;
+				document.getElementById('Shop_Ok_audio').play();
 			}
 			function fake()
 			{
+				if(points>=10)
+				{
+					points=points-10;
+				}
+				else
+				{
+					points=0;
+				}
+				localStorage.setItem("games_points",points);
 				html_id_message.innerText="不正解です。";
+				document.getElementById('Shop_No_audio').currentTime = 0;
+				document.getElementById('Shop_No_audio').play();
+				html_points.innerText = (points+"ポイント");
 			}
 			function tsugi(on)
 			{
