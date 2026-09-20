@@ -87,10 +87,10 @@ body{
 			background: #000;
 			opacity: 0.5;
 			inset:0;
-			height: 100dvh;
-			width: calc(50dvw);
+			height: 100svh;
+			width: calc(50svw);
 			margin-right: 0;
-			margin-left:50dvw;
+			margin-left:50svw;
 			right: 0;
 		}
 		header,main,footer{
@@ -100,11 +100,11 @@ body{
 	.sites{
 		overflow-y: scroll;
 		overflow-x:auto;
-		width: 100dvw;
-		height: 100dvh;
+		width: 100svw;
+		height: 100svh;
 	}
 	&:has(nav) .sites{
-		width: calc(100dvw - 35px);
+		width: calc(100svw - 35px);
 		margin-right: 0;
 		margin-left:35px;
 		right: 0;
@@ -115,7 +115,7 @@ body{
 	font-variant-emoji: text;
 	height: 100%;
 	display: flex;
-	min-height: 100vh;
+	min-height: 100svh;
 	background-color: var(--bck_color);
 	margin: 0px;
 	color: var(--acs_color);
@@ -128,9 +128,9 @@ body{
 			color: var(--haf_link_in_color);
 		}
 		width: 35px;
-		max-height: 100vh;
-		min-height: 100vh;
-		height: 100vh;
+		max-height: 100svh;
+		min-height: 100svh;
+		height: 100svh;
 		position: fixed;
 		display: flex;
 		flex-direction: column;
@@ -138,7 +138,7 @@ body{
 		z-index: 1000;
 		overflow-y:hidden;
 		.nav_style{
-			height: 100vh;
+			height: 100svh;
 			display: flex;
 			flex-direction: column;
 			details{
@@ -151,7 +151,7 @@ body{
 				.nav_style_in{
 					overflow-x: hidden;
 					overflow-y: scroll;
-					height: calc(100vh - 200px);
+					height: calc(100svh - 200px);
 				}
 				summary{
 					cursor:pointer;
@@ -213,7 +213,7 @@ body{
 			}
 		}
 		&:has(details[open]){
-			width: 50vw;
+			width: 50svw;
 		}
 		div{
 			width: 100%;
@@ -302,7 +302,8 @@ body{
 				}
 				img{
 					width: 100px;
-					height: 100px;
+					height: auto;
+					margin: 5px;
 				}
 			}
 		}
@@ -376,7 +377,7 @@ body{
 			border-radius: 5px;
 			background-color: var(--kmk-vdo_bck_color);
 			color: var(--vdo_acs_color);
-			margin: 1vh;
+			margin: 1svh;
 			padding: 2px;
 			a{
 				color:var(--vdo_link_color);
@@ -455,7 +456,7 @@ body{
 		bottom: 0;
 		left: 0;
 		width: 100%;
-		top: 100vh;
+		top: 100svh;
 		margin-bottom: 0;
 		background-color: var(--haf_bck_color);
 		a{

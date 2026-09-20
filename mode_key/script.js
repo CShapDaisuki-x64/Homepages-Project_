@@ -62,8 +62,8 @@ export function open_window(open_window_name, open_window_title) {
 				position: "fixed",
 				top: 0,
 				left: 0,
-				width: "100vw",
-				height: "100vh"
+				width: "100svw",
+				height: "100svh"
 			});
 
 			$dialog.dialog("option", "height", $(window).height());
@@ -103,8 +103,8 @@ export function open_window(open_window_name, open_window_title) {
 		var $uiDialog = $dialog.dialog("widget");
 		if ($uiDialog.hasClass("is-maximized")) {
 			$uiDialog.css({
-				width: "100vw",
-				height: "100vh"
+				width: "100svw",
+				height: "100svh"
 			});
 			$dialog.dialog("option", "height", $(window).height());
 		}

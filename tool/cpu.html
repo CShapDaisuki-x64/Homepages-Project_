@@ -37,12 +37,75 @@
 			<p>
 				複雑な処理を終える秒数で、スペックを測定します
 			</p>
-			<button onclick="start()">
+			<button onclick="ivent()">
 				測定開始
 			</button><br>
 			<progress style="width: 50%;height: 50px;" id="load" value="0"max="1250"></progress>
+			<progress style="width: 50%;height: 50px;" id="load_all" value="0"max="5"></progress>
+			<table>
+				<thead>
+					<tr>
+						<th>
+							回数
+						</th>
+						<th>
+							時間(ミリ秒)
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>
+							1回目
+						</th>
+						<td id="kai_1">
+							0
+						</td>
+					</tr>
+					<tr>
+						<th>
+							2回目
+						</th>
+						<td id="kai_2">
+							0
+						</td>
+					</tr>
+					<tr>
+						<th>
+							3回目
+						</th>
+						<td id="kai_3">
+							0
+						</td>
+					</tr>
+					<tr>
+						<th>
+							4回目
+						</th>
+						<td id="kai_4">
+							0
+						</td>
+					</tr>
+					<tr>
+						<th>
+							5回目
+						</th>
+						<td id="kai_5">
+							0
+						</td>
+					</tr>
+					<tr>
+						<th>
+							合計
+						</th>
+						<td id="kai_6">
+							0
+						</td>
+					</tr>
+				</tbody>
+			</table>
 			<p>
-				あなたの機器は、<span id="sct" style="font-size: 50px;">0</span>ミリ秒で処理を終えました
+				あなたの機器は、約<span id="sct" style="font-size: 50px;">0</span>ミリ秒で処理を終えました
 			</p>
 			<details>
 				<summary>
@@ -59,52 +122,70 @@
 						GPU:NVIDIA GeForace RTX 4060
 					</li>
 				</ul>
-				のPCで、24087ミリ秒でした。
+				のPCで、約6525ミリ秒でした。
 			</details>
 		</main>
 		<script>
 			const html_id_load=document.getElementById("load");
+			const html_id_load_all=document.getElementById("load_all");
 			const html_id_sct=document.getElementById("sct");
+			const html_id_kai_6=document.getElementById("kai_6");
 			let i=0;
 			let a=0;
 			let starttime;
 			let time=0;
-			function start()
+			let timeall=0;
+			let measurementCount = 0;
+			function dct(a)
 			{
-				i=0;
-				a=0;
+				return document.getElementById(a);
+			}
+			async function ivent()
+			{
+				timeall=0;
+				measurementCount=0;
+				html_id_kai_6.innerText=0;
+				html_id_load_all.value=0;
+				timeall+=await start(dct("kai_1"));
+				html_id_load_all.value=1;
+				timeall+=await start(dct("kai_2"));
+				html_id_load_all.value=2;
+				timeall+=await start(dct("kai_3"));
+				html_id_load_all.value=3;
+				timeall+=await start(dct("kai_4"));
+				html_id_load_all.value=4;
+				timeall+=await start(dct("kai_5"));
+				html_id_kai_6.innerText=timeall;
+				html_id_sct.innerText=Math.round(timeall/5);
+				html_id_load_all.value=5;
+			}
+			function start(num)
+			{
+				return new Promise((resolve)=>{
+				html_id_sct.innerText = "計測中";
+				html_id_load.value = 0;
 				starttime = performance.now();
-				run();
-			}
-			function run()
-			{
-				on();
-				i++;
-				html_id_load.value=i;
-				if(i<1250)
+				const workerCount = navigator.hardwareConcurrency || 1;
+				let completed = 0;
+				for (let i=0; i<workerCount; i++)
 				{
-					setTimeout(run,0)
-				}
-				else
-				{
-					const endtime=performance.now();
-					time= endtime-starttime;
-					html_id_sct.innerText=Math.round(time);
-					console.log(time);
-				}
-			}
-			function on()
-			{
-				let a=0;
-				for(let i=0;i<1000000;i++)
-				{
-					a +=Math.sqrt(Math.sqrt(i*Math.random())*
-						Math.sqrt(i*Math.random())*
-						Math.sqrt(i*Math.random())*
-						Math.sqrt(i*Math.random())*
-						Math.sqrt(i*Math.random())*Math.random());
-				}
-				return a;
+					const worker=new Worker("/tool/cpu.js");
+					worker.onmessage=()=>
+					{
+						completed++;
+						html_id_load.value=completed/workerCount*1250;
+						worker.terminate();
+						if(completed===workerCount)
+						{
+							const endtime=performance.now();
+							time= endtime-starttime;
+							console.log(time);
+							num.innerText=Math.round(time);
+							resolve(Math.round(time));
+						}
+					}
+					worker.postMessage("start");
+				}});
 			}
 		</script>
 	</body>

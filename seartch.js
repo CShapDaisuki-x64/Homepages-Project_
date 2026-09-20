@@ -4,18 +4,18 @@ var fs = require('fs');
 const targetDir = './'; // 取得したいディレクトリのパス
 let fileslo=[];
 try {
-  // recursive: true でサブディレクトリ内のファイルやフォルダも全て取得
-  const files = fs.readdirSync(targetDir, { recursive: true, encoding: 'utf8' });
+	// recursive: true でサブディレクトリ内のファイルやフォルダも全て取得
+	const files = fs.readdirSync(targetDir, { recursive: true, encoding: 'utf8' });
 
-  // フルパスに変換したい場合やファイルだけを絞り込む場合の処理
-  files.forEach(file => {
+	// フルパスに変換したい場合やファイルだけを絞り込む場合の処理
+	files.forEach(file => {
 		if(file.endsWith('.html'))
 		{
-    	fileslo.push(file);
+			fileslo.push(file);
 		}
-  });
+	});
 } catch (err) {
-  console.error('エラーが発生しました:', err);
+	console.error('エラーが発生しました:', err);
 }
 for(let i=0;i<fileslo.length;i++)
 {

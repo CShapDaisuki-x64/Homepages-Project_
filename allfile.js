@@ -144,8 +144,8 @@ export function pr(){
 		console.log("homepage");
 		url_img("index.html","pr_home.avif")
 	}
-	htm_pr.style=`width: min(50vw,300px);
-		height: min(55vw,320px);
+	htm_pr.style=`width: min(50svw,300px);
+		height: min(55svw,320px);
 		padding: 0;
 		border:1px solid #000;
 		border-radius:0;
