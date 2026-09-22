@@ -1,126 +1,119 @@
 import * as allfile from '../allfile.js';
 allfile.open_main();
 export function open_window(open_window_name, open_window_title) {
-	console.log('open_window 開始:', open_window_name);
-
-	// 1. テンプレートから要素を探して複製
-	var $targetTemplate = $('#' + open_window_name);
-
-	if ($targetTemplate.length === 0) {
-		console.error('❌ エラー: クラス名「' + open_window_name + '」を持つテンプレート要素が HTML 内に見つかりません！');
-		return;
+	let window_temp=$(`#${open_window_name}`);
+	if(window_temp.length==0)
+	{
+		console.error("ERORR_1");
+		return null;
 	}
-
-	var $dialog = $targetTemplate
-		.clone()						// 要素を複製
-		.removeAttr('id')		// IDが重複しないように削除
-		.appendTo('body');	 // 先に画面に追加
-
-	// ダイアログとして初期化
-	$dialog.dialog({
-		modal: false,
-		title: open_window_title,
-		closeText: "✕",
-		width:400,
-		height:400,
-		close: function() {
-			$(window).off('resize.' + open_window_name);
-			$(this).dialog('destroy').remove();
+	let dialog=window_temp.clone().removeAttr("id").appendTo('body');
+	dialog.dialog
+	(
+		{
+			modal:false,
+			title:open_window_title,
+			closeText:"✕",
+			close:function()
+			{
+				$(window).off('resize.' + open_window_name);
+				$(this).dialog('destroy').remove();
+			}
 		}
-	});
-
-	// 2. タイトルバーを確実に取得
-	var $titlebar = $dialog.dialog("widget").find(".ui-dialog-titlebar");
-
-	// 3. 最大化ボタンをタイトルバーに追加
-	var $maxBtn = $('<button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-maximize" title="最大化">' +
-										'<span class="ui-button-icon ui-icon ui-icon-extlink"></span>' +
-										'<span class="ui-button-icon-space"> </span>最大化' +
-									'</button>').appendTo($titlebar);
-
-	// 4. 最大化ボタンのクリックイベント
-	$maxBtn.on("click", function() {
-		var $uiDialog = $dialog.dialog("widget"); // ダイアログの外枠を取得
-
-		if (!$uiDialog.hasClass("is-maximized")) {
-			// --- 最大化処理 ---
-			$uiDialog.data("original-state", {
-				position: $uiDialog.css("position"),
-				top: $uiDialog.css("top"),
-				left: $uiDialog.css("left"),
-				width: $uiDialog.css("width"),
-				height: $uiDialog.css("height"),
-				maxWidth: $dialog.dialog("option", "maxWidth")
-			});
-
-			$dialog.dialog("option", {
-				width: $(window).width(),
-				height: $(window).height()
+	)
+	let width_temp=100;
+	let height_temp=100;
+	let size=false;
+	let position_temp="";
+	let top_temp="";
+	let left_temp="";
+	const titlebar = dialog.dialog("widget").find(".ui-dialog-titlebar");
+	const button=$
+	(
+		`<button type="button" class="my_bigbutton ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-maximize"">
+			<span class="ui-button-icon ui-icon ui-icon-extlink"></span>'
+			<span class="ui-button-icon-space"> </span>最大化
+		</button>`
+	)
+	titlebar.append(button);
+	button.on
+	(
+		"click",function()
+		{
+			if(size==false)
+			{
+				position_temp = dialog.dialog("widget").css("position");
+				height_temp=dialog.dialog("option","height");
+				width_temp=dialog.dialog("option","width");
+				top_temp = dialog.dialog("widget").css("top");
+				left_temp = dialog.dialog("widget").css("left");
+				console.log("");
+				dialog.dialog("widget").css({
+					position:"fixed",
+					top:0,
+					left:0
+				})
+				dialog.dialog("option",{
+					width:$(window).width(),
+					height:$(window).height(),
+					position:{
+						my:"left top",
+						at:"left top",
+						of:window
+					}
 				});
-
-			$uiDialog.addClass("is-maximized").css({
-				position: "fixed",
-				top: 0,
-				left: 0,
-				width: "100svw",
-				height: "100svh"
-			});
-
-			$dialog.dialog("option", "height", $(window).height());
-
-			// ⭕ 修正: jQuery UI の正しい無効化処理
-			if ($dialog.data("ui-draggable")) { $dialog.draggable("disable"); }
-			if ($dialog.data("ui-resizable")) { $dialog.resizable("disable"); }
-
-			$(this).find(".ui-icon").removeClass("ui-icon-extlink").addClass("ui-icon-newwin");
-
-		} else {
-			// --- 元に戻す処理 ---
-			var orig = $uiDialog.data("original-state");
-
-			$dialog.dialog("option", "maxWidth", orig.maxWidth);
-
-			$uiDialog.removeClass("is-maximized").css({
-				position: orig.position,
-				top: orig.top,
-				left: orig.left,
-				width: orig.width,
-				height: orig.height
-			});
-
-			$dialog.dialog("option", "height", parseFloat(orig.height));
-
-			// ⭕ 修正: jQuery UI の正しい有効化処理
-			if ($dialog.data("ui-draggable")) { $dialog.draggable("enable"); }
-			if ($dialog.data("ui-resizable")) { $dialog.resizable("enable"); }
-
-			$(this).find(".ui-icon").removeClass("ui-icon-newwin").addClass("ui-icon-extlink");
+				size = true;
+			}
+			else if(size==true)
+			{
+				dialog.dialog("option",{
+					width:width_temp,
+					height:height_temp
+				});
+				dialog.dialog("widget").css({
+					position: position_temp,
+					top:top_temp,
+					left:left_temp
+				})
+				size=false;
+			}
+			else
+			{
+				console.error("ERORR_2");
+			}
 		}
-	});
-
-	// 5. 画面サイズが変わったとき、最大化中なら追従させる
-	$(window).on('resize.' + open_window_name, function() {
-		var $uiDialog = $dialog.dialog("widget");
-		if ($uiDialog.hasClass("is-maximized")) {
-			$uiDialog.css({
-				width: "100svw",
-				height: "100svh"
-			});
-			$dialog.dialog("option", "height", $(window).height());
+	)
+	$(window).on("resize." + open_window_name, function(){
+		if(size==true)
+		{
+				dialog.dialog("widget").css({
+					position:"fixed",
+					top:0,
+					left:0
+				})
+				dialog.dialog("option",{
+					width:$(window).width(),
+					height:$(window).height(),
+					position:{
+						my:"left top",
+						at:"left top",
+						of:window
+					}
+				});
+				size = true;
 		}
-	});
+	})
+	titlebar.on
+	(
+		"dblclick",function()
+		{
+			button.trigger("click");
+		}
+	)
 }
-function maxto()
-{
-	console.log("ok")
-	if(document.fullscreenElement)
-	{
-		document.exitFullscreen();
-		console.log("aho!");
-	}
-	else
-	{
-		document.body.requestFullscreen();
-	}
-}
-window.maxto=maxto;
+const taskbar = document.querySelector(".taskbar");
+taskbar.addEventListener("wheel", (event) => {
+	event.preventDefault();
+	taskbar.scrollLeft += event.deltaY;
+}, { passive: false });
+window.open_window=open_window;

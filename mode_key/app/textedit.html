@@ -4,31 +4,41 @@
 		<meta name="robots" content="noindex, nofollow">
 				<script src="./script.min.js"></script>
 
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta property="og:site_name" content="趣味プログラマー人間">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="/style.css">
+		<title>ModekeyOSもどき-何？</title>
+		<script defer type="module" src="./script.min.js"></script>
+		<meta name="robots" content="noindex, nofollow">
+	</head>
+		<body id="body">
+		<div onclick="sites()" class="sites">
+		<main>
+			<div class="header">
+				<input id="file_load" type="file" accept="text/plain,.md">
+				<input type="button" value="保存" onclick="save();">
+			</div>
+			<textarea id="textarea" autocomplete="off"></textarea>
+		</main>
+		</div>
 		<style>
-			*,
-*::before,
-*::after{
-		box-sizing: border-box;
-}
 			html{
 				height: 100%;
 			}
 			body{
 				height: 100%;
 				overflow: hidden;
-				form {
-					height: 100%;
+				textarea{
 					width: 100%;
-					div{
-						background-color: #aaa;
-						height: 25px;
-					}
-					textarea{
-						width: 100%;
-						height: calc(100% - 25px);
-						box-sizing: border-box;
-						resize: none;
-					}
+					height: calc(100% - 25px);
+					box-sizing: border-box;
+					resize: none;
 				}
 			}
 		</style>
@@ -38,7 +48,7 @@
 					let params = url.searchParams;
 					const file_load = document.querySelector('#file_load');
 					const textarea = document.querySelector('#textarea');
-					if (params)
+					if (params!==null)
 					{
 						textarea.value = params.get("q");
 					}
@@ -61,15 +71,7 @@
 						link.download = "text.txt";
 						link.click();
 				}
+				window.save = save;
 		</script>
-	</head>
-	<body id="body">
-		<form>
-			<div class="header">
-				<input id="file_load" type="file" accept="text/plain,.md">
-				<input type="button" value="保存" onclick="save();">
-			</div>
-			<textarea id="textarea" autocomplete="off"></textarea>
-		</form>
 	</body>
 </html>

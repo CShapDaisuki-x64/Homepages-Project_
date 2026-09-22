@@ -34,5 +34,11 @@
 		"img":"/games/img/game.avif",
 		"app":"/games/index.html",
 		"desktop":false
+	},
+	"Tool":{
+		"name":"Tool",
+		"img":"/tool/img/tool.avif",
+		"app":"/tool/index.html",
+		"desktop":true
 	}
 }

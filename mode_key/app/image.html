@@ -1,7 +1,3 @@
-<html>
-	<head>
-<meta property="og:site_name" content="趣味プログラマー人間">
-		<meta name="robots" content="noindex, nofollow">
 		<style>
 			*,
 *::before,
@@ -13,10 +9,6 @@
 				height: 100%;
 				form {
 					width: 100%;
-					.header{
-						background-color: #aaa;
-						height: 25px;
-					}
 				}
 				.divimg{
 						width: 100%;
@@ -66,10 +58,21 @@
 			}
 
 		</script>
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+<meta property="og:site_name" content="趣味プログラマー人間">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="/style.css">
+		<title>ModekeyOSもどき-何？</title>
+		<script defer type="module" src="./script.min.js"></script>
+		<meta name="robots" content="noindex, nofollow">
 	</head>
 		<body id="body">
-
 		<div onclick="sites()" class="sites">
+		<main>
 		<form>
 			<div class="header">
 				<input id="file_load" type="file" accept="image/*">
@@ -78,5 +81,7 @@
 				<img controls id="hil" src="../img/image.avif" alt="画像を指定して下さい">
 			</div>
 		</form>
+		</main>
+		</div>
 	</body>
 </html>

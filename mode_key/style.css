@@ -1,47 +1,33 @@
+:root{
+	--back_img:url("./img/back.avif");
+	--button_back_color:#0001;
+	--taskbar_back_color:#1ae;
+	--taskbar_button_back_color:#eeec;
+	--taskbar_border_back_color:#000c;
+	--button_text_color:#ddd;
+}
 *,
 *::before,
 *::after{
 		box-sizing: border-box;
 }
-
-/* 【最重要】最大化されたダイアログの外枠を画面いっぱいに強制固定 */
-.ui-dialog.is-maximized {
-	position: fixed !important;
-	top: 0 !important;
-	left: 0 !important;
-	width: 100svw !important;	/* 画面の横幅100% */
-	height: 100svh !important; /* 画面の縦幅100% */
-	box-sizing: border-box !important;
-	margin: 0 !important;
-	z-index: 9999 !important;
-}
-/* 最大化時、中身のコンテンツエリアもスクロールできるように縦幅をいっぱいに広げる */
-.ui-dialog.is-maximized .ui-dialog-content {
-	width: 100% !important;
-	height: calc(100svh - 40px) !important; /* 40pxはタイトルバーの大体の高さです */
-	box-sizing: border-box !important;
-}
-/* 最大化ボタンの位置（✕ボタンの左側） */
-.ui-dialog .ui-dialog-titlebar-maximize {
-	position: absolute;
-	right: 2.3em;
-	top: 50%;
-	width: 20px;
-	margin: -10px 0 0 0;
-	padding: 1px;
-	height: 20px;
-	cursor: pointer;
-}
-.ui-dialog .ui-dialog-content{
-	overflow: hidden;
-}
 html{
 	height: 100%;
 }
 body{
+	.my_bigbutton{
+		position: absolute;
+		top: 50%;
+		margin: -10px 0 0 0;
+		padding: 1px;
+		right: 2.3em;
+		width: 20px;
+		height: 20px;
+		cursor: pointer;
+	}
 	font-family: sans-serif;
 	font-variant-emoji: text;
-	background-image: url("./img/back.avif");
+	background-image: var(--back_img);
 	height: 100%;
 	margin: 0px;
 	iframe{
@@ -50,11 +36,12 @@ body{
 	}
 	.desktop{
 		button{
+			color:var(--button_text_color);
 			width: 100px;
 			height: 120px;
 			margin: 5px;
 			padding: 0px;
-			background-color:#00000007;
+			background-color:var(--button_back_color);
 			border: #00000000;
 			img{
 				width: 80px;
@@ -70,7 +57,7 @@ body{
 	}
 	.taskbar{
 		position: fixed;
-		background: #1ae;
+		background: var(--taskbar_back_color);
 		bottom: 0;
 		left: 0;
 		width: 100%;
@@ -79,8 +66,8 @@ body{
 		overflow-y: visible;
 		display: flex;
 		button{
-			background-color: #eeec;
-			border: solid #000c 1px;
+			background-color: var(--taskbar_button_back_color);
+			border: solid var(--taskbar_border_back_color) 1px;
 			display: flex;
 			height: 90%;
 			width: auto;
@@ -93,11 +80,4 @@ body{
 			}
 		}
 	}
-}
-::backdrop {
-	background-color: transparent;
-}
-:fullscreen body{
-	width: 100%;
-	height: 100%;
 }
