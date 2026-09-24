@@ -1,11 +1,16 @@
 /link.html /new_profile.html 301
 /link /new_profile.html 301
+/link/ /new_profile.html 301
 /profile.html /new_profile.html 301
 /profile /new_profile.html 301
+/profile/ /new_profile.html 301
 /QandA.html /new_profile.html 301
 /QandA /new_profile.html 301
+/QandA/ /new_profile.html 301
 /sns.html /new_profile.html 301
 /sns /new_profile.html 301
+/sns/ /new_profile.html 301
 /copy.html /index.html 301
 /copy /index.html 301
+/copy/ /index.html 301
 /Diamond_Clicker_Web_Beta/:slug /Diamond_Clicker/:slug 301
