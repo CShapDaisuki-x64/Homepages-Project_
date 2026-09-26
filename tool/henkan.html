@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<link rel="stylesheet" href="/style.css">
-		<script defer type="module" type="module"	src="/tool/script.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/10.4.2/decimal.min.js"></script>
+		<script defer type="module" type="module"	src="/tool/script.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/10.4.2/decimal.js"></script>
 		<title>趣味プログラマー人間-Tool-単位変換</title>
 	</head>
 		<body id="body">
@@ -41,11 +41,14 @@
 				長さ
 			</h3>
 			<label>変換前</label>
-			<input id="number" type="number">
+			<input id="long_number" type="number">
 			<select id="long_from">
 				<option value="mm">mm</option>
 				<option value="cm">cm</option>
+				<option value="dm">dm</option>
 				<option value="m">m</option>
+				<option value="dam">dam</option>
+				<option value="hm">hm</option>
 				<option value="km">km</option>
 				<option value="in">in</option>
 				<option value="ft">ft</option>
@@ -65,7 +68,10 @@
 			<select id="long_to">
 				<option value="mm">mm</option>
 				<option value="cm">cm</option>
+				<option value="dm">dm</option>
 				<option value="m">m</option>
+				<option value="dam">dam</option>
+				<option value="hm">hm</option>
 				<option value="km">km</option>
 				<option value="in">in</option>
 				<option value="ft">ft</option>
@@ -79,20 +85,83 @@
 				<option value="町">町</option>
 				<option value="里">里</option>
 			</select><br>
-			<button onclick="long_ivent()">
+			<button onclick="long_ivent('long_to','long_from','long_number','long_out')">
 				変換
 			</button>
 			<button onclick="copy('long_out')">
 				コピー
 			</button>
-			<p id="long_out"></p>
+			<p id="long_out">　</p>
+			<hr>
+			<h3 id="g">
+				重さ
+			</h3>
+			<label>変換前</label>
+			<input id="g_number" type="number">
+			<select id="g_from">
+				<option value="mg">mg</option>
+				<option value="cg">cg</option>
+				<option value="dg">dg</option>
+				<option value="g">g</option>
+				<option value="dag">dag</option>
+				<option value="hg">hg</option>
+				<option value="kg">kg</option>
+				<option value="t">t</option>
+				<option value="gr">gr</option>
+				<option value="dr">dr</option>
+				<option value="oz">oz</option>
+				<option value="lb">lb</option>
+				<option value="st">st</option>
+				<option value="cwt">cwt</option>
+				<option value="t_us">米t</option>
+				<option value="t_uk">英t</option>
+				<option value="貫">貫</option>
+				<option value="斤">斤</option>
+				<option value="両">両</option>
+				<option value="匁">匁</option>
+			</select><br>
+			<label>
+				変換後
+			</label>
+			<select id="g_to">
+				<option value="mg">mg</option>
+				<option value="cg">cg</option>
+				<option value="dg">dg</option>
+				<option value="g">g</option>
+				<option value="dag">dag</option>
+				<option value="hg">hg</option>
+				<option value="kg">kg</option>
+				<option value="t">t</option>
+				<option value="gr">gr</option>
+				<option value="dr">dr</option>
+				<option value="oz">oz</option>
+				<option value="lb">lb</option>
+				<option value="st">st</option>
+				<option value="cwt">cwt</option>
+				<option value="t_us">米t</option>
+				<option value="t_uk">英t</option>
+				<option value="貫">貫</option>
+				<option value="斤">斤</option>
+				<option value="両">両</option>
+				<option value="匁">匁</option>
+			</select><br>
+			<button onclick="long_ivent('g_to','g_from','g_number','g_out')">
+				変換
+			</button>
+			<button onclick="copy('g_out')">
+				コピー
+			</button><br>
+			<p id="g_out">　</p>
 		</main>
 		<footer><div id="footer_div" ></div></footer>
 		<script>
 			const long_units = {
 				"mm": new Decimal("0.001"),
 				"cm": new Decimal("0.01"),
+				"dm": new Decimal("0.1"),
 				"m": new Decimal("1"),
+				"dam": new Decimal("10"),
+				"hm": new Decimal("100"),
 				"km": new Decimal("1000"),
 				"in": new Decimal("0.0254"),
 				"ft": new Decimal("0.3048"),
@@ -104,17 +173,45 @@
 				"尺": new Decimal(10).div(33),
 				"間": new Decimal(20).div(11),
 				"町": new Decimal(600).div(11),
-				"里": new Decimal(21600).div(11)
+				"里": new Decimal(21600).div(11),
+
+				"mg":new Decimal("0.001"),
+				"cg": new Decimal("0.01"),
+				"dg": new Decimal("0.1"),
+				"g": new Decimal("1"),
+				"dag": new Decimal("10"),
+				"hg": new Decimal("100"),
+				"kg": new Decimal("1000"),
+				"t": new Decimal("1000000"),
+				"gr": new Decimal("0.06479891"),
+				"dr": new Decimal("1.7718451953125"),
+				"oz": new Decimal("28.349523125"),
+				"lb": new Decimal("453.59237"),
+				"st": new Decimal("6350.29318"),
+				"cwt": new Decimal("45359.237"),
+				"t_us": new Decimal("907184.74"),
+				"t_uk": new Decimal("1016046.9088"),
+				"貫": new Decimal("3750"),
+				"斤": new Decimal("600"),
+				"両": new Decimal("37.5"),
+				"匁": new Decimal("3.75"),
 			};
-			function long_ivent()
+			function long_ivent(fito,fiform,fitype,outype)
 			{
-				const value = new Decimal(document.getElementById("number").value);
-				document.getElementById("long_out").innerText = long_from(document.getElementById("long_from").value,value,document.getElementById("long_to").value);
+				if(document.getElementById(fitype).value==="")
+				{
+					return;
+				}
+				else
+				{
+					const value = new Decimal(document.getElementById(fitype).value);
+					document.getElementById(outype).innerText = from(document.getElementById(fiform).value,value,document.getElementById(fito).value);
+				}
 			}
-			function long_from(type, value, totype)
+			function from(type, value, totype)
 			{
 				const meter = value.mul(long_units[type]);
-				return meter.div(long_units[totype]).toString() + totype;
+				return meter.div(long_units[totype]).toFixed().toString() + totype;
 			}
 			function copy(wath)
 			{

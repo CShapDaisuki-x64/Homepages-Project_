@@ -1,27 +1,93 @@
 export function open_main()
 {
+	if(localStorage.getItem("Site_pr")!="false")
+	{
+		let URL="index.html";
+		let IMG="pr_home.avif";
+		let js_randoms = Math.floor(Math.random() * 5);
+		htm_pr.forEach(function(htm_pr){
+			if(js_randoms>4){
+				js_randoms=0;
+			}
+			if(0==js_randoms)
+			{
+				console.log("Diamond_Clicker")
+				url_img("Diamond_Clicker/index.html","pr_diamond.avif")
+			}
+			else if(1==js_randoms)
+			{
+				console.log("mode_key");
+				url_img("mode_key/index.html","pr_modekey.avif");
+			}
+			else if(2==js_randoms)
+			{
+				console.log("Games");
+				url_img("games/index.html","pr_games.avif");
+			}
+			else if(3==js_randoms)
+			{
+				console.log("url_long");
+				url_img("tool/very_long_url_ja_jp_hello_hi_kawaii_very_long_url.html","pr_longurl.avif")
+			}
+			else
+			{
+				console.log("homepage");
+				url_img("index.html","pr_home.avif")
+			}
+			htm_pr.style=`width: min(50svw,300px);
+				height: min(55svw,320px);
+				padding: 0;
+				border:1px solid #000;
+				border-radius:0;
+				background-color:#00000000;
+				font-size:16px;`
+			htm_pr.onclick=function(){window.open(`/${URL}`);};
+			htm_pr.innerHTML=`
+				PR<img style="width: 100%;aspect-ratio: 1/1;" src="/img/pr/${IMG}">
+				`;
+			js_randoms++;
+		});
+		function url_img(url,img)
+		{
+			URL=url;
+			IMG=img;
+		}
+	}
+	else
+	{
+		htm_pr.forEach(function(htm_pr){
+			htm_pr.remove();
+		});
+	}
+
 	if(localStorage.getItem('Site_OK')?.length >= 1)
 	{
 		let bur = document.createElement('dialog');
 		bur.id = "bur";
 		bur.style = "bottom:0px;left:35px;right:0px;margin:0px;width:calc(100% - 35px);z-index:1005;";
-
 		bur.innerHTML = `
 			<iframe height="300px" src="/license.js.html">
 				<a href="license.html">iframe対応してない人はここ</a>
 			</iframe>
 			<button>OK</button>
 		`;
-
 		document.body.appendChild(bur);
-
 		bur.querySelector("button").onclick = () => {
 			localStorage.removeItem("Site_OK");
 			bur.close();
 			bur.remove();
 		};
-
 		bur.show();
+	}
+	const taskbar = document.querySelectorAll(".x_go");
+	if(taskbar.length)
+	{
+		taskbar.forEach((yoso)=>{
+		yoso.addEventListener("wheel", (event) => {
+			event.preventDefault();
+			yoso.scrollLeft += event.deltaY;
+		}, { passive: false });
+		});
 	}
 }
 export function footer(fun_pass,fun_id)
@@ -105,62 +171,7 @@ if(localStorage.getItem("site_color"))
 document.body.appendChild(style_html);
 }
 const htm_pr=document.querySelectorAll('.pr_box');
-let URL="index.html";
-let IMG="pr_home.avif";
-function url_img(url,img)
-{
-	URL=url;
-	IMG=img;
-}
+
 export function pr(){
-	if(localStorage.getItem("Site_pr")!="false")
-	{let js_randoms = Math.floor(Math.random() * 5);
-	htm_pr.forEach(function(htm_pr){
-				if(js_randoms>4){
-			js_randoms=0;
-		}
-	if(0==js_randoms)
-	{
-		console.log("Diamond_Clicker")
-		url_img("Diamond_Clicker/index.html","pr_diamond.avif")
-	}
-	else if(1==js_randoms)
-	{
-		console.log("mode_key");
-		url_img("mode_key/index.html","pr_modekey.avif");
-	}
-	else if(2==js_randoms)
-	{
-		console.log("Games");
-		url_img("games/index.html","pr_games.avif");
-	}
-	else if(3==js_randoms)
-	{
-		console.log("url_long");
-		url_img("tool/very_long_url_ja_jp_hello_hi_kawaii_very_long_url.html","pr_longurl.avif")
-	}
-	else
-	{
-		console.log("homepage");
-		url_img("index.html","pr_home.avif")
-	}
-	htm_pr.style=`width: min(50svw,300px);
-		height: min(55svw,320px);
-		padding: 0;
-		border:1px solid #000;
-		border-radius:0;
-		background-color:#00000000;
-		font-size:16px;`
-	htm_pr.onclick=function(){window.open(`/${URL}`);};
-	htm_pr.innerHTML=`
-		PR<img style="width: 100%;aspect-ratio: 1/1;" src="/img/pr/${IMG}">
-	`;
-	js_randoms++;
-	});
-}
-else
-{htm_pr.forEach(function(htm_pr){
-	htm_pr.remove();
-	});
-}
+
 }

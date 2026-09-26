@@ -273,6 +273,25 @@ body{
 		--pagefind-ui-border: var(--bck_color);
 		--pagefind-ui-tag: var(--bck_color);
 		padding: 8px;
+		.album_a{
+			margin:10px;
+			height: 250px;
+			width: 90%;
+			overflow-x:scroll;
+			overflow-y:hidden;
+			background-color: var(--btn_bck_color);
+			border-radius:5px;
+			border: solid 2px var(--btn_bdr_color);
+			display: flex;
+			img{
+				border:solid 2px var(--btn_bdr_color);
+				width: auto;
+				height: 250px;
+			}
+		}
+		hr{
+			border:solid 1px var(--acs_color);
+		}
 		a{
 			color:var(--link_color);
 			text-decoration: none;

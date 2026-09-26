@@ -111,9 +111,4 @@ export function open_window(open_window_name, open_window_title) {
 		}
 	)
 }
-const taskbar = document.querySelector(".taskbar");
-taskbar.addEventListener("wheel", (event) => {
-	event.preventDefault();
-	taskbar.scrollLeft += event.deltaY;
-}, { passive: false });
 window.open_window=open_window;

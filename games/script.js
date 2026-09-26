@@ -5,7 +5,7 @@ allfile.footer("/nav.html","nav_div");
 allfile.footer("/share.html","nav_share_div");
 allfile.footer("/footerforall.html","footer_div");
 allfile.style();
-allfile.pr();
+
 const html_points = document.getElementById("points");
 let points = 0;
 let points_local=localStorage.getItem("games_points")
