@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
-<meta property="og:site_name" content="趣味プログラマー人間">
+		<meta property="og:site_name" content="趣味プログラマー人間">
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.css">
 		<link rel="stylesheet" href="style.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
@@ -11,16 +11,28 @@
 		<script defer type="module" type="module"	src="./app.js"></script>
 		<title>ModekeyOSもどき</title>
 	</head>
-		<body id="body">
+	<body id="body">
+		<div class="sites">
+			<div class="dialog-template" style="display:none;">
 
-		<div onclick="sites()" class="sites">
-		<div class="dialog-template" style="display:none;">
+			</div>
+			<div class="desktop">
 
+			</div>
+			<div class="taskbar x_go">
+				<button onclick="start_open();">
+					<img src="./img/modekey.mini.avif"alt="スタート">
+					アプリ一覧
+				</button>
+			</div>
 		</div>
-		<div class="desktop">
+		<div style="display: none;" id="start">
+			スタート
+			<div id="start_in">
 
+			</div>
 		</div>
-		<div class="taskbar x_go">
+		<div id="ouy" onclick="start_close();"style="display:">
 
 		</div>
 	</body>

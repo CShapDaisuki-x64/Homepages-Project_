@@ -29,7 +29,7 @@
 			<button class="svg_nocolor" onclick="window.location='now_rss.xml'">
 				<img src="rss.svg"> RSS
 			</button>
-			<div class="tanaka"></div>
+			<article class="tanaka"></article>
 		</main>
 		<footer>
 			<div id="footer_div"></div>
@@ -49,7 +49,7 @@
 				ShopBox.innerHTML = '';
 				Object.keys(items).sort((a, b) => b.localeCompare(a)).forEach(key => {
 					const item = items[key];
-					const btn = document.createElement('div');
+					const btn = document.createElement('article');
 					btn.className = "koumoku";
 					btn.id = key;
 					let cdn1 = key.match(/.{4}/g);

@@ -1,25 +1,35 @@
 :root{
 	--bck_color:#eee;
+
 	--haf_bck_color:#0ce;
 	--haf_link_in_color:#456;
 	--haf_img_rod:invert(0%);
+
 	--acs_color:#112;
+
 	--btn_bck_color:#ddd;
 	--btn_bdr_color:#bbb;
 	--btn_bck_in_color:#ccc;
 	--btn_bdr_in_color:#aaa;
 	--btn_txt_color:#112;
 	--btn_in_img_rod:brightness(80%);
+
 	--link_color:#07d;
 	--link_color_ace:#90e;
 	--link_color_in:#1cd;
 	--link_color_ace_in:#c1d;
+
 	--kmk-vdo_bck_color:#0ad;
+
 	--vdo_acs_color:#eee;
 	--vdo_link_color:#cde;
 	--vdo_link_in_color:#dee;
 	--vdo_ex_bck_color:#e05;
 	--vdo_inf_bck_color:#05e;
+
+	--info_exp:#eb2;
+	--info_info:#2cd;
+	--info_vex:#e05;
 }
 @media(prefers-color-scheme:dark){
 	:root{
@@ -46,6 +56,8 @@
 *{
 	box-sizing: border-box;
 	overflow-wrap: break-word;
+	scrollbar-width: thin;
+	scrollbar-gutter:both-edges;
 }
 html {
 	height: 100%;
@@ -273,9 +285,77 @@ body{
 		--pagefind-ui-border: var(--bck_color);
 		--pagefind-ui-tag: var(--bck_color);
 		padding: 8px;
-		.album_a{
-			margin:10px;
-			height: 250px;
+		.info_vex,.info_exp,.info_info{
+			margin-top: 10px;
+			margin-bottom: 10px;
+			width: 90%;
+			min-height: 3em;
+		}
+		.info_exp{
+			.info_head{
+				background-color: var(--info_exp);
+				&::before{
+					margin: 2px;
+					content: "　";
+					width: 1.2em;
+					height: 1.2em;
+					display:inline-block;
+					background-color: currentColor;
+					mask: url(/img/exp.svg) no-repeat center;
+					mask-size: contain;
+				}
+				&::after{
+					content: "注意";
+				}
+			}
+			border: solid var(--info_exp) 3px;
+			border-radius: 5px;
+		}
+		.info_info{
+			.info_head{
+				background-color: var(--info_info);
+				&::before{
+					margin: 2px;
+					content: "　";
+					width: 1.2em;
+					height: 1.2em;
+					display:inline-block;
+					background-color: currentColor;
+					mask: url(/img/info.svg) no-repeat center;
+					mask-size: contain;
+				}
+				&::after{
+					content: "情報";
+				}
+			}
+			border: solid var(--info_info) 3px;
+			border-radius: 5px;
+		}
+		.info_vex{
+			.info_head{
+				background-color: var(--info_vex);
+				&::before{
+					margin: 2px;
+					content: "　";
+					width: 1.2em;
+					height: 1.2em;
+					display:inline-block;
+					background-color: currentColor;
+					mask: url(/img/vex.svg) no-repeat center;
+					mask-size: contain;
+				}
+				&::after{
+					content: "警告";
+				}
+			}
+			border: solid var(--info_vex) 3px;
+			border-radius: 5px;
+		}
+		.album_a,.album_b{
+			margin-top: 10px;
+			margin-bottom: 10px;
+			scroll-snap-type: x inline;
+			height: calc(250px);
 			width: 90%;
 			overflow-x:scroll;
 			overflow-y:hidden;
@@ -283,10 +363,24 @@ body{
 			border-radius:5px;
 			border: solid 2px var(--btn_bdr_color);
 			display: flex;
+		}
+		.album_a{
 			img{
-				border:solid 2px var(--btn_bdr_color);
+				border:solid 2px var(--btn_bdr_in_color);
 				width: auto;
 				height: 250px;
+			}
+		}
+		.album_b{
+			height: calc(250px + 1.5em);
+			div{
+				display:flex;
+				flex-direction: column;
+				border:solid 2px var(--btn_bdr_in_color);
+				img{
+					width: auto;
+					height: 250px;
+				}
 			}
 		}
 		hr{
@@ -362,6 +456,7 @@ body{
 		.koumoku{
 			margin: 8px;
 			padding:0px;
+			border-radius: 5px;
 			border:2px solid var(--kmk-vdo_bck_color);
 			.day{
 				font-size: 1.1em;

@@ -121,6 +121,9 @@ const dark =
 		--vdo_acs_color:#ddd;
 		--vdo_link_color:#cdd;
 		--vdo_link_in_color:#bbb;
+		--info_exp:#a80;
+		--info_info:#06a;
+		--info_vex:#a00;
 	} `;
 const notdark =
 `:root{
