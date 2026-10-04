@@ -1,5 +1,8 @@
 export function open_main()
 {
+	let before_scroll_x = 0;
+let before_scroll_y = 0;
+let fullscreen_target = null;
 	if(localStorage.getItem("Site_pr")!="false")
 	{
 		let URL="index.html";
@@ -89,6 +92,189 @@ export function open_main()
 		}, { passive: false });
 		});
 	}
+
+
+
+	const html_class_video=document.getElementsByClassName("video");
+	for (let i=0;i<html_class_video.length;i++)
+	{
+		let all=document.createElement("div");
+		all.id=`html_class_video_all_autoID_${i}`;
+		let video=document.createElement("video");
+		let source=document.createElement("source");
+		source.src=html_class_video[i].getAttribute("my-file");
+		video.appendChild(source);
+		html_class_video[i].id=`html_class_video_autoID_${i}`;
+		let banner=document.createElement("input");
+		banner.type="range";
+		banner.value=0;
+		let button=document.createElement("button");
+		button.innerHTML="<img src='/img/go.svg'alt='再生'>";
+		let video_go="false";
+		video.addEventListener("ended", function()
+		{
+			video_go = "roop";
+			banner.style="filter:brightness(50%);pointer-events:none;";
+			button.innerHTML ="<img src='/img/road.svg' alt='最初から再生'>";
+		});
+		video.addEventListener("loadedmetadata", function()
+		{
+			banner.max=video.duration;
+			banner.step = 1 / 60;
+		});
+		banner.addEventListener("input", function(){
+			if(video_go=="roop")
+			{
+				banner.value=banner.max;
+			}
+			else
+			{
+				video.currentTime=banner.value;
+			}
+		});
+		video.addEventListener("timeupdate", function(){
+			banner.value=video.currentTime;
+			banner.style="";
+		});
+		video.addEventListener("pause", function(){
+			if(video.ended)
+			{
+				return;
+			}
+			button.innerHTML="<img src='/img/go.svg'alt='再生'>";
+			banner.style="";
+			video_go="false";
+		});
+		video.addEventListener("play", function(){
+				button.innerHTML="<img src='/img/stop.svg'alt='一時停止'>";
+				banner.style="";
+				video_go="true";
+		});
+		button.onclick=function(){
+			if(video_go=="false")
+			{
+				video.play();
+				button.innerHTML="<img src='/img/stop.svg'alt='一時停止'>";
+				video_go="true";
+			}
+			else if(video_go=="true")
+			{
+				video.pause();
+				button.innerHTML="<img src='/img/go.svg'alt='再生'>";
+				video_go="false";
+			}
+			else
+			{
+				banner.style="";
+				video.currentTime = 0;
+				banner.value = 0;
+				video.play();
+				button.innerHTML="<img src='/img/stop.svg'alt='一時停止'>";
+				video.play();
+				video_go="true";
+			}
+		};
+		video.onclick=function(){
+			if(video_go=="false")
+			{
+				video.play();
+				button.innerHTML="<img src='/img/stop.svg'alt='一時停止'>";
+				video_go="true";
+			}
+			else if(video_go=="true")
+			{
+				video.pause();
+				button.innerHTML="<img src='/img/go.svg'alt='再生'>";
+				video_go="false";
+			}
+			else
+			{
+				video.currentTime = 0;
+				banner.value = 0;
+				video.play();
+				button.innerHTML="<img class='svg_nocolor_no' src='/img/stop.svg'alt='一時停止'>";
+				video.play();
+				video_go="true";
+			}
+		};
+
+		let pipbutton= document.createElement("button");
+		pipbutton.onclick=function(){ if (document.pictureInPictureElement) {
+    document.exitPictureInPicture();
+  } else if (document.pictureInPictureEnabled) {
+    video.requestPictureInPicture();
+  };}
+	pipbutton.className="svg_nocolor";
+	pipbutton.innerHTML="<img src='/img/pip.svg'alt='ピクチャインピクチャ'>";
+	let big=document.createElement("button");
+big.onclick=function()
+{const sites = document.querySelector(".sites");
+
+	if(!document.fullscreenElement)
+	{
+		console.log("fullscreen前:", sites.scrollTop);
+
+		before_scroll_x = sites.scrollLeft;
+		before_scroll_y = sites.scrollTop;
+
+		fullscreen_target = all;
+
+		all.requestFullscreen();
+	}
+	else
+	{
+		document.exitFullscreen();
+	}
+};
+	big.className="svg_nocolor";
+	big.innerHTML="<img src='/img/big_size_max.svg'alt='最大化'>";
+	let ue=document.createElement("div");
+	ue.className="video_ue";
+	banner.className="video_banner";
+	button.className="svg_nocolor";
+	all.appendChild(video);
+	ue.appendChild(button);
+	ue.appendChild(pipbutton);
+	ue.appendChild(big);
+	ue.appendChild(banner);
+	all.appendChild(ue)
+	html_class_video[i].appendChild(all);
+	}
+
+
+document.addEventListener("fullscreenchange", () =>
+{
+    if(document.fullscreenElement === null)
+    {
+        const sites = document.querySelector(".sites");
+
+        function restore()
+        {
+            const maxScroll = sites.scrollHeight - sites.clientHeight;
+
+            console.log(
+                "復元チェック:",
+                "現在", sites.scrollTop,
+                "最大", maxScroll,
+                "保存", before_scroll_y
+            );
+
+            if(maxScroll >= before_scroll_y)
+            {
+                sites.scrollLeft = before_scroll_x;
+                sites.scrollTop = before_scroll_y;
+
+                console.log("復元完了:", sites.scrollTop);
+            }
+            else
+            {
+                requestAnimationFrame(restore);
+            }
+        }
+
+        requestAnimationFrame(restore);
+    }
+});
 }
 export function footer(fun_pass,fun_id)
 {

@@ -57,7 +57,6 @@
 	box-sizing: border-box;
 	overflow-wrap: break-word;
 	scrollbar-width: thin;
-	scrollbar-gutter:both-edges;
 }
 html {
 	height: 100%;
@@ -79,11 +78,11 @@ body{
 	overflow: hidden;
 	.svg_nocolor{
 		img{
-			filter: var(--haf_img_rod);
+			filter: var(--haf_img_rod)!important;
 		}
 		&:hover{
 			img{
-				filter:var(--haf_img_rod);
+				filter:var(--haf_img_rod)!important;
 			}
 		}
 	}
@@ -110,6 +109,8 @@ body{
 		}
 	}
 	.sites{
+		scrollbar-gutter:stable;
+
 		overflow-y: scroll;
 		overflow-x:auto;
 		width: 100svw;
@@ -396,6 +397,67 @@ body{
 				color: var(--link_color_in);
 				&:visited{
 					color: var(--link_color_ace_in);
+				}
+			}
+		}
+		.video{
+			> div{
+			width: 90%;
+			max-width: 700px;
+			padding: 5px;
+			background-color: var(--btn_bck_color);
+			border: var(--btn_bdr_color) solid 5px;
+			border-radius: 5px;
+			display: flex;
+			flex-direction: column;
+
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+
+			&:fullscreen{
+				height: 100svh;
+				width: auto;
+				padding: 5px;
+				box-sizing: border-box;
+				video{
+					flex: 1;
+					min-height: 0;
+					max-width: 100%;
+					width: auto;
+					object-fit: contain;
+				}
+				}
+			}
+			video{
+				width: 100%;
+				border-radius: 5px;
+				border: var(--btn_bdr_in_color) solid 5px;
+				background-color: var(--btn_bck_in_color);
+			}
+			button{
+				width: 40px;
+				height: 40px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 0;
+				img{
+					width: 20px;
+				}
+			}
+			.video_ue
+			{
+				margin: 0px;
+				display: flex;
+				width: 100%;
+				min-width: 0;
+				display: flex;
+				box-sizing: border-box;
+				height: 50px;
+				.video_banner{
+					flex: 1;
+					height: 45px;
 				}
 			}
 		}

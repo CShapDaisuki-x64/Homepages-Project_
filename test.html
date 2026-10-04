@@ -13,6 +13,7 @@
 		<link rel="alternate" type="application/rss+xml" title="趣味プログラマー人間のホームページ" href="https://syumi-programmer-ningen.pages.dev/now_rss.xml">
 		<script defer type="module" type="module"	src="script.js" ></script>
 		<meta name="google-site-verification" content="2fzWMwnm6Ni3SjJIUfw2ibt1j-UMgQ5rXe8K-PoUBSU" />
+		<!--MD用--><script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 	</head>
 	<body id="body">
 		<nav><div class="nav_style"><details><summary></summary><div class="nav_style_in"><div id="nav_div"></div></details><div id="nav_share_div"></div></div></nav>
@@ -109,6 +110,11 @@
 				<div class="info_head"></div>
 					このページはサンプルページだよ♡
 			</div>
+			<div id="mdtest"></div>
+			<figure class="video"my-file="/mode_key/app/test.mp4">
+
+			</figure>
+
 		</main>
 		 <footer>
 			 <div id="footer_div" >
@@ -118,6 +124,9 @@
 		 <script>
 			const ShopBox = document.querySelector('#rss');
 			let saved_Items;
+			document.getElementById("mdtest").innerHTML=marked.parse(
+				"# マーク ダウン！！\nマーク アップ！！！よりも手軽だよ！！！！"
+			);
 			async function LoadJson()
 			{
 				let response = await fetch('oshirase.json');
