@@ -1,5 +1,76 @@
+const my_path = window.location.origin;4
+const loot_path = String(window.location.href).slice(my_path.length);
 export function open_main()
 {
+	const roop=loot_path.split("/").filter(x => x !== ""&& x !== "index.html"&& x !== "index");
+	console.log(loot_path,roop,"|0");
+	console.log(loot_path,roop,"|4");
+	let pan=[[],[]];
+	for(let i=0;i<roop.length-1;i++)
+	{
+		console.log(roop[i],"|5");
+		switch(roop[i])
+		{
+			case "games":
+				pan[0][i]="Games"
+				break;
+			case "tool":
+				pan[0][i]="Tool"
+				break;
+			default:
+				pan[0][i]=roop[i];
+				break;
+		}
+		if(i==0)
+		{
+			pan[1][0]=roop[0];
+		}
+		else
+		{
+			pan[1][i]=String(pan[1][i-1]+"/"+roop[i]);
+		}
+	}
+	pan[0].push(document.getElementById("hedaer_div_two").querySelector("h2").innerText);
+	if(roop.length!==0)
+	{
+		if(pan[0].length==1)
+		{
+			pan[1].push(roop[roop.length - 1]);
+		}
+		else
+		{
+			pan[1].push(pan[1][pan[1].length - 1]+"/"+roop[roop.length -1])
+		}
+	}
+	console.log(pan[0].join("/")+"\n"+pan[1].join("/")+"|6");
+	let js_html_pan_main=document.createElement("div");
+	js_html_pan_main.className="pankuzu";
+	let jsa=document.createElement("a");
+	jsa.href="/index.html";
+	jsa.innerText="趣味プログラマー人間";
+	js_html_pan_main.appendChild(jsa);
+	if(roop.length!==0)
+	{
+		let js_html_pan_kugirip = document.createElement("span");
+		js_html_pan_kugirip.innerText = "/ ";
+		js_html_pan_main.appendChild(js_html_pan_kugirip);
+	}
+	for(let i=0;i<pan[1].length;i++)
+	{
+		let js_html_pan=document.createElement("a");
+		js_html_pan.id=i+"pankuzu";
+		js_html_pan.href="/"+pan[1][i];
+		js_html_pan.innerText=pan[0][i];
+		js_html_pan_main.appendChild(js_html_pan);
+		if(i < pan[1].length - 1)
+		{
+			let js_html_pan_kugiri = document.createElement("span");
+			js_html_pan_kugiri.innerText = "/ ";
+			js_html_pan_main.appendChild(js_html_pan_kugiri);
+		}
+	}
+	document.getElementsByTagName("header")[0].appendChild(js_html_pan_main);
+
 	let before_scroll_x = 0;
 let before_scroll_y = 0;
 let fullscreen_target = null;
@@ -314,21 +385,27 @@ const dark =
 const notdark =
 `:root{
 	--bck_color:#eee;
+
 	--haf_bck_color:#0ce;
 	--haf_link_in_color:#456;
 	--haf_img_rod:invert(0%);
+
 	--acs_color:#112;
-	--btn_bck_color:#ddd;
-	--btn_bdr_color:#bbb;
-	--btn_bck_in_color:#ccc;
-	--btn_bdr_in_color:#aaa;
+
+	--btn_bck_color:#d5d5d5;
+	--btn_bdr_color:#b5b5b5;
+	--btn_bck_in_color:#dddddd;
+	--btn_bdr_in_color:#bbbbbb;
 	--btn_txt_color:#112;
-	--btn_in_img_rod:brightness(80%);
+	--btn_in_img_rod:brightness(120%);
+
 	--link_color:#07d;
 	--link_color_ace:#90e;
 	--link_color_in:#1cd;
 	--link_color_ace_in:#c1d;
+
 	--kmk-vdo_bck_color:#0ad;
+
 	--vdo_acs_color:#eee;
 	--vdo_link_color:#cde;
 	--vdo_link_in_color:#dee;
