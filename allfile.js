@@ -452,6 +452,7 @@ export async function a()
 		}
 		const data=await count.json();
 		const a=document.getElementById("header_num");
+		a.innerText=data.count;
 	}
 	catch(error)
 	{
