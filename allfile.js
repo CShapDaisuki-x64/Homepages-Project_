@@ -346,6 +346,7 @@ document.addEventListener("fullscreenchange", () =>
         requestAnimationFrame(restore);
     }
 });
+	a();
 }
 export function footer(fun_pass,fun_id)
 {
@@ -440,4 +441,22 @@ const htm_pr=document.querySelectorAll('.pr_box');
 
 export function pr(){
 
+}
+async function a()
+{
+	try
+	{
+		const count=await fetch("https://syumi-programmer-ningen.pages.dev/api/counter");
+		if(!count.ok)
+		{
+			throw new Error("HTTP ERROR"+count.status);
+		}
+		const data=await count.json();
+		document.getElementById("header_num").innerText=data.count;
+	}
+	catch(error)
+	{
+		console.error("失敗"+error);
+		document.getElementById("header_num").innerText = "?";
+	}
 }
