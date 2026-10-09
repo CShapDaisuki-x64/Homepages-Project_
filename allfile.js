@@ -451,7 +451,7 @@ export async function a()
 			throw new Error("HTTP ERROR"+count.status);
 		}
 		const data=await count.json();
-		document.getElementById("header_num").innerText=data.count;
+		const a=document.getElementById("header_num");
 	}
 	catch(error)
 	{

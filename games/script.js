@@ -5,7 +5,7 @@ await allfile.footer("/nav.html","nav_div");
 await allfile.footer("/share.html","nav_share_div");
 await allfile.footer("/footerforall.html","footer_div");
 allfile.style();
-allfile.a();
+await allfile.a();
 
 const html_points = document.getElementById("points");
 let points = 0;

@@ -5,4 +5,4 @@ await allfile.footer("/footer.html","footer_div");
 await allfile.footer("/nav.html","nav_div");
 await allfile.footer("/share.html","nav_share_div");
 await allfile.style();
-allfile.a();
+await allfile.a();
