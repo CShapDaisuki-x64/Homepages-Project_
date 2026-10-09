@@ -1,9 +1,9 @@
 import * as allfile from '../allfile.js';
-allfile.open_main();
-allfile.style();
+await allfile.open_main();
+await allfile.style();
 
-allfile.footer("/tool/header.html","hedaer_div");
-allfile.footer("/nav.html","nav_div");
-allfile.footer("/share.html","nav_share_div");
-allfile.footer("/footerforall.html","footer_div");
+await allfile.footer("/tool/header.html","hedaer_div");
+await allfile.footer("/nav.html","nav_div");
+await allfile.footer("/share.html","nav_share_div");
+await allfile.footer("/footerforall.html","footer_div");
 allfile.a();
