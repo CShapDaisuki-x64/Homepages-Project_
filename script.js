@@ -5,3 +5,4 @@ allfile.footer("/footer.html","footer_div");
 allfile.footer("/nav.html","nav_div");
 allfile.footer("/share.html","nav_share_div");
 allfile.style();
+allfile.a();

@@ -346,7 +346,6 @@ document.addEventListener("fullscreenchange", () =>
         requestAnimationFrame(restore);
     }
 });
-	a();
 }
 export function footer(fun_pass,fun_id)
 {
@@ -442,7 +441,7 @@ const htm_pr=document.querySelectorAll('.pr_box');
 export function pr(){
 
 }
-async function a()
+export async function a()
 {
 	try
 	{
