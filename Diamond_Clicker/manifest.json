@@ -1,0 +1,31 @@
+{
+	"id": "/Diamond_Clicker/",
+	"name": "Diamond_Clicker",
+	"short_name": "diamondclick",
+	"background_color": "#ae7120",
+	"theme_color":"#24b39b",
+	"icons": [{
+			"src": "/Diamond_Clicker/img/daiya.webp",
+			"sizes": "250x250",
+			"type": "image/webp",
+			"purpose": "any"
+		}],
+	"start_url": "/Diamond_Clicker/",
+	"scope": "/Diamond_Clicker/",
+	"display": "standalone",
+	"screenshots": [
+		{
+			"src": "/Diamond_Clicker/img/samune.webp",
+			"sizes": "1200x713",
+			"type": "image/webp",
+			"form_factor": "wide",
+			"label": "Diamond_Clicker for PC"
+		},
+		{
+			"src": "/Diamond_Clicker/img/samune_phone.avif",
+			"sizes": "388x843",
+			"type": "image/avif",
+			"label": "Diamond_Clicker for Phone"
+		}
+	]
+}

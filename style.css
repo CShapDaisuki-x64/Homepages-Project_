@@ -1,7 +1,7 @@
 @font-face {
-  font-family: "Dentaku_spn";
-  src: url("/font/Dentaku_spn.woff2") format("woff2");
-  font-display: swap;
+	font-family: "Dentaku_spn";
+	src: url("/font/Dentaku_spn.woff2") format("woff2");
+	font-display: swap;
 }
 :root{
 	--bck_color:#eee;

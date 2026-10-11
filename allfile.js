@@ -2,6 +2,8 @@ const my_path = window.location.origin;4
 const loot_path = String(window.location.href).slice(my_path.length);
 export function open_main()
 {
+	if(document.querySelector("header")&&document.querySelector("footer"))
+	{
 	const roop=loot_path.split("/").filter(x => x !== ""&& x !== "index.html"&& x !== "index");
 	console.log(loot_path,roop,"|0");
 	console.log(loot_path,roop,"|4");
@@ -70,7 +72,7 @@ export function open_main()
 		}
 	}
 	document.getElementsByTagName("header")[0].appendChild(js_html_pan_main);
-
+}
 	let before_scroll_x = 0;
 let before_scroll_y = 0;
 let fullscreen_target = null;
@@ -271,10 +273,10 @@ let fullscreen_target = null;
 
 		let pipbutton= document.createElement("button");
 		pipbutton.onclick=function(){ if (document.pictureInPictureElement) {
-    document.exitPictureInPicture();
-  } else if (document.pictureInPictureEnabled) {
-    video.requestPictureInPicture();
-  };}
+		document.exitPictureInPicture();
+	} else if (document.pictureInPictureEnabled) {
+		video.requestPictureInPicture();
+	};}
 	pipbutton.className="svg_nocolor";
 	pipbutton.innerHTML="<img src='/img/pip.svg'alt='ピクチャインピクチャ'>";
 	let big=document.createElement("button");
@@ -315,36 +317,36 @@ big.onclick=function()
 
 document.addEventListener("fullscreenchange", () =>
 {
-    if(document.fullscreenElement === null)
-    {
-        const sites = document.querySelector(".sites");
+		if(document.fullscreenElement === null)
+		{
+				const sites = document.querySelector(".sites");
 
-        function restore()
-        {
-            const maxScroll = sites.scrollHeight - sites.clientHeight;
+				function restore()
+				{
+						const maxScroll = sites.scrollHeight - sites.clientHeight;
 
-            console.log(
-                "復元チェック:",
-                "現在", sites.scrollTop,
-                "最大", maxScroll,
-                "保存", before_scroll_y
-            );
+						console.log(
+								"復元チェック:",
+								"現在", sites.scrollTop,
+								"最大", maxScroll,
+								"保存", before_scroll_y
+						);
 
-            if(maxScroll >= before_scroll_y)
-            {
-                sites.scrollLeft = before_scroll_x;
-                sites.scrollTop = before_scroll_y;
+						if(maxScroll >= before_scroll_y)
+						{
+								sites.scrollLeft = before_scroll_x;
+								sites.scrollTop = before_scroll_y;
 
-                console.log("復元完了:", sites.scrollTop);
-            }
-            else
-            {
-                requestAnimationFrame(restore);
-            }
-        }
+								console.log("復元完了:", sites.scrollTop);
+						}
+						else
+						{
+								requestAnimationFrame(restore);
+						}
+				}
 
-        requestAnimationFrame(restore);
-    }
+				requestAnimationFrame(restore);
+		}
 });
 }
 export function footer(fun_pass,fun_id)
@@ -441,7 +443,7 @@ const htm_pr=document.querySelectorAll('.pr_box');
 export function pr(){
 
 }
-export async function a()
+export async function a(in_a)
 {
 	try
 	{
@@ -451,12 +453,18 @@ export async function a()
 			throw new Error("HTTP ERROR"+count.status);
 		}
 		const data=await count.json();
-		const a=document.getElementById("header_num");
-		a.innerText=data.count;
+		const value=data.count;
+		const style=getComputedStyle(document.getElementById(in_a));
+		const charWidth = parseFloat(style.fontSize) * 0.463;
+		const digits = Math.max(1, Math.floor(document.getElementById(in_a).clientWidth / charWidth));
+		document.getElementById(in_a).innerText=String(value).padStart(digits, "0");
 	}
 	catch(error)
 	{
 		console.error("失敗"+error);
-		document.getElementById("header_num").innerText = "?";
+		const style=getComputedStyle(document.getElementById(in_a));
+		const charWidth = parseFloat(style.fontSize) * 0.463;
+		const digits = Math.max(1, Math.floor(document.getElementById(in_a).clientWidth / charWidth));
+		document.getElementById(in_a).innerText="-".repeat(digits);
 	}
 }

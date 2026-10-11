@@ -1,0 +1,142 @@
+<html>
+	<head>
+<meta property="og:site_name" content="趣味プログラマー人間">
+		<meta name="robots" content="noindex, nofollow">
+				<script src="./script.js"></script>
+
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta property="og:site_name" content="趣味プログラマー人間">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="/style.css">
+		<title>ModekeyOSもどき-何？</title>
+		<script defer type="module" src="./script.js"></script>
+		<meta name="robots" content="noindex, nofollow">
+	</head>
+		<body id="body">
+		<div onclick="sites()" class="sites">
+		<main>
+			<label>ペンの太さ</label><input id="huf" type="range"value="10"max="100">
+			<label>消しゴム</label><input id="del"type="checkbox">
+			<label>色</label><input id="iro"type="color">
+			<button id="button" onclick="alldell()">
+				全消去
+			</button>
+			<input type="file" id="file"accept="image/*" >
+			<button id="autton">
+				保存
+			</button>
+			<div>
+				<canvas width="1000"height="1000"class="canvas"></canvas>
+			</div>
+		</main>
+		</div>
+		<style>
+			html{
+				height: 100%;
+			}
+			body{
+				div{
+					min-width:0px;
+					min-height: 0px;
+					max-width: 100%;
+					max-height: calc(100% - 100px);
+					overflow: scroll;
+				}
+				height: 100%;
+				overflow: hidden;
+				canvas{
+					background-color: var(--btn_bck_color);
+					margin: 0px;
+					cursor:crosshair;
+					box-sizing: border-box;
+					resize: none;
+					background-image: linear-gradient(45deg, #bbb 25%, transparent 25%, transparent 75%, #bbb 75%),
+					linear-gradient(45deg, #bbb 25%, transparent 25%, transparent 75%, #bbb 75%); /* 市松模様になるようグラデーションで単色を入れる */
+					background-position: 0 0, 30px 30px;	/* 「0 0」と1マス（1色）の大きさ「30px 30px」をそれぞれ指定 */
+					background-size: 60px 60px;					 /* 1マス分の倍の大きさを指定「60px 60px」 */
+					background-color: #FFF;
+				}
+			}
+		</style>
+		<script defer type="module" type="module" >
+			document.querySelector('#file').addEventListener('change', e => {
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				const file = e.target.files[0];
+				if (!file) return;
+				const reader = new FileReader();
+				reader.onload = (e) => {
+					const img = new Image();
+					img.onload = () => {
+						context.drawImage(img, 0, 0,canvas.width,canvas.height);
+					};
+					img.width="1000";
+					img.height="1000";
+					img.src = e.target.result;
+				};
+				reader.readAsDataURL(file);
+			});
+			const canvas = document.querySelector('.canvas');
+			const context = canvas.getContext('2d');
+			context.lineWidth = 100;
+			context.lineCap = 'round';
+			context.lineJoin = 'round';
+			let ok=false;
+			canvas.addEventListener("mousedown",(e)=>{
+				ok=true;
+					const rect = e.target.getBoundingClientRect();
+					let x=(e.clientX - rect.left) * canvas.width / rect.width;
+					let y=(e.clientY - rect.top) * canvas.height / rect.height;
+					context.beginPath();
+					context.moveTo(x, y);
+			});
+			canvas.addEventListener('mousemove', (e) => {
+				if(ok==true)
+				{
+					context.lineWidth = document.querySelector("#huf").value;
+					const rect = e.target.getBoundingClientRect();
+					let x=(e.clientX - rect.left) * canvas.width / rect.width;
+					let y=(e.clientY - rect.top) * canvas.height / rect.height;
+					context.lineTo(x,y);
+					context.stroke();
+				}
+			});
+			canvas.addEventListener("mouseup",(e)=>{
+				ok=false;
+			});
+			canvas.addEventListener('mouseleave', () => {
+ok = false;
+});
+document.getElementById("del").oninput=function(){
+	if(document.getElementById("del").checked)
+	{
+		context.globalCompositeOperation = 'destination-out';
+	}
+	else
+	{
+		context.globalCompositeOperation = 'source-over';
+	}
+}
+document.getElementById("iro").oninput=function(){
+	context.fillStyle=document.getElementById("iro").value;
+	context.strokeStyle=document.getElementById("iro").value;
+
+}
+document.querySelector("#button").onclick=function()
+{
+	context.clearRect(0, 0, canvas.width, canvas.height);
+}
+document.getElementById("autton").onclick=function()
+{
+	let link=document.createElement("a");
+	link.href=canvas.toDataURL("image/png");
+	link.download="image.png";
+	link.click();
+}
+		</script>
+	</body>
+</html>

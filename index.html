@@ -29,6 +29,9 @@
 			</div>
 		</header>
 		<main>
+			あなたは、
+			<div id="count">1234567890</div>
+			人目のアクセスです<br>
 			<b style="font-size: 32px;">
 				趣味プログラマー人間のホームページへようこそ！！
 			</b>
@@ -97,7 +100,7 @@
 
 			 </div>
 		 </footer></div>
-		 <script>
+		 <script type="module">
 			const ShopBox = document.querySelector('#rss');
 			let saved_Items;
 			async function LoadJson()
@@ -105,7 +108,6 @@
 				let response = await fetch('oshirase.json');
 				saved_Items = await response.json();
 				Load_View(saved_Items);
-				scrollToHash();
 			}
 			function Load_View(items)
 			{
@@ -120,6 +122,21 @@
 				});
 			}
 			LoadJson();
+			import * as allfile from './allfile.js';
+			await allfile.a("count");
 		</script>
+		<style>
+			#count{
+				width: 50vw;
+				background-color: #000000;
+				border: #ffffff 4px outset;
+				font-size:2em;
+				margin:10px;
+				text-align: right;
+				font-family: 'Dentaku_spn';
+				color:#00ff00;
+				min-height: 40px;
+			}
+		</style>
 	</body>
 </html>

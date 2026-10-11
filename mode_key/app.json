@@ -17,6 +17,12 @@
 		"app":"./app/image.html?q=../img/image.avif",
 		"desktop":false
 	},
+	"peint":{
+		"name":"ペイント",
+		"img":"./img/peint.avif",
+		"app":"./app/peint.html",
+		"desktop":true
+	},
 	"audioandvideo":{
 		"name":"プレイヤー",
 		"img":"./img/audio.avif",

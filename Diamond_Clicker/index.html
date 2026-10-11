@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
+		<link rel="manifest" href="/Diamond_Clicker/manifest.json">
+		<script>
+			if (navigator.serviceWorker) {
+				navigator.serviceWorker.register ('/Diamond_Clicker/service-worker.js')
+			}
+		</script>
 <meta property="og:site_name" content="趣味プログラマー人間">
 		<meta property="og:url" content="https://syumi-programmer-ningen.pages.dev/Diamond_Clicker">
 		<meta property="og:title" content="Diamond_Clicker">
