@@ -40,41 +40,89 @@
 		</main>
 		<footer>
 			<div id="footer_div"></div>
-		</footer> </div>
-				<script>
+		</footer>
+		</div>
+		<script>
 			const ShopBox = document.querySelector('.Videos');
 			let saved_Items;
 			async function LoadJson()
 			{
 				let response = await fetch('video.json');
 				saved_Items = await response.json();
-				console.log(saved_Items["1s"]["title"])
 				Load_View(saved_Items);
 				scrollToHash();
 			}
 			function Load_View(items)
 			{
 				ShopBox.innerHTML = '';
-				Object.keys(items).forEach(key => {
+				Object.keys(items).sort((a, b) => items[b].day.localeCompare(items[a].day)).forEach(key => {
 					const item = items[key];
-					const btn = document.createElement('div');
-					btn.className = "videosty";
+					const btn = document.createElement('article');
+					btn.className = "koumoku";
 					btn.id = key;
-					if(item.topic.nicovideonone)
+					let cdn1 = item.day.match(/.{4}/g);
+					let cdn2 = cdn1[1].match(/.{2}/g);
+					let cdn3=`${cdn1[0]}/${cdn2[0]}/${cdn2[1]}`;
+					console.log(cdn3)
+					btn.innerHTML = `
+					<h3>${item.title}</h3>
+					<div class="day">
+						${cdn3}
+					</div>
+					<p>ID:${key}</p>`;
+					if(item.topic?.VoiceBig)
 					{
-						btn.innerHTML = "<div class='title'>"+item.title+"</div>ID:"+key+"<br>ニコニコ動画:動画なし<br>YouTube:<a target='_brank' href='https://youtu.be/"+item.youtube+"'>https://youtu.be/"+item.youtube+"</a>";
+						btn.innerHTML+=`
+						<div class="info info_exp">
+						<div class="info_head"></div>
+							騒音
+						</div>
+						`;
 					}
-					else
+					if(item.topic?.remake)
 					{
-						btn.innerHTML = "<div class='title'>"+item.title+"</div>ID:"+key+"<br>ニコニコ動画:<a target='_brank' href='https://www.nicovideo.jp/watch/"+item.nicovideo+"'>https://www.nicovideo.jp/watch/"+item.nicovideo+"</a><br>YouTube:<a target='_brank'	href='https://youtu.be/"+item.youtube+"'>https://youtu.be/"+item.youtube+"</a>";
+						btn.innerHTML+=`
+						<div class="info info_info">
+						<div class="info_head"></div>
+							リメイク<br>
+							<button onclick="window.location.href='#${item.topic.remake}'">
+								元動画に飛ぶ
+							</button>
+						</div>
+						`;
 					}
-					if(item.topic.VoiceBig)
+					if(item.topic?.all)
 					{
-						btn.innerHTML = btn.innerHTML + "<div class='EX'><img class='svg_nocolor_no'src='/img/exp.svg' alt='検索マーク'>注意:騒音</div>"
+						let all_tmp=document.createElement("div");
+						all_tmp.className="info info_info";
+						all_tmp.innerHTML="<div class='info_head'></div>総集編"
+							console.log(item.topic.all.length);
+						for(let i=0;i<item.topic.all.length;i++)
+						{
+							console.log(i)
+							let all_tmp_tow=document.createElement("a");
+							all_tmp_tow.innerText+=item.topic.all[i];
+							all_tmp_tow.href=`#${item.topic.all[i]}`;
+							all_tmp.appendChild(document.createElement("br"));
+							all_tmp.appendChild(all_tmp_tow);
+						}
+						btn.appendChild(all_tmp);
 					}
-					if(item.topic.remake)
+					if(item.nicovideo)
 					{
-						btn.innerHTML = btn.innerHTML + "<div class='info'><img class='svg_nocolor_no'src='/img/info.svg' alt='検索マーク'>情報:リメイク<br>元動画ID:<a href='video.html#"+item.topic.remake2+"'>"+item.topic.remake2+"</a></div>"
+						btn.innerHTML+=`
+							<button onclick="window.open('https://nicovideo.jp/watch/${item.nicovideo}')">
+								ニコニコ動画で見る
+							</button>
+						`;
+					}
+					if(item.youtube)
+					{
+						btn.innerHTML+=`
+							<button onclick="window.open('https://youtu.be/${item.youtube}')">
+								Youtubeで見る
+							</button>
+						`;
 					}
 					ShopBox.appendChild(btn);
 				});
@@ -88,10 +136,7 @@
 					}
 				}
 			}
-			const text_form = document.getElementById("ID");
-
-			text_form.addEventListener("keydown", test_event);
-
+			document.getElementById("ID").addEventListener("keydown", test_event);
 			function test_event(e) {
 				if (e.key === "Enter") {
 					e.preventDefault();

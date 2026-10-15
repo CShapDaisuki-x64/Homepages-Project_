@@ -4,6 +4,7 @@ let rss = `<?xml version="1.0" encoding="UTF-8"?>
 		<link href="https://syumi-programmer-ningen.pages.dev/now_rss.xml" rel="self" type="application/atom+xml"/>
 		<title>趣味プログラマー人間のホームページ</title>
 		<link href="https://syumi-programmer-ningen.pages.dev" rel="alternate" />
+		<id>https://syumi-programmer-ningen.pages.dev/now_rss.xml</id>
 		<author>
 			<email>
 				syumi.programmer.ningen+toiawase@protonmail.com
@@ -25,41 +26,30 @@ function Load_View(items)
 		const item = items[key];
 		let cdn1 = key.match(/.{4}/g);
 		let cdn2 = cdn1[1].match(/.{2}/g);
-		let links=`https://syumi-programmer-ningen.pages.dev/oshirase.html#${key}`;
-		if(item.link_type=="insite")
+		let rcontent=`<p>${texthtml(item.content)}</p>`;
+		if(item.link_type=="inlink"||item.link_type=="outlink")
 		{
-			links="https://syumi-programmer-ningen.pages.dev/"
+			let linka="";
+			if(item.link_type=="inlink")
+			{
+				linka=texthtml(`https://syumi-programmer-ningen.pages.dev/oshirase.html#${item.link}`);
+			}
+			else if(item.link_type=="outlink")
+			{
+				linka=texthtml(`${item.link}`);
+			}
+			rcontent+=`<a href="${linka}">リンクを開く</a>`;
 		}
-		else if(item.link_type=="out_site")
-		{
-			links=item.link;
-		}
-		let rss_in
-		if(item.link_type=="out_site"||item.link_type=="in_item")
-		{
-		rss_in = `
+		let rss_in=`
 <entry>
 	<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#${textxml(key)}</id>
 	<title>${textxml(item.title)}</title>
 	<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#${textxml(key)}" />
-	<link rel="related" href="${textxml(links)}" />
-	<content type="text">${textxml(item.content)}</content>
+	<content type="html">${textxml(rcontent)}</content>
 	<updated>${cdn1[0]}-${cdn2[0]}-${cdn2[1]}T23:59:59+09:00</updated>
 </entry>
 `;
-		}
-		else{
-		rss_in = `
-<entry>
-	<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#${textxml(key)}</id>
-	<title>${textxml(item.title)}</title>
-	<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#${textxml(key)}" />
-	<content type="text">${textxml(item.content)}</content>
-	<updated>${cdn1[0]}-${cdn2[0]}-${cdn2[1]}T23:59:59+09:00</updated>
-</entry>
-`;
-		}
-rss= rss+=rss_in;
+rss+=rss_in;
 	});
 	rss= rss+`</feed>`
 	fs.writeFileSync("now_rss.xml", rss, "utf8");
@@ -72,5 +62,15 @@ function textxml(text)
 		.replace(/>/g, "&gt;")
 		.replace(/"/g, "&quot;")
 		.replace(/'/g, "&apos;");
+}
+function texthtml(text)
+{
+	return String(text)
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#39;")
+		.replace(/\n/g, "<br>");
 }
 LoadJson();

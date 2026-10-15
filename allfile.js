@@ -383,6 +383,7 @@ const dark =
 		--info_exp:#a80;
 		--info_info:#06a;
 		--info_vex:#a00;
+		--info_ok:#0a0;
 	} `;
 const notdark =
 `:root{
@@ -468,3 +469,105 @@ export async function a(in_a)
 		document.getElementById(in_a).innerText="-".repeat(digits);
 	}
 }
+export function dialog(tmpi)
+{
+	const tmpe=document.createElement("dialog");
+	tmpe.className="alset"
+	const tmpf=document.createElement("div");
+	const tmpg=document.createElement("button");
+	tmpf.classList.add("inset");
+	tmpf.innerHTML=tmpi;
+	tmpg.classList.add("ouset","svg_nocolor");
+	tmpg.type="button";
+	tmpg.innerHTML="<img src='/img/batsu.svg'alt='閉じる'>";
+	tmpg.onclick=function()
+	{
+		tmpe.close();
+		tmpe.remove();
+	};
+	tmpe.addEventListener("cancel", () => tmpe.remove());
+	tmpe.appendChild(tmpg);
+	tmpe.appendChild(tmpf);
+	document.body.appendChild(tmpe);
+	tmpe.show();
+}
+window.dialog=dialog;
+
+export async function sharePage()
+{
+	if(navigator.share)
+	{
+		navigator.share(
+			{
+				title:document.title,
+				text:'見てね',
+				url:window.location.href
+			}
+		)
+	}
+	else
+	{
+		dialog(`
+			このブラウザは共有機能に対応してません<br>
+			<button onclick="my_copy(document.location.href)">
+				リンクをコピーする
+			</button>`);
+	}
+}
+window.sharePage=sharePage;
+export function my_copy(my_copy)
+{
+	 navigator.clipboard.writeText(my_copy).then(
+    () => {
+			infodialog("ok","コピーができました");
+    },
+    () => {
+			infodialog("exp","コピーに失敗しました");
+    },
+  );
+}
+window.my_copy=my_copy;
+export function infodialog(tmpa,tmpb)
+{
+	const tmp1=document.createElement("dialog");
+	tmp1.className="infolog";
+	switch(tmpa){
+		case "exp":
+			tmp1.classList.add("infolog_exp");
+			break;
+		case "info":
+			tmp1.classList.add("infolog_info");
+			break;
+		case "vex":
+			tmp1.classList.add("infolog_vex");
+			break;
+		case "ok":
+			tmp1.classList.add("infolog_ok");
+			break;
+	}
+	tmp1.innerText = tmpb;
+	document.body.appendChild(tmp1);
+	tmp1.show();
+	tmp1.style="bottom:-100px;";
+	let tmp2=document.getElementsByClassName("infolog");
+	setTimeout(()=>{
+		for(let i=0;i<tmp2.length;i++)
+		{
+			console.log(i)
+			tmp2[i].style=`bottom:${0+(i*10)}px;`;
+		}
+		setTimeout(()=>{
+			tmp1.style="bottom:-100px";
+			setTimeout(()=>{
+				tmp1.remove();
+				console.log(tmp2.length);
+				for(let i=0;i<tmp2.length;i++)
+				{
+					console.log(i)
+					tmp2[i].style=`bottom:${0+(i*10)}px;`;
+				}
+			},200);
+		},5000);
+	},200);
+}
+window.infodialog=infodialog;

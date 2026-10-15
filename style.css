@@ -35,6 +35,7 @@
 	--info_exp:#eb2;
 	--info_info:#2cd;
 	--info_vex:#e05;
+	--info_ok:#0e5;
 }
 @media(prefers-color-scheme:dark){
 	:root{
@@ -123,6 +124,104 @@ body{
 			left: 0;
 		}
 	}
+	.alset{
+		position: fixed;
+		top:50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 1500;
+		display: flex;
+		flex-direction: column;
+		width: 50svw;
+		height: 50svh;
+		background-color: var(--btn_bck_color);
+		border-radius: 5px;
+		border: 5px solid var(--btn_bdr_color);
+		padding: 5px;
+		.inset{
+			flex:1;
+			*{
+				pointer-events: all;
+				display: revert;
+			}
+		}
+		.ouset{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 30px;
+			height: 30px;
+			img{
+				width: 15px;
+				height: 15px;
+			}
+		}
+		*{
+			pointer-events: all;
+		}
+	}
+	.infolog{
+		transition: all 150ms 0s ease;
+		position: fixed;
+		bottom: -100px;
+		margin-bottom: 5px;
+		min-width: max(75svw,300px);
+		z-index: 1500;
+		height: 75px;
+		align-items: center;
+		display: flex;
+		border-radius: 5px;
+		border: currentColor solid 2px;
+		&::before{
+			content: "　";
+			margin-right: 2px;
+			width: 40px;
+			height: 40px;
+			flex:0 0 auto;
+			display:inline-block;
+			background-color: currentColor;
+		}
+		&.infolog_exp{
+			background-color: var(--info_exp);
+			&::before{
+				mask: url(/img/exp.svg) no-repeat center / contain;
+			}
+		}
+		&.infolog_ok{
+			background-color: var(--info_ok);
+			&::before{
+				mask: url(/img/ok.svg) no-repeat center / contain;
+			}
+		}
+		&.infolog_vex{
+			background-color: var(--info_vex);
+			&::before{
+				mask: url(/img/vex.svg) no-repeat center / contain;
+			}
+		}
+		&.infolog_info{
+			background-color: var(--info_info);
+			&::before{
+				mask: url(/img/info.svg) no-repeat center / contain;
+			}
+		}
+	}
+	&:has(.alset[open]){
+		&::after{
+			position: fixed;
+			top:0;
+			left:0;
+			content:"";
+			background-color: #012a;
+			width: 100svw;
+			height: 100svh;
+			z-index: 1002;
+		}
+		&:not(dialog){
+			user-select: none;
+			pointer-events:none;
+		}
+	}
 	&:has(nav) .sites{
 		width: calc(100svw - 35px);
 		margin-right: 0;
@@ -152,6 +251,7 @@ body{
 			transform: scale(1.1);
 			color: var(--haf_link_in_color);
 		}
+
 		width: 35px;
 		max-height: 100svh;
 		min-height: 100svh;
@@ -315,71 +415,92 @@ body{
 		--pagefind-ui-border: var(--bck_color);
 		--pagefind-ui-tag: var(--bck_color);
 		padding: 8px;
-		.info_vex,.info_exp,.info_info{
+
+		.info{
 			margin-top: 10px;
 			margin-bottom: 10px;
-			width: 90%;
+			margin: 5px;
 			min-height: 3em;
-		}
-		.info_exp{
-			.info_head{
-				background-color: var(--info_exp);
-				&::before{
-					margin: 2px;
-					content: "　";
-					width: 1.2em;
-					height: 1.2em;
-					display:inline-block;
-					background-color: currentColor;
-					mask: url(/img/exp.svg) no-repeat center;
-					mask-size: contain;
+			&.info_ok{
+				.info_head{
+					background-color: var(--info_ok);
+					&::before{
+						margin: 2px;
+						content: "　";
+						width: 1.2em;
+						height: 1.2em;
+						display:inline-block;
+						background-color: currentColor;
+						mask: url(/img/ok.svg) no-repeat center;
+						mask-size: contain;
+					}
+					&::after{
+						content: "OK";
+					}
 				}
-				&::after{
-					content: "注意";
-				}
+				border: solid var(--info_ok) 3px;
+				border-radius: 5px;
 			}
-			border: solid var(--info_exp) 3px;
-			border-radius: 5px;
-		}
-		.info_info{
-			.info_head{
-				background-color: var(--info_info);
-				&::before{
-					margin: 2px;
-					content: "　";
-					width: 1.2em;
-					height: 1.2em;
-					display:inline-block;
-					background-color: currentColor;
-					mask: url(/img/info.svg) no-repeat center;
-					mask-size: contain;
+			&.info_exp{
+				.info_head{
+					background-color: var(--info_exp);
+					&::before{
+						margin: 2px;
+						content: "　";
+						width: 1.2em;
+						height: 1.2em;
+						display:inline-block;
+						background-color: currentColor;
+						mask: url(/img/exp.svg) no-repeat center;
+						mask-size: contain;
+					}
+					&::after{
+						content: "注意";
+					}
 				}
-				&::after{
-					content: "情報";
-				}
+				border: solid var(--info_exp) 3px;
+				border-radius: 5px;
 			}
-			border: solid var(--info_info) 3px;
-			border-radius: 5px;
-		}
-		.info_vex{
-			.info_head{
-				background-color: var(--info_vex);
-				&::before{
-					margin: 2px;
-					content: "　";
-					width: 1.2em;
-					height: 1.2em;
-					display:inline-block;
-					background-color: currentColor;
-					mask: url(/img/vex.svg) no-repeat center;
-					mask-size: contain;
+			&.info_info{
+				.info_head{
+					background-color: var(--info_info);
+					&::before{
+						margin: 2px;
+						content: "　";
+						width: 1.2em;
+						height: 1.2em;
+						display:inline-block;
+						background-color: currentColor;
+						mask: url(/img/info.svg) no-repeat center;
+						mask-size: contain;
+					}
+					&::after{
+						content: "情報";
+					}
 				}
-				&::after{
-					content: "警告";
-				}
+				border: solid var(--info_info) 3px;
+				border-radius: 5px;
 			}
-			border: solid var(--info_vex) 3px;
-			border-radius: 5px;
+			&.info_vex{
+				.info_head{
+					background-color: var(--info_vex);
+					&::before{
+						margin: 2px;
+						content: "　";
+						width: 1.2em;
+						height: 1.2em;
+						display:inline-block;
+						background-color: currentColor;
+						mask: url(/img/vex.svg) no-repeat center;
+						mask-size: contain;
+					}
+					&::after{
+						content: "警告";
+					}
+				}
+				border: solid var(--info_vex) 3px;
+				border-radius: 5px;
+			}
 		}
 		.album_a,.album_b{
 			margin-top: 10px;

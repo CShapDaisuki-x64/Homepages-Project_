@@ -1,0 +1,150 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+<link href="https://syumi-programmer-ningen.pages.dev/now_rss.xml" rel="self" type="application/atom+xml"/>
+<title>趣味プログラマー人間のホームページ</title>
+<link href="https://syumi-programmer-ningen.pages.dev" rel="alternate"/>
+<author>
+<email> syumi.programmer.ningen+toiawase@protonmail.com </email>
+<name> 趣味プログラマー人間 </name>
+</author>
+<updated>2026-10-11T02:53:43.737Z</updated>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260917</id>
+<title>利用規約を変更しました。</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#20260917"/>
+<content type="text">サイトに関しては規約廃止、ソースコードについてはMITライセンスに変更しました。</content>
+<updated>2026-09-17T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260909</id>
+<title>検索を変更しました</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#20260909"/>
+<content type="text">GoogleCSEからpagefindに変更しました これにより、Googleの依存を減らせました</content>
+<updated>2026-09-09T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260829</id>
+<title>広告が出ます</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#20260829"/>
+<content type="text">従来のAdringの広告に加え、自者コンテンツで循環する広告を追加します。 自者循環広告は設定から消すことができます。</content>
+<updated>2026-08-29T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260827</id>
+<title>RSSのパス変更のお願い</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#20260827"/>
+<content type="text">新システムの導入に伴い、RSS(atom)のパスが変わります 変更をお願いします このメッセージが見れている場合変更は不要です</content>
+<updated>2026-08-27T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260802</id>
+<title>大幅デザイン変更！</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#20260802"/>
+<content type="text">ライトモードが見やすくなった それ以外にも色々調整してるよ</content>
+<updated>2026-08-02T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260714</id>
+<title>ページ移行(FC2→Cloudflare)</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#20260714"/>
+<content type="text">また変えます 思い返すともう3回も変えてるのか…</content>
+<updated>2026-07-14T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260703</id>
+<title>動画検索をできるようにしました</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#20260703"/>
+<content type="text">動画をIDで検索できます</content>
+<updated>2026-07-03T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260630</id>
+<title>XのDMを閉鎖します</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#20260630"/>
+<content type="text">(´・ω・｀)ｼｮﾎﾞｰﾝ スパム多すぎてヤダ！ 問い合わせメールも用意したしいいよね?…</content>
+<updated>2026-06-30T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260615</id>
+<title>問い合わせ用メールができました</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#20260615"/>
+<content type="text">問い合わせるにはここから</content>
+<updated>2026-06-15T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260611</id>
+<title>SNSを追加しました</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#20260611"/>
+<content type="text">blueskyっていうSNSを追加しました SNSが増えると嬉しい</content>
+<updated>2026-06-11T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260607</id>
+<title>ホームページを大幅リニューアルしました</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#20260607"/>
+<content type="text">見ての通り見た目をすごく変えました ダークモードとかにも対応してます</content>
+<updated>2026-06-07T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260406</id>
+<title>Diamond_ClickerWeb版(β)を公開しました</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#20260406"/>
+<content type="text">やってみてね</content>
+<updated>2026-04-06T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260401</id>
+<title>Discordサーバー!</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#20260401"/>
+<content type="text">Discordサーバーを作りました 参加してくださいorz</content>
+<updated>2026-04-01T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260323</id>
+<title>SNSを追加しました</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#20260323"/>
+<content type="text">多いですね 全部フォローしてくださいorz 鳴いて喜びます</content>
+<updated>2026-03-23T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260321</id>
+<title>世界記録を取りました</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#20260321"/>
+<content type="text">簡単でした</content>
+<updated>2026-03-21T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260320</id>
+<title>Diamond_Clickerがバージョンアップ</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#20260320"/>
+<content type="text">入れてくださいm(_ _)m</content>
+<updated>2026-03-20T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#20260317</id>
+<title>RSSを導入しました</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#20260317"/>
+<content type="html"><a href="https://google.com">やったー！ 結構大変だった</a><br><p>hi</p><ul><li>游</li><li>ゴ</li></ul></content>
+<updated>2026-03-17T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#19011215</id>
+<title>test3</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#19011215"/>
+<content type="text">test3配信です</content>
+<updated>1901-12-15T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#19011214</id>
+<title>test2</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#19011214"/>
+<content type="text">test2配信です</content>
+<updated>1901-12-14T23:59:59+09:00</updated>
+</entry>
+<entry>
+<id>https://syumi-programmer-ningen.pages.dev/oshirase.html#19011213</id>
+<title>test1</title>
+<link rel="alternate" href="https://syumi-programmer-ningen.pages.dev/oshirase.html#19011213"/>
+<content type="text">test1配信です</content>
+<updated>1901-12-13T23:59:59+09:00</updated>
+</entry>
+</feed>
