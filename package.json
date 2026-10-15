@@ -7,7 +7,8 @@
 		"build:one": "node rss.js",
 		"build:two": "pagefind --site .",
 		"build:three": "node seartch.js",
-		"build": "run-s build:one build:three build:two",
+		"build:yon": "node videorss.js",
+		"build": "run-s build:one build:yon build:three build:two",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
