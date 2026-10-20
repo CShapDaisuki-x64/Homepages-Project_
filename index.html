@@ -35,6 +35,7 @@
 			<b style="font-size: 32px;">
 				趣味プログラマー人間のホームページへようこそ！！
 			</b>
+			<div id="nicovideo_pleyer"></div>
 			<p>
 				このサイトは趣味でウェブサイトをを作った趣味プログラマー人間のホームページです
 			</p>
@@ -60,9 +61,9 @@
 					<img src="enpitsu.avif">
 					<br>
 					<strong>
-						サイト概要
+						概要
 					</strong>
-					サイトの紹介です
+					紹介です
 				</button>
 				<button onclick="window.location.href = './fake_index.htm';" class="onaji">
 					<img src="/img/index_fake.html.avif">
@@ -124,6 +125,28 @@
 			LoadJson();
 			import * as allfile from './allfile.js';
 			await allfile.a("count");
+			async function LoJson()
+			{
+				let response = await fetch('video.json');
+				const save_Items = await response.json();
+
+				Load_iew(save_Items);
+			}
+			function Load_iew(s)
+			{
+    		const id = Object.entries(s).reduce((a, b) =>
+        	a[1].day > b[1].day ? a : b
+    		);
+				let i=document.createElement("iframe");
+				i.src=`https://embed.nicovideo.jp/watch/${id[1].nicovideo}/`
+				i.style.width="400px";
+				i.style.height="250px"
+				i.onerror = () => {
+        	console.error("ニコニコ動画の埋め込みスクリプトを読み込めませんでした");
+    		};
+				document.getElementById("nicovideo_pleyer").appendChild(i);
+			}
+			LoJson();
 		</script>
 		<style>
 			#count{

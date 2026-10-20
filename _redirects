@@ -13,4 +13,7 @@
 /copy.html /index.html 301
 /copy /index.html 301
 /copy/ /index.html 301
+/new_profile.html /index.html 301
+/new_profile /index.html 301
+/new_profile/ /index.html 301
 /Diamond_Clicker_Web_Beta/:slug /Diamond_Clicker/:slug 301

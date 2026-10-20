@@ -68,6 +68,7 @@ html {
 	height: 100%;
 }
 body{
+	tab-size: 2em;
 	a[target="_blank"]::after{
 		content: "　";
 		display:inline-block;
@@ -415,7 +416,6 @@ body{
 		--pagefind-ui-border: var(--bck_color);
 		--pagefind-ui-tag: var(--bck_color);
 		padding: 8px;
-
 		.info{
 			margin-top: 10px;
 			margin-bottom: 10px;
